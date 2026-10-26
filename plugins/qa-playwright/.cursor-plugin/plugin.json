@@ -1,0 +1,19 @@
+{
+  "name": "qa-playwright",
+  "displayName": "QA: Playwright",
+  "version": "1.0.0",
+  "description": "Intent-first e2e scenarios plus the Playwright MCP requirement.",
+  "author": {
+    "name": "APISky",
+    "email": "plugins@apisky.net"
+  },
+  "license": "Apache-2.0",
+  "keywords": ["qa", "e2e", "playwright"],
+  "skills": "skills",
+  "mcp": ".mcp.json",
+  "x-skyline": {
+    "summary": "Скилы для e2e-тестов на Playwright и требование MCP-сервера (сервер набор не поднимает).",
+    "tags": ["qa", "playwright", "e2e"],
+    "trust": "verified"
+  }
+}

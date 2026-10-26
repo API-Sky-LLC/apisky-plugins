@@ -1,0 +1,11 @@
+---
+description: Commit message style
+alwaysApply: true
+---
+
+# Commit style
+
+- Одно сообщение — одна мысль.
+- Императив, настоящее время: «add», «fix», «drop», не «added».
+- Первая строка до 72 символов; подробности — в теле после пустой строки.
+- Никаких «misc», «WIP», «fixes» без объекта.

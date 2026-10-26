@@ -1,0 +1,22 @@
+{
+  "name": "engineering-basics",
+  "displayName": "Engineering basics",
+  "version": "1.0.0",
+  "description": "Repo analysis, commit style and a review command — the floor every project starts from.",
+  "author": {
+    "name": "APISky",
+    "email": "plugins@apisky.net"
+  },
+  "license": "MIT",
+  "keywords": ["starter", "review", "git"],
+  "skills": "skills",
+  "rules": "rules",
+  "commands": "commands",
+  "x-skyline": {
+    "summary": "Один скил, правило и команда — минимум, с которого начинают все.",
+    "tags": ["starter", "review", "git"],
+    "trust": "verified",
+    "installs": 0,
+    "stars": 0
+  }
+}

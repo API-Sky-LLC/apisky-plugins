@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-26T16:17:45.203Z",
+  "repo": {
+    "slug": "api-sky/plugins",
+    "label": "APISky plugins",
+    "trust": "official"
+  },
+  "packs": [
+    {
+      "slug": "engineering-basics",
+      "name": "Engineering basics",
+      "summary": "\u041e\u0434\u0438\u043d \u0441\u043a\u0438\u043b, \u043f\u0440\u0430\u0432\u0438\u043b\u043e \u0438 \u043a\u043e\u043c\u0430\u043d\u0434\u0430 \u2014 \u043c\u0438\u043d\u0438\u043c\u0443\u043c, \u0441 \u043a\u043e\u0442\u043e\u0440\u043e\u0433\u043e \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0442 \u0432\u0441\u0435.",
+      "description": "Repo analysis, commit style and a review command \u2014 the floor every project starts from.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "APISky",
+      "updatedAt": "2026-10-26T16:17:45.223Z",
+      "tags": [
+        "starter",
+        "review",
+        "git"
+      ],
+      "path": "plugins/engineering-basics",
+      "items": [
+        {
+          "name": "repo-analysis",
+          "kind": "skill",
+          "description": "\u0420\u0430\u0437\u0431\u043e\u0440 \u043d\u0435\u0437\u043d\u0430\u043a\u043e\u043c\u043e\u0433\u043e \u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u044f \u2014 \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430, \u0441\u0442\u0435\u043a, \u0442\u043e\u0447\u043a\u0438 \u0432\u0445\u043e\u0434\u0430. Load before answering questions about an unfamiliar codebase.",
+          "path": "plugins/engineering-basics/skills/repo-analysis",
+          "contentHash": "sha256:0395174492c5376dc39ce5f00d660b95c08769915ced7d572bb56276ac651071",
+          "fileCount": 1
+        },
+        {
+          "name": "commit-style",
+          "kind": "rule",
+          "description": "Commit message style",
+          "path": "plugins/engineering-basics/rules/commit-style.mdc",
+          "contentHash": "sha256:5852371b10de6fde42d59be5032ce981223d23ab851f18c4404de6a5b352ea06",
+          "fileCount": 1
+        },
+        {
+          "name": "review",
+          "kind": "command",
+          "description": "Review the current branch diff for real problems only",
+          "path": "plugins/engineering-basics/commands/review.md",
+          "contentHash": "sha256:875198c5037140372707bfab262425b3c8765fde15d5fe0d337ba3006aaba3c3",
+          "fileCount": 1
+        }
+      ],
+      "requires": [],
+      "trust": "verified",
+      "visibility": "public",
+      "installs": 0,
+      "stars": 0,
+      "files": [
+        {
+          "path": "plugins/engineering-basics/.cursor-plugin/plugin.json",
+          "sha256": "sha256:677caf0abd39937de8e4b53e1b3bf1d841832a96808fff9606e72ec4e1b29ec7",
+          "bytes": 671
+        },
+        {
+          "path": "plugins/engineering-basics/commands/review.md",
+          "sha256": "sha256:312c11293bc717a3f366668433835557b466c6a61f58509856b64848da40637f",
+          "bytes": 605
+        },
+        {
+          "path": "plugins/engineering-basics/rules/commit-style.mdc",
+          "sha256": "sha256:a2857e971ebbd563c1fbdc303a73769494110005a8b6e853a58f762ac0a2b7d8",
+          "bytes": 429
+        },
+        {
+          "path": "plugins/engineering-basics/skills/repo-analysis/SKILL.md",
+          "sha256": "sha256:03aa4b0f4c4f7a7de83cc7b0aa8a24dbdc7becdcfe41797b8663effb031584ef",
+          "bytes": 849
+        }
+      ]
+    },
+    {
+      "slug": "qa-playwright",
+      "name": "QA: Playwright",
+      "summary": "\u0421\u043a\u0438\u043b\u044b \u0434\u043b\u044f e2e-\u0442\u0435\u0441\u0442\u043e\u0432 \u043d\u0430 Playwright \u0438 \u0442\u0440\u0435\u0431\u043e\u0432\u0430\u043d\u0438\u0435 MCP-\u0441\u0435\u0440\u0432\u0435\u0440\u0430 (\u0441\u0435\u0440\u0432\u0435\u0440 \u043d\u0430\u0431\u043e\u0440 \u043d\u0435 \u043f\u043e\u0434\u043d\u0438\u043c\u0430\u0435\u0442).",
+      "description": "Intent-first e2e scenarios plus the Playwright MCP requirement.",
+      "version": "1.0.0",
+      "license": "Apache-2.0",
+      "author": "APISky",
+      "updatedAt": "2026-10-26T16:17:45.241Z",
+      "tags": [
+        "qa",
+        "playwright",
+        "e2e"
+      ],
+      "path": "plugins/qa-playwright",
+      "items": [
+        {
+          "name": "e2e-scenarios",
+          "kind": "skill",
+          "description": "\u0421\u0446\u0435\u043d\u0430\u0440\u0438\u0438 e2e \u043f\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u043c \u043f\u0443\u0442\u044f\u043c, \u0430 \u043d\u0435 \u043f\u043e DOM. Load when writing or reviewing end-to-end tests.",
+          "path": "plugins/qa-playwright/skills/e2e-scenarios",
+          "contentHash": "sha256:0cccabb6f8265d575ec6eabbf30004ec6758bc607de934267c4ae6ff3a1f08e6",
+          "fileCount": 1
+        },
+        {
+          "name": "playwright",
+          "kind": "mcp",
+          "description": "MCP server the pack requires: playwright",
+          "requiresMcp": "playwright"
+        }
+      ],
+      "requires": [
+        "mcp:playwright"
+      ],
+      "trust": "verified",
+      "visibility": "public",
+      "installs": 0,
+      "stars": 0,
+      "files": [
+        {
+          "path": "plugins/qa-playwright/.cursor-plugin/plugin.json",
+          "sha256": "sha256:f9503d6aec7b210f57353baece914aae364baf721c41090e29765f1afd88e1bd",
+          "bytes": 610
+        },
+        {
+          "path": "plugins/qa-playwright/.mcp.json",
+          "sha256": "sha256:388cb5132f16d852f85b4a1292ed1ee0911e73784a36b21e886470be475ff703",
+          "bytes": 123
+        },
+        {
+          "path": "plugins/qa-playwright/skills/e2e-scenarios/SKILL.md",
+          "sha256": "sha256:d9667c47a6e2ba3c5485afcbace30878998330d50dd7e58bbd7d50663d0da152",
+          "bytes": 837
+        }
+      ]
+    }
+  ]
+}
