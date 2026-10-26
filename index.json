@@ -15,7 +15,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-10-26T16:17:45.223Z",
+      "updatedAt": "2026-10-26T19:18:07+03:00",
       "tags": [
         "starter",
         "review",
@@ -84,7 +84,7 @@
       "version": "1.0.0",
       "license": "Apache-2.0",
       "author": "APISky",
-      "updatedAt": "2026-10-26T16:17:45.241Z",
+      "updatedAt": "2026-10-26T19:18:07+03:00",
       "tags": [
         "qa",
         "playwright",
