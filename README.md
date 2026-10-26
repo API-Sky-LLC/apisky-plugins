@@ -122,6 +122,12 @@ SKILL_STORE_PUBLIC_KEYS=apisky-2026:official:<base64 SPKI>
 SKILL_STORE_REQUIRE_SIGNATURE=true
 ```
 
+> The `index.json.sig` committed right now was made with a throwaway `apisky-dev`
+> key so the repo could be validated end to end against a local Legion. The first
+> CI run on `main` replaces it with the real `apisky-2026` signature — until then
+> a Legion configured with the official key will report `key_unknown` and serve
+> nothing (fail-closed, by design).
+
 For a private registry (GitLab, S3) keep the same three files at whatever URL the
 index lives at: `<index>.sig` is looked up as a sibling, and a query-string token
 on the index URL is preserved for the signature request.

@@ -88,6 +88,22 @@ if (process.argv.includes('--verify')) {
 }
 
 const signature = sign(null, bytes, privateKey).toString('base64');
+
+// Ed25519 is deterministic: the same key over the same bytes yields the same
+// signature. So an index that did not change keeps its previous `signedAt`
+// instead of producing a new commit on every CI run.
+if (existsSync(SIG)) {
+  try {
+    const previous = JSON.parse(readFileSync(SIG, 'utf8'));
+    if (previous.keyId === keyId && previous.signature === signature) {
+      console.log(`✓ index.json.sig is already up to date (keyId ${keyId}, signed ${previous.signedAt})`);
+      process.exit(0);
+    }
+  } catch {
+    // A malformed signature is simply replaced below.
+  }
+}
+
 const sig = {
   schemaVersion: SCHEMA_VERSION,
   algorithm: ALGORITHM,
