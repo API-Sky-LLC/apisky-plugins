@@ -36,6 +36,8 @@ scripts/keygen.mjs                  ed25519 pair for a new signing key
 |---|---|---|---|---|
 | `engineering-basics` | 1.0.0 | MIT | verified | skill `repo-analysis`, rule `commit-style`, command `review` |
 | `qa-playwright` | 1.0.0 | Apache-2.0 | verified | skill `e2e-scenarios`, MCP requirement `playwright` |
+| `kicad` | 1.0.0 | MIT | verified | skills `board-review`, `routing`, `dfm`, `footprint-audit`, rule `clearance`, command `fab-package`, MCP requirement `kicad` |
+| `us-court-filings` | 1.0.0 | MIT | verified | skills `filing-structure`, `local-rules`, `authorities-table`, rule `no-invented-citations`, command `filing-check`, subagent `filing-reviewer` |
 
 extension (`skyline/data/skills/`), they use Skyline-only tool tags, and a private
 pack is filtered from the public catalog and 404s by id. It is here so the
