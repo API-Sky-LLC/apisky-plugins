@@ -85,11 +85,17 @@ Every pack carries one badge in the store card, and the index carries it as an
 inline `data:image/svg+xml;base64,…` URL (`packs[].icon`) — one self-contained,
 signed file, no second request from the client.
 
-- **Ship your own**: drop `icon.svg` (64×64, no external references) next to the
-  manifest and set `x-skyline.icon` to it. The build inlines the bytes.
+House style: a 64×64 rounded tile (r=14) in the pack's brand colour with a
+single white mark — one silhouette, no gradients, no text, no external refs.
+
+- **Ship your own**: drop `icon.svg` next to the manifest and set
+  `x-skyline.icon` to it. The build inlines the bytes.
 - **No icon**: the build derives a letter badge from `displayName` on a stable
   colour, so a pack never renders as an empty box. `x-skyline.color` (`#rrggbb`)
   pins the colour.
+
+Third-party marks are used as logos, not as brand claims: `qa-playwright` ships
+the Playwright mark, `kicad` the KiCad mark.
 
 Icons are part of the index, so they are covered by the signature: never edit
 `index.json` after signing — run `npm run release`, which builds, signs and
