@@ -79,8 +79,23 @@ without touching a file still marks the item `unchanged`; changing a file withou
 bumping the version marks it `pack_changed` and the store asks for confirmation
 before overwriting anyone's local edits.
 
-## Hashes are the product
+## Pack icons
 
+Every pack carries one badge in the store card, and the index carries it as an
+inline `data:image/svg+xml;base64,…` URL (`packs[].icon`) — one self-contained,
+signed file, no second request from the client.
+
+- **Ship your own**: drop `icon.svg` (64×64, no external references) next to the
+  manifest and set `x-skyline.icon` to it. The build inlines the bytes.
+- **No icon**: the build derives a letter badge from `displayName` on a stable
+  colour, so a pack never renders as an empty box. `x-skyline.color` (`#rrggbb`)
+  pins the colour.
+
+Icons are part of the index, so they are covered by the signature: never edit
+`index.json` after signing — run `npm run release`, which builds, signs and
+verifies in one step.
+
+## Hashes are the product
 Two different hashes, both recomputed on every build:
 
 - `items[].contentHash` — the **framed tree hash** (`u32be pathLen + path +

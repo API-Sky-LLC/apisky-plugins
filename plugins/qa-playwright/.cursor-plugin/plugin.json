@@ -22,6 +22,7 @@
       "playwright",
       "e2e"
     ],
-    "trust": "verified"
+    "trust": "verified",
+    "icon": "icon.svg"
   }
 }

@@ -25,6 +25,11 @@
       "description": "Intent-first e2e scenarios plus the Playwright MCP requirement."
     },
     {
+      "name": "security-audit",
+      "source": "./plugins/security-audit",
+      "description": "Security audit of code repositories \u2014 checks for hardcoded secrets, SQL injection risks, and OWASP compliance."
+    },
+    {
       "name": "us-court-filings",
       "source": "./plugins/us-court-filings",
       "description": "Court-format filings: caption, pleading paper, table of authorities."

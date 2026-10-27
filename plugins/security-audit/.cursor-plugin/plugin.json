@@ -1,0 +1,36 @@
+{
+  "name": "security-audit",
+  "displayName": "Security Audit",
+  "version": "1.0.0",
+  "description": "Security audit of code repositories \u2014 checks for hardcoded secrets, SQL injection risks, and OWASP compliance.",
+  "author": {
+    "name": "Artur Hachuyan",
+    "email": "arturkhachuyan@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "audit",
+    "vulnerability",
+    "compliance"
+  ],
+  "skills": "skills",
+  "rules": "rules",
+  "commands": "commands",
+  "x-skyline": {
+    "summary": "Security audit of code repositories \u2014 checks for hardcoded secrets, SQL injection risks, and OWASP compliance.",
+    "tags": [
+      "security",
+      "audit",
+      "vulnerability",
+      "compliance"
+    ],
+    "trust": "verified",
+    "requires": [
+      "mcp:python"
+    ],
+    "installs": 0,
+    "stars": 0,
+    "icon": "icon.svg"
+  }
+}

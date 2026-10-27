@@ -144,6 +144,22 @@ function lastCommitDate(relPath) {
   }
 }
 
+/**
+ * Fallback `updatedAt` for a pack with no commit yet (a pack under review, or a
+ * checkout without history). It must be deterministic: the index is signed as
+ * bytes, so a timestamp taken from the clock would make every rebuild a new
+ * signature — and `--check` would never be green. The newest file mtime in the
+ * pack directory is stable across rebuilds and moves only when the pack does.
+ */
+function newestFileTime(dir) {
+  let newest = 0;
+  for (const file of walk(dir)) {
+    const mtime = statSync(file.abs).mtimeMs;
+    if (mtime > newest) newest = mtime;
+  }
+  return newest > 0 ? new Date(Math.floor(newest / 1000) * 1000).toISOString() : undefined;
+}
+
 // ── manifest → pack ─────────────────────────────────────────────────────────
 
 function readManifest(pluginDir) {
@@ -167,7 +183,69 @@ function skylineBlock(manifest) {
     installs: Number.isInteger(block.installs) ? block.installs : 0,
     stars: Number.isInteger(block.stars) ? block.stars : 0,
     summary: typeof block.summary === 'string' ? block.summary : undefined,
+    icon: typeof block.icon === 'string' ? block.icon : undefined,
+    color: typeof block.color === 'string' ? block.color : undefined,
   };
+}
+
+// ── pack icon ───────────────────────────────────────────────────────────────
+
+/**
+ * Palette for a pack that does not ship its own icon. Chosen so every entry has
+ * enough contrast against white text (the badge always draws white glyphs).
+ */
+const ICON_COLORS = [
+  '#3794ff',
+  '#89d185',
+  '#cca700',
+  '#c586c0',
+  '#4ec9b0',
+  '#e07a5f',
+  '#5b8def',
+  '#7f6ae0',
+  '#d16969',
+  '#3f9e8f',
+  '#b58900',
+  '#8a6fd1',
+];
+
+/** Stable colour per slug — the same pack keeps its badge across rebuilds. */
+function iconColor(slug) {
+  const digest = createHash('sha256').update(slug).digest();
+  return ICON_COLORS[digest[0] % ICON_COLORS.length];
+}
+
+/**
+ * A pack icon as an inline `data:` URL, so the catalog card needs no second
+ * request and the index stays a single self-contained file.
+ *
+ * A pack may ship `x-skyline.icon` (a repo-relative SVG path); otherwise the
+ * badge is derived from the pack name — first letter over a stable colour. The
+ * derivation is deterministic on purpose: the index is served to clients that
+ * must get the same bytes on every rebuild, and the signature pins those bytes.
+ */
+export function packIcon(slug, displayName, pluginDir, block) {
+  const declared = block.icon;
+  if (declared) {
+    const abs = join(pluginDir, declared);
+    if (!existsSync(abs)) throw new Error(`${slug}: x-skyline.icon points at a missing file (${declared})`);
+    const bytes = readFileSync(abs);
+    const type = declared.toLowerCase().endsWith('.svg') ? 'image/svg+xml' : 'image/png';
+    return `data:${type};base64,${bytes.toString('base64')}`;
+  }
+  const fill = block.color ?? iconColor(slug);
+  if (!/^#[0-9a-fA-F]{6}$/.test(fill)) throw new Error(`${slug}: x-skyline.color must be #rrggbb`);
+  const glyph = escapeXml((displayName || slug).trim().charAt(0).toUpperCase() || '?');
+  const svg =
+    `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">` +
+    `<rect width="64" height="64" rx="14" fill="${fill}"/>` +
+    `<text x="32" y="32" fill="#ffffff" font-family="Helvetica,Arial,sans-serif" font-size="30" font-weight="600" ` +
+    `text-anchor="middle" dominant-baseline="central">${glyph}</text></svg>`;
+  return `data:image/svg+xml;base64,${Buffer.from(svg, 'utf8').toString('base64')}`;
+}
+
+function escapeXml(text) {
+  return text.replace(/[<>&"']/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&apos;' })[c]);
 }
 
 export function buildPack(slug) {
@@ -301,8 +379,12 @@ export function buildPack(slug) {
     version,
     license: manifest.license ?? 'UNLICENSED',
     author: typeof manifest.author === 'object' ? (manifest.author.name ?? REPO_LABEL) : (manifest.author ?? REPO_LABEL),
-    updatedAt: lastCommitDate(`plugins/${slug}`) ?? new Date(Number(process.env.SOURCE_DATE_EPOCH ?? 0) * 1000 || Date.now()).toISOString(),
+    updatedAt:
+      lastCommitDate(`plugins/${slug}`) ??
+      newestFileTime(pluginDir) ??
+      new Date(Number(process.env.SOURCE_DATE_EPOCH ?? 0) * 1000 || Date.now()).toISOString(),
     tags: meta.tags,
+    icon: packIcon(slug, manifest.displayName ?? manifest.name, pluginDir, meta),
     path: `plugins/${slug}`,
     items,
     requires,

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="KiCad PCB">
+  <rect width="64" height="64" rx="14" fill="#c586c0"/>
+  <rect x="22" y="22" width="20" height="20" rx="3" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <g stroke="#ffffff" stroke-width="4" stroke-linecap="round">
+    <path d="M28 22v-8M36 22v-8M28 42v8M36 42v8M22 28h-8M22 36h-8M42 28h8M42 36h8"/>
+  </g>
+</svg>

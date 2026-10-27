@@ -21,6 +21,7 @@
         "review",
         "git"
       ],
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkVuZ2luZWVyaW5nIGJhc2ljcyI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiNkMTY5NjkiLz4KICA8cGF0aCBkPSJNMTggMjJsMTAgMTAtMTAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8cGF0aCBkPSJNMzQgNDJoMTQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==",
       "path": "plugins/engineering-basics",
       "items": [
         {
@@ -61,13 +62,18 @@
         },
         {
           "path": "plugins/engineering-basics/.cursor-plugin/plugin.json",
-          "sha256": "sha256:b6dc83a900a6a74e3f94c00ac97f8e9bcd7cf2b927a6a4d13e0e2ecba492774e",
-          "bytes": 694
+          "sha256": "sha256:55d8a0e48921f5934beae933245c0d05f82d941a4b234e18eee0ab61c6e69d08",
+          "bytes": 718
         },
         {
           "path": "plugins/engineering-basics/commands/review.md",
           "sha256": "sha256:5f060b204c6c9f26cb6492386ebb96ebfb18dc908164b09e8aec3728bfb1668f",
           "bytes": 386
+        },
+        {
+          "path": "plugins/engineering-basics/icon.svg",
+          "sha256": "sha256:7cc7df701b4ccf7456257ad188eaa916bd2e98e187a1ef433ed40c97e9812857",
+          "bytes": 409
         },
         {
           "path": "plugins/engineering-basics/rules/commit-style.mdc",
@@ -96,6 +102,7 @@
         "hardware",
         "dfm"
       ],
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IktpQ2FkIFBDQiI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiNjNTg2YzAiLz4KICA8cmVjdCB4PSIyMiIgeT0iMjIiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPGcgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNMjggMjJ2LThNMzYgMjJ2LThNMjggNDJ2OE0zNiA0MnY4TTIyIDI4aC04TTIyIDM2aC04TTQyIDI4aDhNNDIgMzZoOCIvPgogIDwvZz4KPC9zdmc+Cg==",
       "path": "plugins/kicad",
       "items": [
         {
@@ -163,8 +170,8 @@
       "files": [
         {
           "path": "plugins/kicad/.cursor-plugin/plugin.json",
-          "sha256": "sha256:8019cda3d199fff33a0101e307daf59ef738fe709c7a2a8ab356b138110822d3",
-          "bytes": 784
+          "sha256": "sha256:e6e3034c85d31b81030de34fedda81853cd6cf8609050328d3fe6815be790d1a",
+          "bytes": 808
         },
         {
           "path": "plugins/kicad/.mcp.json",
@@ -175,6 +182,11 @@
           "path": "plugins/kicad/commands/fab-package.md",
           "sha256": "sha256:dbaabdb09e514931ff273a419384d21a4de480a4befb633c2ac80602422eb6ba",
           "bytes": 649
+        },
+        {
+          "path": "plugins/kicad/icon.svg",
+          "sha256": "sha256:8c238c450e5257f9a1c11d70890a2eefe2643b1d886d78c6a5e60e29e97b08ea",
+          "bytes": 436
         },
         {
           "path": "plugins/kicad/rules/clearance.mdc",
@@ -217,6 +229,7 @@
         "playwright",
         "e2e"
       ],
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlFBIFBsYXl3cmlnaHQiPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE0IiBmaWxsPSIjM2Y5ZThmIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPHBhdGggZD0iTTI0IDMzbDYgNiAxMS0xMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K",
       "path": "plugins/qa-playwright",
       "items": [
         {
@@ -249,13 +262,18 @@
         },
         {
           "path": "plugins/qa-playwright/.cursor-plugin/plugin.json",
-          "sha256": "sha256:e5296029b20c5eadcb28e860c4bf0e37f0299dbaf52da12e5b549e676f1b268d",
-          "bytes": 647
+          "sha256": "sha256:0a9086a2611c131d7bb4c9f5109ad3a288b5ec5703205e04960399c7819e9612",
+          "bytes": 671
         },
         {
           "path": "plugins/qa-playwright/.mcp.json",
           "sha256": "sha256:388cb5132f16d852f85b4a1292ed1ee0911e73784a36b21e886470be475ff703",
           "bytes": 123
+        },
+        {
+          "path": "plugins/qa-playwright/icon.svg",
+          "sha256": "sha256:dbe2b0ad218e60c8475f5a4a77fc28d2cc7b15773cf4152164becf75a9230dca",
+          "bytes": 390
         },
         {
           "path": "plugins/qa-playwright/skills/.DS_Store",
@@ -266,6 +284,83 @@
           "path": "plugins/qa-playwright/skills/e2e-scenarios/SKILL.md",
           "sha256": "sha256:1f59310cb06bc1c792f91f6329c45052fa5b2ad1a3d87c4c0587b3e9949557d1",
           "bytes": 541
+        }
+      ]
+    },
+    {
+      "slug": "security-audit",
+      "name": "Security Audit",
+      "summary": "Security audit of code repositories \u2014 checks for hardcoded secrets, SQL injection risks, and OWASP compliance.",
+      "description": "Security audit of code repositories \u2014 checks for hardcoded secrets, SQL injection risks, and OWASP compliance.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "Artur Hachuyan",
+      "updatedAt": "2026-10-27T16:27:10.000Z",
+      "tags": [
+        "security",
+        "audit",
+        "vulnerability",
+        "compliance"
+      ],
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNlY3VyaXR5IGF1ZGl0Ij4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iIzhhNmZkMSIvPgogIDxwYXRoIGQ9Ik0zMiAxMmwxNiA2djEzYzAgMTEtNyAxNy0xNiAyMS05LTQtMTYtMTAtMTYtMjFWMTh6IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0yNSAzMmw1IDUgMTAtMTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI0LjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K",
+      "path": "plugins/security-audit",
+      "items": [
+        {
+          "name": "repo-analysis",
+          "kind": "skill",
+          "path": "plugins/security-audit/skills/repo-analysis",
+          "contentHash": "sha256:332621ef7564818bbe5a51c9562365b08bd9d587c5a3aadf63518b08f7e5dc14",
+          "fileCount": 1
+        },
+        {
+          "name": "compliance-check",
+          "kind": "rule",
+          "description": "compliance-check",
+          "path": "plugins/security-audit/rules/compliance-check.mdc",
+          "contentHash": "sha256:1e33d1d2bfff1c138f5365cdd1351a5cca1786e1502e9f2709305bc78a120f2d",
+          "fileCount": 1
+        },
+        {
+          "name": "audit-repo",
+          "kind": "command",
+          "description": "audit-repo",
+          "path": "plugins/security-audit/commands/audit-repo.md",
+          "contentHash": "sha256:de3933f81b0b5689b35da9145d4dbb0816668e02ef39312e3b8169dc54bc0e90",
+          "fileCount": 1
+        }
+      ],
+      "requires": [
+        "mcp:python"
+      ],
+      "trust": "verified",
+      "visibility": "public",
+      "installs": 0,
+      "stars": 0,
+      "files": [
+        {
+          "path": "plugins/security-audit/.cursor-plugin/plugin.json",
+          "sha256": "sha256:22a33090079704b44f05d7f6bff5937b2ac8d68d59d94a116abe2e264abebb31",
+          "bytes": 868
+        },
+        {
+          "path": "plugins/security-audit/commands/audit-repo.md",
+          "sha256": "sha256:588ca31c848a6e80d2180368cb874f8c00fcc460acf8921705d0781ea2f2cc4c",
+          "bytes": 623
+        },
+        {
+          "path": "plugins/security-audit/icon.svg",
+          "sha256": "sha256:ec608df3ee03234235b5cd637970d5fbd7935eab20df60bf54ca0afef29332e2",
+          "bytes": 447
+        },
+        {
+          "path": "plugins/security-audit/rules/compliance-check.mdc",
+          "sha256": "sha256:f04510848d51f632b0ec39f7b35ab1be1958d0a070886aca2465a0e7708e22de",
+          "bytes": 1217
+        },
+        {
+          "path": "plugins/security-audit/skills/repo-analysis/SKILL.md",
+          "sha256": "sha256:442e65f2fcd36b44bfb1aa92d6ca3e65962193ad0faeaf39519a56871bed2d5a",
+          "bytes": 478
         }
       ]
     },
@@ -283,6 +378,7 @@
         "court",
         "filing"
       ],
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlVTIGNvdXJ0IGZpbGluZ3MiPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE0IiBmaWxsPSIjMzc5NGZmIi8+CiAgPHBhdGggZD0iTTIwIDE0aDE3bDkgOXYyN0gyMHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTM2IDE0djEwaDEwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxnIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiPgogICAgPHBhdGggZD0iTTI3IDMzaDEyTTI3IDQxaDEyIi8+CiAgPC9nPgo8L3N2Zz4K",
       "path": "plugins/us-court-filings",
       "items": [
         {
@@ -342,8 +438,8 @@
       "files": [
         {
           "path": "plugins/us-court-filings/.cursor-plugin/plugin.json",
-          "sha256": "sha256:9b1af59f7b90450eceb68bc80c708405af4ef349a911558c78a5bcfc3849d297",
-          "bytes": 766
+          "sha256": "sha256:da2e71809f734b78dd54bc73faff9af37cb687278322bedb28bff1498efc47d7",
+          "bytes": 790
         },
         {
           "path": "plugins/us-court-filings/agents/filing-reviewer.md",
@@ -354,6 +450,11 @@
           "path": "plugins/us-court-filings/commands/filing-check.md",
           "sha256": "sha256:3f17c6a6cee6f7980bfc41bfa7db24ae655da8ab919c2126898ccc02da2d0278",
           "bytes": 787
+        },
+        {
+          "path": "plugins/us-court-filings/icon.svg",
+          "sha256": "sha256:51d4cafe4a0d4e01edd2beab9dad39a5d168d06a91c91db8f434248a16579cde",
+          "bytes": 495
         },
         {
           "path": "plugins/us-court-filings/rules/no-invented-citations.mdc",

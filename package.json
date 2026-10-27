@@ -10,6 +10,7 @@
     "check": "node scripts/build-index.mjs --check --check-hashes",
     "sign": "node scripts/sign-index.mjs",
     "verify": "node scripts/sign-index.mjs --key-id ${SKILL_STORE_KEY_ID:-apisky-2026} --verify",
-    "keygen": "node scripts/keygen.mjs"
+    "keygen": "node scripts/keygen.mjs",
+    "release": "node scripts/build-index.mjs && node scripts/sign-index.mjs --key-id ${SKILL_STORE_KEY_ID:-apisky-2026} && node scripts/sign-index.mjs --key-id ${SKILL_STORE_KEY_ID:-apisky-2026} --verify"
   }
 }

@@ -27,6 +27,7 @@
     ],
     "trust": "verified",
     "installs": 0,
-    "stars": 0
+    "stars": 0,
+    "icon": "icon.svg"
   }
 }
