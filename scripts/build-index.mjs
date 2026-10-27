@@ -41,6 +41,8 @@ const VERSION = /^[0-9]+\.[0-9]+\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$/;
 const TRUST_LEVELS = ['official', 'verified', 'community'];
 
 const SKIP_DIRS = new Set(['node_modules', '.git']);
+/** The store is an English product surface; the index must not carry Cyrillic. */
+const CYRILLIC = /[\u0400-\u04FF]/;
 const RULE_EXT = /\.(md|mdc)$/i;
 
 // ── hashing (byte-identical to legion's content-tree.ts) ─────────────────────
@@ -243,6 +245,11 @@ export function buildPack(slug) {
     }
   }
 
+  for (const f of walk(pluginDir)) {
+    if (!/\.(md|mdc|json)$/i.test(f.rel)) continue;
+    if (CYRILLIC.test(f.bytes.toString('utf8'))) throw new Error(`${packId}: ${f.rel} must be English (found Cyrillic)`);
+  }
+
   // Every file in the plugin dir is declared with its raw hash: the install
   // path reads only item paths, but the whole tree is pinned so a silent byte
   // change anywhere is caught by `--check-hashes`.
@@ -278,6 +285,12 @@ export function buildPack(slug) {
   if (!SLUG_SEGMENT.test(slug)) throw new Error(`${packId}: slug "${slug}" is not a valid pack slug`);
   if (manifest.name !== slug) {
     throw new Error(`${packId}: plugin.json name "${manifest.name}" must equal the folder name "${slug}"`);
+  }
+
+  // The store is an English surface: a Cyrillic summary or body lands on a card
+  // in the web/mobile/ext clients and cannot be translated there.
+  for (const text of [meta.summary ?? '', manifest.description ?? '', ...items.map((i) => i.description ?? '')]) {
+    if (CYRILLIC.test(text)) throw new Error(`${packId}: text must be English (found Cyrillic): "${text.slice(0, 60)}"`);
   }
 
   return {
