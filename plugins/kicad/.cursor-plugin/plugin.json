@@ -1,0 +1,23 @@
+{
+  "name": "kicad",
+  "displayName": "KiCad PCB",
+  "version": "1.0.0",
+  "description": "Schematic and board work in KiCad: ERC/DRC triage, routing order, DFM rules and fab output.",
+  "author": {
+    "name": "APISky",
+    "email": "plugins@apisky.net"
+  },
+  "license": "MIT",
+  "keywords": ["kicad", "pcb", "hardware", "dfm"],
+  "skills": "skills",
+  "rules": "rules",
+  "commands": "commands",
+  "x-skyline": {
+    "summary": "Схема и плата в KiCad: разбор ERC/DRC, порядок трассировки, правила DFM и сборка пакета для завода.",
+    "tags": ["kicad", "pcb", "hardware", "dfm"],
+    "trust": "verified",
+    "requires": ["mcp:kicad"],
+    "installs": 0,
+    "stars": 0
+  }
+}

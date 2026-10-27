@@ -1,0 +1,23 @@
+{
+  "name": "us-court-filings",
+  "displayName": "US Court Filings",
+  "version": "1.0.0",
+  "description": "Draft US court filings in the court's own format: caption, pleading paper, table of authorities and a certificate of service.",
+  "author": {
+    "name": "APISky",
+    "email": "plugins@apisky.net"
+  },
+  "license": "MIT",
+  "keywords": ["legal", "court", "filing", "pdf"],
+  "skills": "skills",
+  "rules": "rules",
+  "commands": "commands",
+  "agents": "agents",
+  "x-skyline": {
+    "summary": "Судебные документы США в формате суда: шапка, pleading paper, таблица авторитетов и certificate of service.",
+    "tags": ["legal", "court", "filing"],
+    "trust": "verified",
+    "installs": 0,
+    "stars": 0
+  }
+}
