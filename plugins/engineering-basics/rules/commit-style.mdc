@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Commit style
 
-- Одно сообщение — одна мысль.
-- Императив, настоящее время: «add», «fix», «drop», не «added».
-- Первая строка до 72 символов; подробности — в теле после пустой строки.
-- Никаких «misc», «WIP», «fixes» без объекта.
+- One message, one thought.
+- Imperative, present tense: "add", "fix", "drop" — not "added".
+- First line under 72 characters; details in the body after a blank line.
+- No "misc", "WIP" or "fixes" without an object.

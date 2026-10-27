@@ -4,9 +4,8 @@ description: Review the current branch diff for real problems only
 
 # /review
 
-Просмотри диф текущей ветки против базовой и перечисли только реальные
-проблемы: ошибки логики, потерянные края, несовместимые изменения API,
-незакрытые ресурсы.
+Look at the diff of the current branch against its base and list only real problems: logic
+errors, missed edge cases, incompatible API changes, unclosed resources.
 
-Формат вывода — список `файл:строка — проблема — чем грозит`. Стилистические
-придирки и «можно было бы иначе» не выводи.
+Output is a list of `file:line — problem — what it costs`. Style nits and "could have been done
+differently" do not belong in it.

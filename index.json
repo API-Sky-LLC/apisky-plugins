@@ -10,7 +10,7 @@
     {
       "slug": "engineering-basics",
       "name": "Engineering basics",
-      "summary": "\u041e\u0434\u0438\u043d \u0441\u043a\u0438\u043b, \u043f\u0440\u0430\u0432\u0438\u043b\u043e \u0438 \u043a\u043e\u043c\u0430\u043d\u0434\u0430 \u2014 \u043c\u0438\u043d\u0438\u043c\u0443\u043c, \u0441 \u043a\u043e\u0442\u043e\u0440\u043e\u0433\u043e \u043d\u0430\u0447\u0438\u043d\u0430\u044e\u0442 \u0432\u0441\u0435.",
+      "summary": "One skill, one rule and one command: the floor every project starts from.",
       "description": "Repo analysis, commit style and a review command \u2014 the floor every project starts from.",
       "version": "1.0.0",
       "license": "MIT",
@@ -26,9 +26,9 @@
         {
           "name": "repo-analysis",
           "kind": "skill",
-          "description": "\u0420\u0430\u0437\u0431\u043e\u0440 \u043d\u0435\u0437\u043d\u0430\u043a\u043e\u043c\u043e\u0433\u043e \u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u044f \u2014 \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430, \u0441\u0442\u0435\u043a, \u0442\u043e\u0447\u043a\u0438 \u0432\u0445\u043e\u0434\u0430. Load before answering questions about an unfamiliar codebase.",
+          "description": "Work through an unfamiliar repository \u2014 structure, stack, entry points. Load before answering questions about an unfamiliar codebase.",
           "path": "plugins/engineering-basics/skills/repo-analysis",
-          "contentHash": "sha256:0395174492c5376dc39ce5f00d660b95c08769915ced7d572bb56276ac651071",
+          "contentHash": "sha256:ca6f2f9514f9e9624f9044fa1d1de529d75e320c2d702cb84e6480971426819b",
           "fileCount": 1
         },
         {
@@ -36,7 +36,7 @@
           "kind": "rule",
           "description": "Commit message style",
           "path": "plugins/engineering-basics/rules/commit-style.mdc",
-          "contentHash": "sha256:5852371b10de6fde42d59be5032ce981223d23ab851f18c4404de6a5b352ea06",
+          "contentHash": "sha256:620fbe6c34d574ebec2db4d9f9783b8ccfd0f580ad702c35b39fe475164c7548",
           "fileCount": 1
         },
         {
@@ -44,7 +44,7 @@
           "kind": "command",
           "description": "Review the current branch diff for real problems only",
           "path": "plugins/engineering-basics/commands/review.md",
-          "contentHash": "sha256:875198c5037140372707bfab262425b3c8765fde15d5fe0d337ba3006aaba3c3",
+          "contentHash": "sha256:afd63f2448f60c8374d70f67616e9ba33d943dc4b992e58a16a0455d2dfec39c",
           "fileCount": 1
         }
       ],
@@ -61,30 +61,30 @@
         },
         {
           "path": "plugins/engineering-basics/.cursor-plugin/plugin.json",
-          "sha256": "sha256:677caf0abd39937de8e4b53e1b3bf1d841832a96808fff9606e72ec4e1b29ec7",
-          "bytes": 671
+          "sha256": "sha256:911727c9f778ed362ea0217439fa0fbf28453bb870423b21236287da6e46b287",
+          "bytes": 668
         },
         {
           "path": "plugins/engineering-basics/commands/review.md",
-          "sha256": "sha256:312c11293bc717a3f366668433835557b466c6a61f58509856b64848da40637f",
-          "bytes": 605
+          "sha256": "sha256:5f060b204c6c9f26cb6492386ebb96ebfb18dc908164b09e8aec3728bfb1668f",
+          "bytes": 386
         },
         {
           "path": "plugins/engineering-basics/rules/commit-style.mdc",
-          "sha256": "sha256:a2857e971ebbd563c1fbdc303a73769494110005a8b6e853a58f762ac0a2b7d8",
-          "bytes": 429
+          "sha256": "sha256:5b43343e65cfd30428a718f6db5d5cad7e1d2c93fd5e4173258dbe96364eb67c",
+          "bytes": 295
         },
         {
           "path": "plugins/engineering-basics/skills/repo-analysis/SKILL.md",
-          "sha256": "sha256:03aa4b0f4c4f7a7de83cc7b0aa8a24dbdc7becdcfe41797b8663effb031584ef",
-          "bytes": 849
+          "sha256": "sha256:e4d12208d1a69d49098797959fb631182a559d46bbba3b963a0c1495025d5737",
+          "bytes": 648
         }
       ]
     },
     {
       "slug": "kicad",
       "name": "KiCad PCB",
-      "summary": "\u0421\u0445\u0435\u043c\u0430 \u0438 \u043f\u043b\u0430\u0442\u0430 \u0432 KiCad: \u0440\u0430\u0437\u0431\u043e\u0440 ERC/DRC, \u043f\u043e\u0440\u044f\u0434\u043e\u043a \u0442\u0440\u0430\u0441\u0441\u0438\u0440\u043e\u0432\u043a\u0438, \u043f\u0440\u0430\u0432\u0438\u043b\u0430 DFM \u0438 \u0441\u0431\u043e\u0440\u043a\u0430 \u043f\u0430\u043a\u0435\u0442\u0430 \u0434\u043b\u044f \u0437\u0430\u0432\u043e\u0434\u0430.",
+      "summary": "Schematic and board work in KiCad: ERC/DRC triage, routing order, DFM rules and the fab package.",
       "description": "Schematic and board work in KiCad: ERC/DRC triage, routing order, DFM rules and fab output.",
       "version": "1.0.0",
       "license": "MIT",
@@ -101,49 +101,49 @@
         {
           "name": "board-review",
           "kind": "skill",
-          "description": "\u0420\u0430\u0437\u0431\u043e\u0440 \u043f\u043b\u0430\u0442\u044b \u043f\u0435\u0440\u0435\u0434 \u0437\u0430\u043a\u0430\u0437\u043e\u043c \u2014 ERC/DRC, \u043f\u0438\u0442\u0430\u043d\u0438\u044f, \u0440\u0430\u0437\u044a\u0451\u043c\u043e\u0432. Load before saying a KiCad board is ready to manufacture.",
+          "description": "Review a board before it is ordered \u2014 ERC/DRC, power and connectors. Load before saying a KiCad board is ready to manufacture.",
           "path": "plugins/kicad/skills/board-review",
-          "contentHash": "sha256:58190f34c6b1d92bfd71861dbb05f3c23c051c6209398e741d29dcdee903dccb",
+          "contentHash": "sha256:c3aa1c3b1eb056fb45e1f50ad521444329adff3878a03f4ab01db485c6e23fa2",
           "fileCount": 1
         },
         {
           "name": "dfm",
           "kind": "skill",
-          "description": "\u0422\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0447\u043d\u043e\u0441\u0442\u044c \u043f\u043b\u0430\u0442\u044b \u0438 \u043f\u0430\u043a\u0435\u0442 \u0434\u043b\u044f \u0437\u0430\u0432\u043e\u0434\u0430 \u2014 \u0434\u043e\u043f\u0443\u0441\u043a\u0438, \u043f\u0430\u043d\u0435\u043b\u0438\u0437\u0430\u0446\u0438\u044f, \u0433\u0435\u0440\u0431\u0435\u0440\u044b. Load before generating fab files.",
+          "description": "Manufacturing limits and the fab package \u2014 tolerances, panelization, gerbers. Load before generating fab files.",
           "path": "plugins/kicad/skills/dfm",
-          "contentHash": "sha256:7c83b79cd3de48dcd8f3d1cf8b7f4a2dd17ce6dadc95bd757ca7795b5548c1d9",
+          "contentHash": "sha256:b39412cc1eceb764d2ebf1a95007a7421df47e0c0787c4ad19438497bafa524c",
           "fileCount": 1
         },
         {
           "name": "footprint-audit",
           "kind": "skill",
-          "description": "\u0421\u0432\u0435\u0440\u043a\u0430 \u043f\u043e\u0441\u0430\u0434\u043e\u0447\u043d\u044b\u0445 \u043c\u0435\u0441\u0442 \u0441 \u0434\u0430\u0442\u0430\u0448\u0438\u0442\u043e\u043c \u0434\u043e \u0437\u0430\u043a\u0430\u0437\u0430 \u2014 \u043f\u0438\u043d\u044b, \u043f\u0430\u0434\u0434\u0438\u043d\u0433, \u043f\u043e\u043b\u044f\u0440\u043d\u043e\u0441\u0442\u044c. Load when a new footprint enters the project.",
+          "description": "Check a footprint against the datasheet before ordering \u2014 pins, pads, polarity. Load whenever a new footprint enters the project.",
           "path": "plugins/kicad/skills/footprint-audit",
-          "contentHash": "sha256:47b3149e1e185cb0e26916ac6ba9b598362987853cc48f3b0401dd37ed87547f",
+          "contentHash": "sha256:52e7d0e2fb57071d2c47ad012bcacedd7c58ea1ec6ec89954d5214bbe29f3ee8",
           "fileCount": 1
         },
         {
           "name": "routing",
           "kind": "skill",
-          "description": "\u041f\u043e\u0440\u044f\u0434\u043e\u043a \u0442\u0440\u0430\u0441\u0441\u0438\u0440\u043e\u0432\u043a\u0438 \u0438 \u043f\u0440\u0430\u0432\u0438\u043b\u0430 \u0440\u0430\u0437\u0432\u043e\u0434\u043a\u0438 \u043f\u0438\u0442\u0430\u043d\u0438\u044f, \u0434\u0438\u0444\u0444\u0435\u0440\u0435\u043d\u0446\u0438\u0430\u043b\u043e\u0432 \u0438 \u0434\u043b\u0438\u043d\u043d\u044b\u0445 \u0448\u0438\u043d. Load when routing a board or fixing a failed DRC.",
+          "description": "Routing order and rules for power, differential pairs and long buses. Load when routing a board or fixing a failed DRC.",
           "path": "plugins/kicad/skills/routing",
-          "contentHash": "sha256:0f36de54a456c8f4ca03ff83a3fd393d5cf1cdb0d67062d1201783a5ec991860",
+          "contentHash": "sha256:a69a7a469347319215bb49f9a4f95511841d1bc7d02038027a47081f594540e2",
           "fileCount": 1
         },
         {
           "name": "clearance",
           "kind": "rule",
-          "description": "Minimum clearance and trace width for hobby-scale boards",
+          "description": "Copper clearance and track width discipline",
           "path": "plugins/kicad/rules/clearance.mdc",
-          "contentHash": "sha256:60343b08411654b1f66ca999c73b3a14579e585716feae752a7a3fbb354d8d2b",
+          "contentHash": "sha256:ae729729a0dc5dcd6cf7a8b99ea43ff311af37dc25f602054c8aa10f6df6ce35",
           "fileCount": 1
         },
         {
           "name": "fab-package",
           "kind": "command",
-          "description": "Build the manufacturing package and list what is missing",
+          "description": "Build and check the fab package before ordering",
           "path": "plugins/kicad/commands/fab-package.md",
-          "contentHash": "sha256:b554dedd7895d551f293cdd1391e1674886d4368cce9de74f2ac327e0af351f5",
+          "contentHash": "sha256:8cc6190914542a139782b57d0d1069bf21f3742fe733d2f3e80e481646889c8b",
           "fileCount": 1
         },
         {
@@ -163,8 +163,8 @@
       "files": [
         {
           "path": "plugins/kicad/.cursor-plugin/plugin.json",
-          "sha256": "sha256:9fb3adb449ec0e7ded05ea235051c943d5dc07ebca82d99dd35ee744bfdb4022",
-          "bytes": 744
+          "sha256": "sha256:890e1cb44b425ffdb44c29b74d4cd0b5d98cc4b0abd4522f8ec9e4864a263a55",
+          "bytes": 738
         },
         {
           "path": "plugins/kicad/.mcp.json",
@@ -173,40 +173,40 @@
         },
         {
           "path": "plugins/kicad/commands/fab-package.md",
-          "sha256": "sha256:c6dea0d61eff6ef211812914ac603b0e5cf405f52a24888d6ae095e9ff8e5e2b",
-          "bytes": 880
+          "sha256": "sha256:dbaabdb09e514931ff273a419384d21a4de480a4befb633c2ac80602422eb6ba",
+          "bytes": 649
         },
         {
           "path": "plugins/kicad/rules/clearance.mdc",
-          "sha256": "sha256:f527dd551dd4a99f9298a6ffb59d9f4b0301e4c6f7922c1022cd9fdab38d0de2",
-          "bytes": 534
+          "sha256": "sha256:73cf6e3877422a9fff2bc780894dc7370e7fd63c1b551c7704eb3c907e3d2539",
+          "bytes": 594
         },
         {
           "path": "plugins/kicad/skills/board-review/SKILL.md",
-          "sha256": "sha256:ef65cca9a1eb6f6afa5ccfd2f8fa55c544ca87781577d0c5a7b341e34c4ca635",
-          "bytes": 1608
+          "sha256": "sha256:68e085401c81fe55f8de46814a154b45e5033a4470c439f3c095572176ae21fd",
+          "bytes": 1010
         },
         {
           "path": "plugins/kicad/skills/dfm/SKILL.md",
-          "sha256": "sha256:ea21873e0257e90fa6f70de9df2bd828eecddd4cce9bd2b13f5fce5cd59fa713",
-          "bytes": 1489
+          "sha256": "sha256:03de212b80e153c49a1badcb9b296c5935d30092b1b38ab70e3480e04bf99310",
+          "bytes": 983
         },
         {
           "path": "plugins/kicad/skills/footprint-audit/SKILL.md",
-          "sha256": "sha256:c8e5432598787645f109e6967a8c239696567cf0cd71e52e577bf0b45df3f8d1",
-          "bytes": 1371
+          "sha256": "sha256:ea99af291d29fd22610281ccf2177be998c11bd8db51179ab4b8ca2aba9dc149",
+          "bytes": 916
         },
         {
           "path": "plugins/kicad/skills/routing/SKILL.md",
-          "sha256": "sha256:1bcc31370fda6422753b544870ef667fed041320a58821acce845ac980d54286",
-          "bytes": 1744
+          "sha256": "sha256:3a3c6c03e89c907cf360a7af71c1ebe176cf833cf38be9ef494c3352970c99f6",
+          "bytes": 1045
         }
       ]
     },
     {
       "slug": "qa-playwright",
       "name": "QA: Playwright",
-      "summary": "\u0421\u043a\u0438\u043b\u044b \u0434\u043b\u044f e2e-\u0442\u0435\u0441\u0442\u043e\u0432 \u043d\u0430 Playwright \u0438 \u0442\u0440\u0435\u0431\u043e\u0432\u0430\u043d\u0438\u0435 MCP-\u0441\u0435\u0440\u0432\u0435\u0440\u0430 (\u0441\u0435\u0440\u0432\u0435\u0440 \u043d\u0430\u0431\u043e\u0440 \u043d\u0435 \u043f\u043e\u0434\u043d\u0438\u043c\u0430\u0435\u0442).",
+      "summary": "E2E skills for Playwright plus a required MCP server (the pack never starts it for you).",
       "description": "Intent-first e2e scenarios plus the Playwright MCP requirement.",
       "version": "1.0.0",
       "license": "Apache-2.0",
@@ -222,9 +222,9 @@
         {
           "name": "e2e-scenarios",
           "kind": "skill",
-          "description": "\u0421\u0446\u0435\u043d\u0430\u0440\u0438\u0438 e2e \u043f\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u043c \u043f\u0443\u0442\u044f\u043c, \u0430 \u043d\u0435 \u043f\u043e DOM. Load when writing or reviewing end-to-end tests.",
+          "description": "E2E scenarios written from user paths, not from the DOM. Load when writing or reviewing end-to-end tests.",
           "path": "plugins/qa-playwright/skills/e2e-scenarios",
-          "contentHash": "sha256:0cccabb6f8265d575ec6eabbf30004ec6758bc607de934267c4ae6ff3a1f08e6",
+          "contentHash": "sha256:83c173a4bcf4d1b71d12106fd2244a1d97df0d02331fe87e4ab0714d8e22c0c4",
           "fileCount": 1
         },
         {
@@ -249,8 +249,8 @@
         },
         {
           "path": "plugins/qa-playwright/.cursor-plugin/plugin.json",
-          "sha256": "sha256:f9503d6aec7b210f57353baece914aae364baf721c41090e29765f1afd88e1bd",
-          "bytes": 610
+          "sha256": "sha256:78a568f101ee6c8b775b0e407fa3f03afdf3d76e26c6c7213fc12aa311a8b698",
+          "bytes": 594
         },
         {
           "path": "plugins/qa-playwright/.mcp.json",
@@ -264,15 +264,15 @@
         },
         {
           "path": "plugins/qa-playwright/skills/e2e-scenarios/SKILL.md",
-          "sha256": "sha256:d9667c47a6e2ba3c5485afcbace30878998330d50dd7e58bbd7d50663d0da152",
-          "bytes": 837
+          "sha256": "sha256:1f59310cb06bc1c792f91f6329c45052fa5b2ad1a3d87c4c0587b3e9949557d1",
+          "bytes": 541
         }
       ]
     },
     {
       "slug": "us-court-filings",
       "name": "US Court Filings",
-      "summary": "\u0421\u0443\u0434\u0435\u0431\u043d\u044b\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u0421\u0428\u0410 \u0432 \u0444\u043e\u0440\u043c\u0430\u0442\u0435 \u0441\u0443\u0434\u0430: \u0448\u0430\u043f\u043a\u0430, pleading paper, \u0442\u0430\u0431\u043b\u0438\u0446\u0430 \u0430\u0432\u0442\u043e\u0440\u0438\u0442\u0435\u0442\u043e\u0432 \u0438 certificate of service.",
+      "summary": "US court filings in the court's own format: caption, pleading paper, table of authorities, certificate of service.",
       "description": "Draft US court filings in the court's own format: caption, pleading paper, table of authorities and a certificate of service.",
       "version": "1.0.0",
       "license": "MIT",
@@ -288,49 +288,49 @@
         {
           "name": "authorities-table",
           "kind": "skill",
-          "description": "\u0422\u0430\u0431\u043b\u0438\u0446\u0430 \u0430\u0432\u0442\u043e\u0440\u0438\u0442\u0435\u0442\u043e\u0432 \u0438 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 \u0446\u0438\u0442\u0430\u0442 \u0432 \u0441\u0442\u0438\u043b\u0435 Bluebook. Load when a filing cites cases, statutes or rules.",
+          "description": "Table of authorities and citation checking in Bluebook style. Load when a filing cites cases, statutes or rules.",
           "path": "plugins/us-court-filings/skills/authorities-table",
-          "contentHash": "sha256:b02746911f52d1231c8042ecb1cec2f248f68c5641ceb2b8dca84de27b4138c8",
+          "contentHash": "sha256:fe8cb13e7cf9f29c363c8d3181d51c16f6e22765052cd54faedfbb31a0707c3a",
           "fileCount": 1
         },
         {
           "name": "filing-structure",
           "kind": "skill",
-          "description": "\u0421\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u0438 \u043f\u043e\u0440\u044f\u0434\u043e\u043a \u0447\u0430\u0441\u0442\u0435\u0439 \u0441\u0443\u0434\u0435\u0431\u043d\u043e\u0433\u043e \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0421\u0428\u0410. Load before drafting any motion, opposition or reply.",
+          "description": "Structure and part order of a US court filing. Load before drafting any motion, opposition or reply.",
           "path": "plugins/us-court-filings/skills/filing-structure",
-          "contentHash": "sha256:9435a26b58bc7bc2b7d79ad8e7647235224a45dd4306958190dfa9d1ee013634",
+          "contentHash": "sha256:67c54dd805429a9a30d7638315901bee06b17edc34c7d98ac9b8891a5ad52c01",
           "fileCount": 1
         },
         {
           "name": "local-rules",
           "kind": "skill",
-          "description": "\u041b\u043e\u043a\u0430\u043b\u044c\u043d\u044b\u0435 \u043f\u0440\u0430\u0432\u0438\u043b\u0430 \u0441\u0443\u0434\u0430 \u2014 \u043e\u0431\u044a\u0451\u043c, \u0448\u0440\u0438\u0444\u0442, \u043f\u043e\u043b\u044f, \u0441\u0440\u043e\u043a\u0438. Load before finalizing a document for a specific court.",
+          "description": "Court-specific limits on length, format, filing event and deadlines. Load before finalizing a document for a particular court.",
           "path": "plugins/us-court-filings/skills/local-rules",
-          "contentHash": "sha256:537179db8570aacecfabe37bfd9db1403aaf8dafb26671daf24539545860bcc4",
+          "contentHash": "sha256:c283409a8d2b20cf11a80f42bcf4c45a84d141d3287abec135f64cb1698aea7f",
           "fileCount": 1
         },
         {
           "name": "no-invented-citations",
           "kind": "rule",
-          "description": "Never invent a citation; mark the gap instead",
+          "description": "Never fabricate a citation, a quote or a page number",
           "path": "plugins/us-court-filings/rules/no-invented-citations.mdc",
-          "contentHash": "sha256:e2630d797fb99af80d2caba6479db46a3fd3e400233187d08f9fe08070ad1b5c",
+          "contentHash": "sha256:cec874159e78761a0dc9ded0ebc62aacc0fd362d3368d216c4db80144a82e504",
           "fileCount": 1
         },
         {
           "name": "filing-check",
           "kind": "command",
-          "description": "Pre-filing checklist for a US court document",
+          "description": "Pre-filing checklist for a court document",
           "path": "plugins/us-court-filings/commands/filing-check.md",
-          "contentHash": "sha256:4e9687bb17ffe284ec6d02b9b500d04e5534ed4abd5dcec6c6265e7df6b9a20f",
+          "contentHash": "sha256:8b0ee8852a41a4e341e264ce6903d23624f7e9cb7293450ec6820d7ff90f49ae",
           "fileCount": 1
         },
         {
           "name": "filing-reviewer",
           "kind": "subagent",
-          "description": "Reviews a draft filing as an opposing counsel and a clerk would",
+          "description": "Reviews a draft filing the way a clerk and opposing counsel would read it.",
           "path": "plugins/us-court-filings/agents/filing-reviewer.md",
-          "contentHash": "sha256:5dbb226e5387cd98abe82836b2012e02a52ab0c3dfef0ce8194ca93b184608d6",
+          "contentHash": "sha256:01eb6cc406d263281fc7803d984be7253f415ad610d5e4970a22724079919122",
           "fileCount": 1
         }
       ],
@@ -342,38 +342,38 @@
       "files": [
         {
           "path": "plugins/us-court-filings/.cursor-plugin/plugin.json",
-          "sha256": "sha256:d90e47c1576b61f17478f2ddb5ba06c8d890b60bc80c848f27d9d82013dbf138",
-          "bytes": 779
+          "sha256": "sha256:9589409d0733c3fa72547cbdee5f0887d4ac952cbc25aa308b7401594f4c1453",
+          "bytes": 774
         },
         {
           "path": "plugins/us-court-filings/agents/filing-reviewer.md",
-          "sha256": "sha256:cb38e9ddd833b3ef0f22853600bff5c96ae5f2a083d237a2ebec13a98b1531ed",
-          "bytes": 1229
+          "sha256": "sha256:987310b37a230c1872b603c6818f250732674725eabd8a22ca1067fc2135b110",
+          "bytes": 756
         },
         {
           "path": "plugins/us-court-filings/commands/filing-check.md",
-          "sha256": "sha256:b24914fbf7ea954358e828daaf45e786e2866c37f27e2a8a981ba2db54e6894e",
-          "bytes": 1216
+          "sha256": "sha256:3f17c6a6cee6f7980bfc41bfa7db24ae655da8ab919c2126898ccc02da2d0278",
+          "bytes": 787
         },
         {
           "path": "plugins/us-court-filings/rules/no-invented-citations.mdc",
-          "sha256": "sha256:c8d7bccab1891305d889457bdf49306fe084cb152f0bc08a6afeca019cbb7b75",
-          "bytes": 691
+          "sha256": "sha256:8b8bc0f76d1c1e1f31e7fffb59b0691dd33515b0b365b6bd8a7cc515db44e17e",
+          "bytes": 589
         },
         {
           "path": "plugins/us-court-filings/skills/authorities-table/SKILL.md",
-          "sha256": "sha256:aef907eed9526be049b9ca250279abaeea331f833e4f9cf3e8edbd6d153e26aa",
-          "bytes": 1467
+          "sha256": "sha256:076cd5bceffa71d9a8257aa3e7dc9de90faf3cc41f42227ef312bc046a1edeeb",
+          "bytes": 983
         },
         {
           "path": "plugins/us-court-filings/skills/filing-structure/SKILL.md",
-          "sha256": "sha256:471a56713e1593ff7c284a084387005a3c660cc708b35f1896a789ecc37cba06",
-          "bytes": 1934
+          "sha256": "sha256:26e1c6d05260b4977861cbc62335e00593537a39931a5e1e2f0d0bc81ee45677",
+          "bytes": 1335
         },
         {
           "path": "plugins/us-court-filings/skills/local-rules/SKILL.md",
-          "sha256": "sha256:d63a08beb3b21101ded9da7f51ef5140106257013ad3424b3dac5ae022993f08",
-          "bytes": 1578
+          "sha256": "sha256:a9cb482e6a84350876008d9adb8a77f9c010f367b24e336b3b846032896443cc",
+          "bytes": 1006
         }
       ]
     }

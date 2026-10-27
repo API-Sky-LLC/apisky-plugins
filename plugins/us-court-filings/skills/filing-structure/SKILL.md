@@ -1,23 +1,26 @@
 ---
 name: filing-structure
-description: Структура и порядок частей судебного документа США. Load before drafting any motion, opposition or reply.
+description: Structure and part order of a US court filing. Load before drafting any motion, opposition or reply.
 ---
 
 # Filing structure
 
-Документ суда — это формат, а не эссе. Порядок частей фиксирован:
+A court document is a format, not an essay. The order of parts is fixed:
 
-1. **Caption**: суд, стороны, номер дела, название документа, дата слушания (если есть),
-   имя адвоката и бар-номер. Одна ошибка в номере дела — и документ не примут в ECF.
-2. **Table of contents** и **table of authorities** — обязательны, если документ длиннее
-   ~10 страниц или цитирует больше нескольких источников.
-3. **Introduction / Preliminary statement** — что просит сторона и почему, 1–2 абзаца.
-4. **Statement of facts** — только факты из record, каждый с ссылкой на документ и страницу.
-5. **Legal standard** — какую норму применяет суд (например, `Rule 12(b)(6)` и её тест).
-6. **Argument** — по одному разделу на аргумент, первый абзац каждого раздела — вывод.
-7. **Conclusion** — дословно то, что должно стоять в приказе.
-8. **Signature block**, **certificate of service**, **certificate of conference** (если
-   требуется локальными правилами), **exhibits** отдельными файлами.
+1. **Caption**: court, parties, case number, document title, hearing date if any, attorney name
+   and bar number. One wrong case number and ECF rejects the filing.
+2. **Table of contents** and **table of authorities** — required once the document runs past
+   roughly ten pages or cites more than a handful of sources.
+3. **Introduction / preliminary statement** — what the party asks for and why, one or two
+   paragraphs.
+4. **Statement of facts** — facts from the record only, each with a citation to the document and
+   page.
+5. **Legal standard** — the rule the court applies (for example `Rule 12(b)(6)` and its test).
+6. **Argument** — one section per argument, the first paragraph of each section states the
+   conclusion.
+7. **Conclusion** — the exact relief that should appear in the order.
+8. **Signature block**, **certificate of service**, **certificate of conference** where local
+   rules require one, **exhibits** as separate files.
 
-Никогда не выдумывай цитату: если решения нет в предоставленных материалах — оставь
-пометку `[CITE NEEDED]` и назови, что именно надо найти.
+Never invent a citation: if a decision is not in the materials you were given, leave
+`[CITE NEEDED]` and name what has to be found.

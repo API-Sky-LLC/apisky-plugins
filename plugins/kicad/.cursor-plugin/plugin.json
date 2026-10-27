@@ -8,15 +8,27 @@
     "email": "plugins@apisky.net"
   },
   "license": "MIT",
-  "keywords": ["kicad", "pcb", "hardware", "dfm"],
+  "keywords": [
+    "kicad",
+    "pcb",
+    "hardware",
+    "dfm"
+  ],
   "skills": "skills",
   "rules": "rules",
   "commands": "commands",
   "x-skyline": {
-    "summary": "Схема и плата в KiCad: разбор ERC/DRC, порядок трассировки, правила DFM и сборка пакета для завода.",
-    "tags": ["kicad", "pcb", "hardware", "dfm"],
+    "summary": "Schematic and board work in KiCad: ERC/DRC triage, routing order, DFM rules and the fab package.",
+    "tags": [
+      "kicad",
+      "pcb",
+      "hardware",
+      "dfm"
+    ],
     "trust": "verified",
-    "requires": ["mcp:kicad"],
+    "requires": [
+      "mcp:kicad"
+    ],
     "installs": 0,
     "stars": 0
   }

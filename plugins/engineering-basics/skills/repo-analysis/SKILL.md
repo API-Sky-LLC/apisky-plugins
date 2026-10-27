@@ -1,13 +1,13 @@
 ---
 name: repo-analysis
-description: Разбор незнакомого репозитория — структура, стек, точки входа. Load before answering questions about an unfamiliar codebase.
+description: Work through an unfamiliar repository — structure, stack, entry points. Load before answering questions about an unfamiliar codebase.
 ---
 
 # Repository analysis
 
-1. Прочитай `README`, манифест пакета и скрипты (`Makefile`, `package.json`, `pyproject.toml`).
-2. Найди точки входа: `main`, `index`, `bin`, конфиг фреймворка, docker-compose.
-3. Составь карту модулей: что импортирует что, где циклы, где границы слоёв.
-4. Перечисли, чего в репозитории нет: тестов, миграций, CI, линтера.
+1. Read `README`, the package manifest and the scripts (`Makefile`, `package.json`, `pyproject.toml`).
+2. Find the entry points: `main`, `index`, `bin`, the framework config, docker-compose.
+3. Map the modules: what imports what, where the cycles are, where the layer boundaries sit.
+4. List what the repository does not have: tests, migrations, CI, a linter.
 
-Отвечай списком файлов с путями (`src/app/main.ts:12`), а не пересказом.
+Answer with files and paths (`src/app/main.ts:12`), not with a retelling of the code.

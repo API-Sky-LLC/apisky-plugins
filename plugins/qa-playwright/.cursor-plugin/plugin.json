@@ -8,12 +8,20 @@
     "email": "plugins@apisky.net"
   },
   "license": "Apache-2.0",
-  "keywords": ["qa", "e2e", "playwright"],
+  "keywords": [
+    "qa",
+    "e2e",
+    "playwright"
+  ],
   "skills": "skills",
   "mcp": ".mcp.json",
   "x-skyline": {
-    "summary": "Скилы для e2e-тестов на Playwright и требование MCP-сервера (сервер набор не поднимает).",
-    "tags": ["qa", "playwright", "e2e"],
+    "summary": "E2E skills for Playwright plus a required MCP server (the pack never starts it for you).",
+    "tags": [
+      "qa",
+      "playwright",
+      "e2e"
+    ],
     "trust": "verified"
   }
 }

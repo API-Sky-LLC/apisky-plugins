@@ -1,20 +1,20 @@
 ---
 name: local-rules
-description: Локальные правила суда — объём, шрифт, поля, сроки. Load before finalizing a document for a specific court.
+description: Court-specific limits on length, format, filing event and deadlines. Load before finalizing a document for a particular court.
 ---
 
 # Local rules
 
-Федеральные правила задают форму, локальные — лимиты. Проверяй по суду, а не «в среднем»:
+Federal rules set the shape; local rules set the limits. Check the actual court, not an average:
 
-- **Объём**: страницы или слова (например, 25 страниц в District, 14000 слов в Circuit);
-  таблицы, подписи и сертификаты обычно не считаются — уточняй, чем считать.
-- **Формат**: размер бумаги, поля, шрифт и кегль, межстрочный интервал, нумерация страниц.
-- **Подача**: ECF-категория события (`Motion`, `Response`, `Reply`), обязательные
-  приложения, формат имени файла.
-- **Сроки**: считай по правилам суда, а не по календарю; праздники и порядок отсчёта
-  (день вручения обычно не считается) меняют дату.
-- **Conference requirement**: многие суды требуют подтвердить, что стороны совещались.
+- **Length**: pages or words (for example 25 pages in a district court, 14,000 words in a
+  circuit); tables, signature blocks and certificates usually do not count — confirm what counts.
+- **Format**: paper size, margins, font and size, line spacing, page numbering.
+- **Filing**: the ECF event category (`Motion`, `Response`, `Reply`), required attachments, file
+  naming.
+- **Deadlines**: computed under the court's rules, not the calendar; holidays and the
+  service-day exclusion change the date.
+- **Conference requirement**: many courts require confirmation that the parties conferred.
 
-Если правило суда неизвестно — так и скажи и назови, что надо проверить в local rules,
-вместо того чтобы подставлять предположение.
+When the local rule is unknown, say so and name what has to be checked in the local rules,
+instead of substituting an assumption.

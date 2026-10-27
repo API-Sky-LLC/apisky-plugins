@@ -1,20 +1,20 @@
 ---
 name: board-review
-description: Разбор платы перед заказом — ERC/DRC, питания, разъёмов. Load before saying a KiCad board is ready to manufacture.
+description: Review a board before it is ordered — ERC/DRC, power and connectors. Load before saying a KiCad board is ready to manufacture.
 ---
 
 # Board review
 
-Проверяй в этом порядке: сначала то, что дороже всего переделывать после заказа.
+Check in this order: whatever costs the most to redo after the board is ordered comes first.
 
-1. **ERC** (схема): неподключённые пины, конфликты выходов, отсутствующие `PWR_FLAG` на питаниях.
-2. **DRC** (плата): зазоры, ширины дорожек, пересечения, отверстия вне платы.
-3. **Питание**: каждый вход защищён (предохранитель/диод/супрессор), на каждой шине есть
-   развязка у потребителя, а не только у источника.
-4. **Разъёмы**: назначение пина совпадает с даташитом, нет «зеркального» разъёма,
-   питание и земля не перепутаны.
-5. **Шелкография и сборка**: обозначения читаемы, у полярных деталей есть маркер,
-   у всех SMD — `Reference` рядом с корпусом.
+1. **ERC (schematic)**: unconnected pins, output conflicts, missing `PWR_FLAG` on power nets.
+2. **DRC (board)**: clearances, track widths, crossings, holes outside the board outline.
+3. **Power**: every input is protected (fuse / diode / TVS), every rail is decoupled at the
+   consumer, not only at the source.
+4. **Connectors**: pin assignment matches the datasheet, no mirrored connector, power and
+   ground are not swapped.
+5. **Silkscreen and assembly**: references are readable, polarized parts have a marker,
+   every SMD part has its `Reference` next to the body.
 
-Отчёт — списком `компонент/сеть — проблема — чем грозит`. Не переписывай DRC-предупреждения
-целиком: называй правило и координаты, чтобы их можно было найти в KiCad.
+Report as a list of `part/net — problem — what it costs`. Do not retype DRC warnings:
+name the rule and the coordinates so they can be found in KiCad.

@@ -1,20 +1,19 @@
 ---
 name: authorities-table
-description: Таблица авторитетов и проверка цитат в стиле Bluebook. Load when a filing cites cases, statutes or rules.
+description: Table of authorities and citation checking in Bluebook style. Load when a filing cites cases, statutes or rules.
 ---
 
 # Table of authorities
 
-Таблица авторитетов — не украшение: суд по ней проверяет, что процитировано.
+The table of authorities is not decoration: the court uses it to check what was cited.
 
-- **Порядок**: Cases → Statutes → Rules → Regulations → Secondary sources; внутри раздела
-  алфавит по первой значимой строке.
-- **Формат строки**: цитата, затем страницы документа, где она встречается (`…… 4, 7, 12`).
-  Страницы — реальные, из готового документа, а не предполагаемые.
-- **`*passim*`** — когда источник встречается слишком часто, чтобы перечислять.
-- **Проверка**: каждая цитата в тексте есть в таблице, и наоборот. Расхождение — блокер
-  перед подачей.
-- **Пин-цитаты**: для ключевого тезиса дай страницу, а не диапазон; для `Id.` и `supra`
-  проверь, что антецедент однозначен.
+- **Order**: Cases → Statutes → Rules → Regulations → Secondary sources; alphabetical within
+  each section by the first significant word.
+- **Line format**: the citation, then the pages of the document where it appears (`…… 4, 7, 12`).
+  Pages are real, taken from the finished document, never estimated.
+- **`*passim*`** — when the source appears too often to list.
+- **Check both ways**: every citation in the text appears in the table, and every line in the
+  table points at a page that really cites it.
+- **Pin cites** for direct quotes and for every proposition that is not the holding itself.
 
-Если формат цитаты неизвестен — не угадывай: пометь `[FORMAT?]` и спроси.
+A citation that does not exist is worse than a missing one: `[CITE NEEDED]` is the honest form.

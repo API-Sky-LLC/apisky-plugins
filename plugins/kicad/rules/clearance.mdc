@@ -1,10 +1,13 @@
 ---
-description: Minimum clearance and trace width for hobby-scale boards
+description: Copper clearance and track width discipline
 alwaysApply: true
 ---
 
 # Clearance
 
-- Не опускайся ниже 0.15 мм дорожка/зазор без явной отметки, что завод это подтвердил.
-- Силовые дорожки — по току, а не «как получилось»: 1 A ≈ 0.5 мм при 35 мкм.
-- Любое изменение, нарушающее минимум, помечай как проблему, а не как замечание.
+- Start from the fab's minimum (0.15 mm track/clearance for a standard 2-layer run) and only go
+  below it after the fab confirms it in writing.
+- Power tracks are sized from current, not from habit: 1 A ≈ 0.5 mm of 35 µm copper.
+- Never let clearance drift silently to satisfy a single stubborn net — move the part or add a
+  layer. A board that only just passes DRC will fail at another fab.
+- Record the chosen rules in the project file, so the next revision starts from the same numbers.

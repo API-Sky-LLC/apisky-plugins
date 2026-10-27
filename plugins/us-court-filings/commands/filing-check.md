@@ -1,18 +1,18 @@
 ---
-description: Pre-filing checklist for a US court document
+description: Pre-filing checklist for a court document
 ---
 
 # /filing-check
 
-Пройди чек-лист и выведи два списка: «готово» и «блокеры подачи».
+Run the document against the checklist and report `ok` / `fix` per line.
 
-1. Caption: суд, стороны, номер дела, название документа, дата, бар-номер.
-2. Оглавление и таблица авторитетов совпадают с текстом по страницам.
-3. Statement of facts: каждый факт имеет ссылку на record.
-4. Legal standard назван и соответствует типу документа.
-5. Conclusion просит ровно то, что нужно.
-6. Подпись, certificate of service (с датой и способом вручения), сертификат конференции.
-7. Локальные правила: объём, шрифт, поля, нумерация, приложения, имя ECF-файла.
-8. Сроки: посчитаны по правилам суда, дата подачи не выходной.
+1. Caption complete: court, parties, case number, title, hearing date, bar number.
+2. Tables present where required, and consistent with the body.
+3. Every factual assertion cites the record.
+4. Every citation in the table of authorities appears in the text, and vice versa.
+5. Length inside the local limit (pages or words, counted the way the court counts).
+6. Conclusion asks for the exact relief, in the form the order would use.
+7. Signature block, certificate of service, certificate of conference.
+8. Format: margins, font, spacing, page numbers, exhibit labels.
 
-Блокер — всё, что приведёт к отказу в регистрации или к отказу по существу.
+Then list what a clerk would bounce first, in one line each.

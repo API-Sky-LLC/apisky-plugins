@@ -1,18 +1,19 @@
 ---
 name: footprint-audit
-description: Сверка посадочных мест с даташитом до заказа — пины, паддинг, полярность. Load when a new footprint enters the project.
+description: Check a footprint against the datasheet before ordering — pins, pads, polarity. Load whenever a new footprint enters the project.
 ---
 
 # Footprint audit
 
-Чужой footprint — самая частая причина мёртвой платы. Сверяй по даташиту, не по названию:
+A third-party footprint is the most common reason a board comes back dead. Compare against the
+datasheet, not against the name:
 
-1. **Нумерация пинов**: совпадает с даташитом, а не с удобством символа.
-2. **Геометрия**: размеры падов, шаг, ширина вывода — по recommended land pattern, не по
-   типовому корпусу из справочника.
-3. **Полярность**: ключ/точка/скос на корпусе и на шелкографии совпадают.
-4. **Скрытые пины**: тепловой пад, EP-пад, экран — подключены и имеют термальные отверстия.
-5. **3D**: модель не пересекается с соседями по высоте.
+1. **Pin numbering**: matches the datasheet, not the convenience of the symbol.
+2. **Geometry**: pad size, pitch, lead width — from the recommended land pattern, not from a
+   generic package in a reference library.
+3. **Polarity**: key / dot / chamfer on the body and on the silkscreen agree.
+4. **Hidden pads**: thermal pad, exposed pad, shield — connected and given thermal vias.
+5. **3D**: the model does not collide with its neighbours in height.
 
-Если посадочное место меняется — обнови `contentHash` набора (пересборка индекса), иначе
-магазин честно откажется ставить новый байт под старым хешем.
+If the footprint changes, the pack's `contentHash` changes too: rebuild the index, otherwise the
+store keeps serving the old geometry.

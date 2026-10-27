@@ -8,14 +8,23 @@
     "email": "plugins@apisky.net"
   },
   "license": "MIT",
-  "keywords": ["legal", "court", "filing", "pdf"],
+  "keywords": [
+    "legal",
+    "court",
+    "filing",
+    "pdf"
+  ],
   "skills": "skills",
   "rules": "rules",
   "commands": "commands",
   "agents": "agents",
   "x-skyline": {
-    "summary": "Судебные документы США в формате суда: шапка, pleading paper, таблица авторитетов и certificate of service.",
-    "tags": ["legal", "court", "filing"],
+    "summary": "US court filings in the court's own format: caption, pleading paper, table of authorities, certificate of service.",
+    "tags": [
+      "legal",
+      "court",
+      "filing"
+    ],
     "trust": "verified",
     "installs": 0,
     "stars": 0

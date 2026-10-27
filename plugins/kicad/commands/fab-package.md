@@ -1,14 +1,15 @@
 ---
-description: Build the manufacturing package and list what is missing
+description: Build and check the fab package before ordering
 ---
 
 # /fab-package
 
-Собери пакет для завода и перечисли, чего не хватает.
+Produce the manufacturing package for the current board and report what is missing.
 
-1. Проверь, что DRC и ERC чистые (или назови оставшиеся нарушения с координатами).
-2. Сгенерируй герберы, сверловку, позиции для сборки.
-3. Проверь BOM: у каждого компонента есть `MPN`, у всех DNP-деталь помечена, а не удалена.
-4. Перечисли в README: слои, толщина меди, толщина платы, маска, покрытие, количество.
+1. Run DRC and ERC; stop on any error, list warnings with the rule name.
+2. Generate gerbers, drill files and the position file into `fab/`.
+3. Verify the package: every layer present, outline closed, drill count matches the pad count.
+4. BOM: `Reference`, `Value`, `Footprint`, `MPN`, `Description`, quantity.
+5. README: copper weight, mask colour, board thickness, surface finish, quantity, panelization.
 
-Выведи список файлов и отдельный список блокеров «заказ невозможен, потому что …».
+Output a checklist with `ok` / `missing` per line, never a paragraph.

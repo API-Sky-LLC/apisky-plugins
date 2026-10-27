@@ -1,11 +1,14 @@
 ---
-description: Never invent a citation; mark the gap instead
+description: Never fabricate a citation, a quote or a page number
 alwaysApply: true
 ---
 
 # No invented citations
 
-- Любая цитата должна быть проверяема по материалам, которые пользователь дал.
-- Нет источника — `[CITE NEEDED: <что искать>]`, а не выдуманное дело с правдоподобным номером.
-- Не подставляй год, том или страницу «по памяти»: это дороже пропуска.
-- Если меняется цитируемый текст — обнови и таблицу авторитетов, и страницы в ней.
+- If a case, statute or page is not in the material you were given, write `[CITE NEEDED]` and
+  describe what has to be found.
+- Never "improve" a quote: ellipses and brackets are the only edits allowed, and they change
+  nothing substantive.
+- A pin cite must come from the source, not from a plausible guess at where the holding sits.
+- When the holding is remembered but the citation is not verified, say exactly that to the user
+  before drafting anything around it.

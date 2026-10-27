@@ -1,14 +1,14 @@
 ---
 name: e2e-scenarios
-description: Сценарии e2e по пользовательским путям, а не по DOM. Load when writing or reviewing end-to-end tests.
+description: E2E scenarios written from user paths, not from the DOM. Load when writing or reviewing end-to-end tests.
 ---
 
 # E2E scenarios
 
-Пиши сценарии от намерения пользователя: «вошёл, открыл настройки, сохранил»,
-а не «кликнул на div:nth-child(3)».
+Write scenarios from the user's intent: "signed in, opened settings, saved", not "clicked
+div:nth-child(3)".
 
-- Селекторы — роль (`getByRole`) или `data-testid`, никогда CSS-путь.
-- Один сценарий — один пользовательский путь; подготовка данных — в фикстурах.
-- Падение должно называть шаг: `await test.step('сохранить профиль', …)`.
-- Никаких `waitForTimeout`: жди состояния, а не времени.
+- Selectors are roles (`getByRole`) or `data-testid`, never a CSS path.
+- One scenario, one user path; data setup belongs in fixtures.
+- A failure must name the step: `await test.step('save the profile', …)`.
+- No `waitForTimeout`: wait for a state, not for time.

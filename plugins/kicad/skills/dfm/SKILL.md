@@ -1,19 +1,20 @@
 ---
 name: dfm
-description: Технологичность платы и пакет для завода — допуски, панелизация, герберы. Load before generating fab files.
+description: Manufacturing limits and the fab package — tolerances, panelization, gerbers. Load before generating fab files.
 ---
 
 # DFM (design for manufacturing)
 
-Дешёвая плата отличается от дорогой не схемой, а допусками. Проверяй перед генерацией:
+A cheap board differs from an expensive one in tolerances, not in the schematic. Check before
+generating anything:
 
-- **Минимумы завода**: дорожка/зазор 0.15 мм, отверстие 0.3 мм, кольцо 0.15 мм,
-  маска 0.1 мм — если плата сложнее, это повод спросить завод, а не «поджать».
-- **Полигоны**: термическая развязка на пинах, подключённых к земле, иначе пайка руками
-  превращается в нагрев платы.
-- **Панелизация**: зазор между платами 2 мм, техполе с метками и fiducial для автомата,
-  разрывы (mouse bites / V-cut) не под компонентами.
-- **Стороны**: если детали с двух сторон — уточни, что вторая сторона не паяется волной.
+- **Fab minimums**: track/clearance 0.15 mm, hole 0.3 mm, annular ring 0.15 mm, mask sliver
+  0.1 mm — if the board needs less, ask the fab, do not just squeeze it.
+- **Pours**: thermal reliefs on grounded pads, otherwise hand soldering turns into heating the
+  whole board.
+- **Panelization**: 2 mm between boards, tooling strip with fiducials for the machine, mouse
+  bites / V-cuts never under a component.
+- **Sides**: if parts sit on both sides, confirm the second side is not wave soldered.
 
-Выход — `gerbers/`, `*.drl`, `*.pos`, BOM с `MPN` и `Description`, README с толщиной меди,
-маской, толщиной платы и количеством. Без `MPN` BOM не принимают всерьёз.
+Output: `gerbers/`, `*.drl`, `*.pos`, a BOM with `MPN` and `Description`, and a README with
+copper weight, mask, board thickness and quantity. A BOM without `MPN` is not taken seriously.

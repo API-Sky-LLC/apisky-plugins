@@ -8,13 +8,21 @@
     "email": "plugins@apisky.net"
   },
   "license": "MIT",
-  "keywords": ["starter", "review", "git"],
+  "keywords": [
+    "starter",
+    "review",
+    "git"
+  ],
   "skills": "skills",
   "rules": "rules",
   "commands": "commands",
   "x-skyline": {
-    "summary": "Один скил, правило и команда — минимум, с которого начинают все.",
-    "tags": ["starter", "review", "git"],
+    "summary": "One skill, one rule and one command: the floor every project starts from.",
+    "tags": [
+      "starter",
+      "review",
+      "git"
+    ],
     "trust": "verified",
     "installs": 0,
     "stars": 0
