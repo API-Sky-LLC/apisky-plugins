@@ -1,8 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="US court filings">
-  <rect width="64" height="64" rx="14" fill="#3794ff"/>
-  <path d="M20 14h17l9 9v27H20z" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M36 14v10h10" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
-  <g stroke="#ffffff" stroke-width="4" stroke-linecap="round">
-    <path d="M27 33h12M27 41h12"/>
+  <rect width="64" height="64" rx="14" fill="#1f6feb"/>
+  <path d="M18 12h18.5L47 22.5V52H18z" fill="#ffffff"/>
+  <path d="M36.5 12 47 22.5h-10.5z" fill="#1f6feb" opacity="0.45"/>
+  <g fill="#1f6feb">
+    <rect x="24" y="28" width="17" height="3.4" rx="1.7"/>
+    <rect x="24" y="35" width="17" height="3.4" rx="1.7"/>
+    <rect x="24" y="42" width="11" height="3.4" rx="1.7"/>
   </g>
 </svg>
