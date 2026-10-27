@@ -2,7 +2,7 @@
   "name": "engineering-basics",
   "displayName": "Engineering basics",
   "version": "1.0.0",
-  "description": "Repo analysis, commit style and a review command — the floor every project starts from.",
+  "description": "The floor every project starts from: a repository-analysis skill, a commit-message rule and a /review command that lists only real problems.",
   "author": {
     "name": "APISky",
     "email": "plugins@apisky.net"
@@ -17,7 +17,7 @@
   "rules": "rules",
   "commands": "commands",
   "x-skyline": {
-    "summary": "One skill, one rule and one command: the floor every project starts from.",
+    "summary": "Repo reading, commit style and a review command.",
     "tags": [
       "starter",
       "review",

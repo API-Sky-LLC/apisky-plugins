@@ -2,7 +2,7 @@
   "name": "kicad",
   "displayName": "KiCad PCB",
   "version": "1.0.0",
-  "description": "Schematic and board work in KiCad: ERC/DRC triage, routing order, DFM rules and fab output.",
+  "description": "Schematic and board work in KiCad: what to check before ordering, how to order the routing, which fab minimums hold, and what a fab package has to contain.",
   "author": {
     "name": "APISky",
     "email": "plugins@apisky.net"
@@ -18,7 +18,7 @@
   "rules": "rules",
   "commands": "commands",
   "x-skyline": {
-    "summary": "Schematic and board work in KiCad: ERC/DRC triage, routing order, DFM rules and the fab package.",
+    "summary": "ERC/DRC triage, routing order, DFM rules and the fab package for KiCad boards.",
     "tags": [
       "kicad",
       "pcb",

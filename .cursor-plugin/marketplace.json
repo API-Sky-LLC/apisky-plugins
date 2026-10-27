@@ -12,22 +12,22 @@
     {
       "name": "engineering-basics",
       "source": "./plugins/engineering-basics",
-      "description": "One skill, one rule and one command: the floor every project starts from."
+      "description": "Repo reading, commit style and a review command."
     },
     {
       "name": "kicad",
       "source": "./plugins/kicad",
-      "description": "Schematic and board work in KiCad: ERC/DRC triage, routing order, DFM rules and the fab package."
+      "description": "ERC/DRC triage, routing order, DFM rules and the fab package for KiCad boards."
     },
     {
       "name": "qa-playwright",
       "source": "./plugins/qa-playwright",
-      "description": "E2E skills for Playwright plus a required MCP server (the pack never starts it for you)."
+      "description": "Intent-first e2e scenarios plus the Playwright MCP requirement."
     },
     {
       "name": "us-court-filings",
       "source": "./plugins/us-court-filings",
-      "description": "US court filings in the court's own format: caption, pleading paper, table of authorities, certificate of service."
+      "description": "Court-format filings: caption, pleading paper, table of authorities."
     }
   ]
 }

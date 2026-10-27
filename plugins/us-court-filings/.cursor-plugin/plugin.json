@@ -2,7 +2,7 @@
   "name": "us-court-filings",
   "displayName": "US Court Filings",
   "version": "1.0.0",
-  "description": "Draft US court filings in the court's own format: caption, pleading paper, table of authorities and a certificate of service.",
+  "description": "Drafting US court filings in the court's own format: part order, local-rule limits, a checked table of authorities, a pre-filing checklist and a reviewer subagent.",
   "author": {
     "name": "APISky",
     "email": "plugins@apisky.net"
@@ -19,7 +19,7 @@
   "commands": "commands",
   "agents": "agents",
   "x-skyline": {
-    "summary": "US court filings in the court's own format: caption, pleading paper, table of authorities, certificate of service.",
+    "summary": "Court-format filings: caption, pleading paper, table of authorities.",
     "tags": [
       "legal",
       "court",

@@ -2,6 +2,6 @@
   "schemaVersion": 1,
   "algorithm": "ed25519",
   "keyId": "apisky-dev",
-  "signature": "na2TifKOj+2D0Jifm5bakNVbHzsrHksAtvC1uQSe+Kk3ayiG26pleby4cg87JR8FDTlsYkLciSU5ofOGGpX4BA==",
-  "signedAt": "2026-10-27T12:33:22.639Z"
+  "signature": "pAdx9BWFd/fW/AwwI7/FkpZFowNn1XKShX16dfl4wy7S3Bqhn2cU7gg70IJNBx/pbomab1PB+hAQi7llwHYZBQ==",
+  "signedAt": "2026-10-27T12:37:14.103Z"
 }

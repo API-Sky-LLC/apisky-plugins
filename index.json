@@ -10,8 +10,8 @@
     {
       "slug": "engineering-basics",
       "name": "Engineering basics",
-      "summary": "One skill, one rule and one command: the floor every project starts from.",
-      "description": "Repo analysis, commit style and a review command \u2014 the floor every project starts from.",
+      "summary": "Repo reading, commit style and a review command.",
+      "description": "The floor every project starts from: a repository-analysis skill, a commit-message rule and a /review command that lists only real problems.",
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
@@ -61,8 +61,8 @@
         },
         {
           "path": "plugins/engineering-basics/.cursor-plugin/plugin.json",
-          "sha256": "sha256:911727c9f778ed362ea0217439fa0fbf28453bb870423b21236287da6e46b287",
-          "bytes": 668
+          "sha256": "sha256:b6dc83a900a6a74e3f94c00ac97f8e9bcd7cf2b927a6a4d13e0e2ecba492774e",
+          "bytes": 694
         },
         {
           "path": "plugins/engineering-basics/commands/review.md",
@@ -84,8 +84,8 @@
     {
       "slug": "kicad",
       "name": "KiCad PCB",
-      "summary": "Schematic and board work in KiCad: ERC/DRC triage, routing order, DFM rules and the fab package.",
-      "description": "Schematic and board work in KiCad: ERC/DRC triage, routing order, DFM rules and fab output.",
+      "summary": "ERC/DRC triage, routing order, DFM rules and the fab package for KiCad boards.",
+      "description": "Schematic and board work in KiCad: what to check before ordering, how to order the routing, which fab minimums hold, and what a fab package has to contain.",
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
@@ -163,8 +163,8 @@
       "files": [
         {
           "path": "plugins/kicad/.cursor-plugin/plugin.json",
-          "sha256": "sha256:890e1cb44b425ffdb44c29b74d4cd0b5d98cc4b0abd4522f8ec9e4864a263a55",
-          "bytes": 738
+          "sha256": "sha256:8019cda3d199fff33a0101e307daf59ef738fe709c7a2a8ab356b138110822d3",
+          "bytes": 784
         },
         {
           "path": "plugins/kicad/.mcp.json",
@@ -206,8 +206,8 @@
     {
       "slug": "qa-playwright",
       "name": "QA: Playwright",
-      "summary": "E2E skills for Playwright plus a required MCP server (the pack never starts it for you).",
-      "description": "Intent-first e2e scenarios plus the Playwright MCP requirement.",
+      "summary": "Intent-first e2e scenarios plus the Playwright MCP requirement.",
+      "description": "Skills for end-to-end tests in Playwright, written from user paths instead of the DOM, plus a required MCP server that the pack never starts.",
       "version": "1.0.0",
       "license": "Apache-2.0",
       "author": "APISky",
@@ -249,8 +249,8 @@
         },
         {
           "path": "plugins/qa-playwright/.cursor-plugin/plugin.json",
-          "sha256": "sha256:78a568f101ee6c8b775b0e407fa3f03afdf3d76e26c6c7213fc12aa311a8b698",
-          "bytes": 594
+          "sha256": "sha256:e5296029b20c5eadcb28e860c4bf0e37f0299dbaf52da12e5b549e676f1b268d",
+          "bytes": 647
         },
         {
           "path": "plugins/qa-playwright/.mcp.json",
@@ -272,8 +272,8 @@
     {
       "slug": "us-court-filings",
       "name": "US Court Filings",
-      "summary": "US court filings in the court's own format: caption, pleading paper, table of authorities, certificate of service.",
-      "description": "Draft US court filings in the court's own format: caption, pleading paper, table of authorities and a certificate of service.",
+      "summary": "Court-format filings: caption, pleading paper, table of authorities.",
+      "description": "Drafting US court filings in the court's own format: part order, local-rule limits, a checked table of authorities, a pre-filing checklist and a reviewer subagent.",
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
@@ -342,8 +342,8 @@
       "files": [
         {
           "path": "plugins/us-court-filings/.cursor-plugin/plugin.json",
-          "sha256": "sha256:9589409d0733c3fa72547cbdee5f0887d4ac952cbc25aa308b7401594f4c1453",
-          "bytes": 774
+          "sha256": "sha256:9b1af59f7b90450eceb68bc80c708405af4ef349a911558c78a5bcfc3849d297",
+          "bytes": 766
         },
         {
           "path": "plugins/us-court-filings/agents/filing-reviewer.md",

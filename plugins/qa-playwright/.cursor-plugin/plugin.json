@@ -2,7 +2,7 @@
   "name": "qa-playwright",
   "displayName": "QA: Playwright",
   "version": "1.0.0",
-  "description": "Intent-first e2e scenarios plus the Playwright MCP requirement.",
+  "description": "Skills for end-to-end tests in Playwright, written from user paths instead of the DOM, plus a required MCP server that the pack never starts.",
   "author": {
     "name": "APISky",
     "email": "plugins@apisky.net"
@@ -16,7 +16,7 @@
   "skills": "skills",
   "mcp": ".mcp.json",
   "x-skyline": {
-    "summary": "E2E skills for Playwright plus a required MCP server (the pack never starts it for you).",
+    "summary": "Intent-first e2e scenarios plus the Playwright MCP requirement.",
     "tags": [
       "qa",
       "playwright",
