@@ -43,6 +43,14 @@ extension (`skyline/data/skills/`), they use Skyline-only tool tags, and a priva
 pack is filtered from the public catalog and 404s by id. It is here so the
 catalog has an honest inventory — not to be installed from the store.
 
+## Language
+
+Everything in this repository is **English**: manifests, summaries, skill bodies, rules and
+commands. The store is an English product surface and the packs are read by users of the web,
+mobile and extension clients; a pack summary is not the place for a translation.
+`node scripts/build-index.mjs --check` covers the generated files, so a stray non-ASCII
+description is caught before it is published.
+
 ## Add or change a plugin
 
 ```bash
