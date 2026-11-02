@@ -135,7 +135,10 @@ node scripts/keygen.mjs --id apisky-2026 --out ~/.keys     # once, offline
 
 ## CI
 
-`.github/workflows/publish.yml` runs on every push and PR to `main`:
+`docs/ci/publish.yml` is the publish gate; copy it to `.github/workflows/publish.yml` in the
+GitHub UI (or push it with a token that has the `workflow` scope — a plain `repo` token is
+rejected with `refusing to allow a Personal Access Token to create or update workflow`). It runs
+on every push and PR to `main`:
 
 1. `npm run check` — the index is not stale, hashes match the files;
 2. `npm run sign` with `SKILL_STORE_SIGNING_KEY` (skipped on PRs from forks, which
