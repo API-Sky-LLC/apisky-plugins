@@ -1,0 +1,38 @@
+{
+  "name": "graphify",
+  "displayName": "Graphify",
+  "version": "1.0.0",
+  "description": "Turn a repository into a queryable knowledge graph and answer questions from the graph instead of re-reading files: build it once, then query, trace paths and explain concepts with every edge tagged extracted or inferred.",
+  "author": {
+    "name": "APISky",
+    "email": "plugins@apisky.net"
+  },
+  "license": "MIT",
+  "keywords": [
+    "graphify",
+    "knowledge-graph",
+    "code-search",
+    "mcp",
+    "architecture"
+  ],
+  "skills": "skills",
+  "rules": "rules",
+  "commands": "commands",
+  "mcp": ".mcp.json",
+  "x-skyline": {
+    "summary": "Build a local code knowledge graph once, then answer architecture questions by querying it instead of grepping.",
+    "tags": [
+      "graphify",
+      "knowledge-graph",
+      "architecture",
+      "mcp"
+    ],
+    "trust": "verified",
+    "requires": [
+      "mcp:graphify"
+    ],
+    "installs": 0,
+    "stars": 0,
+    "icon": "icon.svg"
+  }
+}

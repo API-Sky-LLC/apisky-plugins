@@ -88,6 +88,108 @@
       ]
     },
     {
+      "slug": "graphify",
+      "name": "Graphify",
+      "summary": "Build a local code knowledge graph once, then answer architecture questions by querying it instead of grepping.",
+      "description": "Turn a repository into a queryable knowledge graph and answer questions from the graph instead of re-reading files: build it once, then query, trace paths and explain concepts with every edge tagged extracted or inferred.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "APISky",
+      "updatedAt": "2026-11-02T13:44:20+03:00",
+      "tags": [
+        "graphify",
+        "knowledge-graph",
+        "architecture",
+        "mcp"
+      ],
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkdyYXBoaWZ5Ij4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iIzBmNzY2ZSIvPgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyLjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNMjAgNDQgTDIwIDI2Ii8+CiAgICA8cGF0aCBkPSJNMjAgMjYgTDM0IDE4Ii8+CiAgICA8cGF0aCBkPSJNMjAgMjYgTDM2IDMwIi8+CiAgICA8cGF0aCBkPSJNMzYgMzAgTDQ0IDQyIi8+CiAgICA8cGF0aCBkPSJNMzQgMTggTDQ0IDQyIi8+CiAgPC9nPgogIDxnIGZpbGw9IiNmZmZmZmYiPgogICAgPGNpcmNsZSBjeD0iMjAiIGN5PSIyNiIgcj0iNS4yIi8+CiAgICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjQ0IiByPSI0LjIiLz4KICAgIDxjaXJjbGUgY3g9IjM0IiBjeT0iMTgiIHI9IjQuMiIvPgogICAgPGNpcmNsZSBjeD0iMzYiIGN5PSIzMCIgcj0iNC42Ii8+CiAgICA8Y2lyY2xlIGN4PSI0NCIgY3k9IjQyIiByPSI0LjIiLz4KICA8L2c+Cjwvc3ZnPgo=",
+      "path": "plugins/graphify",
+      "items": [
+        {
+          "name": "graph-build",
+          "kind": "skill",
+          "description": "Install the Graphify CLI and build or refresh the knowledge graph of the current repository. Load when graphify-out is missing, when the graph is stale after big changes, or when the MCP server has no graph to serve.",
+          "path": "plugins/graphify/skills/graph-build",
+          "contentHash": "sha256:6ffae4924d24cae86f4f3a175f70840c4e4ba56577997299964619464056ccb4",
+          "fileCount": 1
+        },
+        {
+          "name": "graph-query",
+          "kind": "skill",
+          "description": "Answer architecture and code questions from the Graphify knowledge graph instead of grepping. Load when the question is about how things connect, who calls what, or where a concept lives across many files.",
+          "path": "plugins/graphify/skills/graph-query",
+          "contentHash": "sha256:3cb5fc461fad0273ab2e0790f185b3079b2f3270d07c5e73ce7fa7171e409c85",
+          "fileCount": 1
+        },
+        {
+          "name": "graph-before-grep",
+          "kind": "rule",
+          "description": "Read the code graph before grepping the tree",
+          "path": "plugins/graphify/rules/graph-before-grep.mdc",
+          "contentHash": "sha256:80c26e8f1abe4cafd956b124fbdcc8938fd19c924f24c2adefeb9ba78db4bdcf",
+          "fileCount": 1
+        },
+        {
+          "name": "graphify-build",
+          "kind": "command",
+          "description": "Build the code knowledge graph for the current repository and report what it found",
+          "path": "plugins/graphify/commands/graphify-build.md",
+          "contentHash": "sha256:e4b0513ad48c7c5b8b82273b0e2e0a6ef928f3b076722368e246f9056c2ed034",
+          "fileCount": 1
+        },
+        {
+          "name": "graphify",
+          "kind": "mcp",
+          "description": "MCP server the pack requires: graphify",
+          "requiresMcp": "graphify"
+        }
+      ],
+      "requires": [
+        "mcp:graphify"
+      ],
+      "trust": "verified",
+      "visibility": "public",
+      "installs": 0,
+      "stars": 0,
+      "files": [
+        {
+          "path": "plugins/graphify/.cursor-plugin/plugin.json",
+          "sha256": "sha256:1b6baba509a90fbd5de096afa8a89c0a7113ecf3ce69ffd5f152e8ef1232b7c1",
+          "bytes": 991
+        },
+        {
+          "path": "plugins/graphify/.mcp.json",
+          "sha256": "sha256:7f59caaef547da018e5cf9219ec08b797affc1cf913b1363057d579058347b12",
+          "bytes": 248
+        },
+        {
+          "path": "plugins/graphify/commands/graphify-build.md",
+          "sha256": "sha256:6cb35936318ff177588a6a02b2aa87c8a53e942b3c92710c428e28d58ce74217",
+          "bytes": 1089
+        },
+        {
+          "path": "plugins/graphify/icon.svg",
+          "sha256": "sha256:80bfe988529b70a3c4084e2b85dc30cbd4be1a32d1c3dbf63a5d7e535a779001",
+          "bytes": 632
+        },
+        {
+          "path": "plugins/graphify/rules/graph-before-grep.mdc",
+          "sha256": "sha256:395723d383de53885ca9daee41dfdd926c4f32d58123336bf83d064f25df1e4c",
+          "bytes": 919
+        },
+        {
+          "path": "plugins/graphify/skills/graph-build/SKILL.md",
+          "sha256": "sha256:c0fec79318fd1a5ce2dcd5d43150ba3221a7693594a451d220459a48f2f89a91",
+          "bytes": 2404
+        },
+        {
+          "path": "plugins/graphify/skills/graph-query/SKILL.md",
+          "sha256": "sha256:66f3b9bc3a243c13e3837d908c523fe0e8b30016463d338885a1075e9ec412a5",
+          "bytes": 3032
+        }
+      ]
+    },
+    {
       "slug": "kicad",
       "name": "KiCad PCB",
       "summary": "ERC/DRC triage, routing order, DFM rules and the fab package for KiCad boards.",

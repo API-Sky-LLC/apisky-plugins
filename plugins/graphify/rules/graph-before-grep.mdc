@@ -1,0 +1,16 @@
+---
+description: Read the code graph before grepping the tree
+alwaysApply: true
+---
+
+# Graph first, grep second
+
+- When the question is about relationships — who calls what, where a concept lives, how two modules connect — check
+  `graphify-out/graph.json` first (`graphify query`, `graphify path`, `graphify explain`) instead of reading files.
+- Do not load `graph.json` into the context whole. Ask it a question and bring back the subgraph.
+- Carry the edge tag into the answer: `EXTRACTED` is fact, `INFERRED` is a lead that must be confirmed against the
+  file and line the node reports.
+- A graph older than the last relevant commit is stale. Rebuild it, or say that the answer describes the code as it
+  was — never present a stale edge as current behaviour.
+- `grep` stays the right tool for exact strings, log lines, config keys and anything outside the parsed tree. Say
+  which tool produced the answer.

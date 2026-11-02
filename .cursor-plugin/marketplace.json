@@ -15,6 +15,11 @@
       "description": "Repo reading, commit style and a review command."
     },
     {
+      "name": "graphify",
+      "source": "./plugins/graphify",
+      "description": "Build a local code knowledge graph once, then answer architecture questions by querying it instead of grepping."
+    },
+    {
       "name": "kicad",
       "source": "./plugins/kicad",
       "description": "ERC/DRC triage, routing order, DFM rules and the fab package for KiCad boards."
