@@ -56,11 +56,6 @@
       "stars": 0,
       "files": [
         {
-          "path": "plugins/engineering-basics/.DS_Store",
-          "sha256": "sha256:3c9d3eb45e60e218988c246aef86af15292c5d2741bba5dd638c05c0d2f30932",
-          "bytes": 6148
-        },
-        {
           "path": "plugins/engineering-basics/.cursor-plugin/plugin.json",
           "sha256": "sha256:55d8a0e48921f5934beae933245c0d05f82d941a4b234e18eee0ab61c6e69d08",
           "bytes": 718
@@ -358,11 +353,6 @@
       "stars": 0,
       "files": [
         {
-          "path": "plugins/qa-playwright/.DS_Store",
-          "sha256": "sha256:6d5132834d93f56d2389300daed43ee107995c8f67bc5b16181d42f93137db6f",
-          "bytes": 6148
-        },
-        {
           "path": "plugins/qa-playwright/.cursor-plugin/plugin.json",
           "sha256": "sha256:0a9086a2611c131d7bb4c9f5109ad3a288b5ec5703205e04960399c7819e9612",
           "bytes": 671
@@ -376,11 +366,6 @@
           "path": "plugins/qa-playwright/icon.svg",
           "sha256": "sha256:6b867de4a37502064e7c96d824f708d5fdcda954167494f3f49f9076daf1c6fe",
           "bytes": 5224
-        },
-        {
-          "path": "plugins/qa-playwright/skills/.DS_Store",
-          "sha256": "sha256:ca6269f02af8bc1807ce96c4bbaab3692d7998bad60918b619082699713dabf9",
-          "bytes": 6148
         },
         {
           "path": "plugins/qa-playwright/skills/e2e-scenarios/SKILL.md",
