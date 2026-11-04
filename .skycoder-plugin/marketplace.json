@@ -5,7 +5,7 @@
     "email": "plugins@apisky.net"
   },
   "metadata": {
-    "description": "APISky agent plugins: skills, rules, commands and MCP requirements for Skyline, Cursor and Claude Code.",
+    "description": "APISky agent plugins: skills, rules, commands and MCP requirements for Skyline and other agent clients.",
     "version": "1.0.0"
   },
   "plugins": [

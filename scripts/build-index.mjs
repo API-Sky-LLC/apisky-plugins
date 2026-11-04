@@ -3,12 +3,13 @@
  * build-index.mjs — assemble the registry index from plugin manifests.
  *
  * The repository is the source of truth: `plugins/<slug>/` with a
- * `.cursor-plugin/plugin.json` manifest, item folders (`skills/`, `rules/`,
+ * `.skycoder-plugin/plugin.json` manifest, item folders (`skills/`, `rules/`,
  * `commands/`, `agents/`) and an optional `.mcp.json`. This script turns that
  * tree into:
  *
  *   index.json            what Legion's skill store reads (ids, hashes, trust)
- *   .cursor-plugin/marketplace.json   the Cursor-compatible marketplace list
+ *   .skycoder-plugin/marketplace.json   the marketplace list (generated; agent
+ *                                       clients that read this layout)
  *
  * Hashes are not decorative: `items[].contentHash` is the *framed tree hash*
  * Legion stores in the runtime profile (`contentHash`), and `files[].sha256` is
@@ -163,15 +164,16 @@ function newestFileTime(dir) {
 // ── manifest → pack ─────────────────────────────────────────────────────────
 
 function readManifest(pluginDir) {
-  const path = join(pluginDir, '.cursor-plugin', 'plugin.json');
+  const path = join(pluginDir, '.skycoder-plugin', 'plugin.json');
   if (!existsSync(path)) throw new Error(`missing ${toPosix(relative(ROOT, path))}`);
   return JSON.parse(readFileSync(path, 'utf8'));
 }
 
 /**
  * Store-only metadata rides in the manifest under `x-skyline`, so a plugin has
- * ONE manifest: Cursor reads the standard keys, Legion-facing fields live in the
- * extension block. Unknown keys are ignored by Skyline's own (loose) schema.
+ * ONE manifest: agent clients that read this layout get the standard keys, and
+ * the Legion-facing fields live in the extension block. Unknown keys are ignored
+ * by Skyline's own (loose) schema.
  */
 function skylineBlock(manifest) {
   const block = manifest['x-skyline'] ?? {};
@@ -417,7 +419,7 @@ export function buildMarketplace(index) {
     name: 'apisky-plugins',
     owner: { name: 'APISky', email: 'plugins@apisky.net' },
     metadata: {
-      description: 'APISky agent plugins: skills, rules, commands and MCP requirements for Skyline, Cursor and Claude Code.',
+      description: 'APISky agent plugins: skills, rules, commands and MCP requirements for Skyline and other agent clients.',
       version: '1.0.0',
     },
     plugins: index.packs.map((pack) => ({
@@ -440,7 +442,7 @@ function main(argv) {
   const check = argv.includes('--check');
   const checkHashes = argv.includes('--check-hashes');
   const indexPath = join(ROOT, 'index.json');
-  const marketPath = join(ROOT, '.cursor-plugin', 'marketplace.json');
+  const marketPath = join(ROOT, '.skycoder-plugin', 'marketplace.json');
 
   const current = existsSync(indexPath) ? JSON.parse(readFileSync(indexPath, 'utf8')) : undefined;
   const generatedAt =

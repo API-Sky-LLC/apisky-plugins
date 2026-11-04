@@ -48,12 +48,12 @@ jobs:
       - name: Commit regenerated registry
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.SKILL_STORE_SIGNING_KEY != ''
         run: |
-          if git diff --quiet -- index.json index.json.sig .cursor-plugin/marketplace.json; then
+          if git diff --quiet -- index.json index.json.sig .skycoder-plugin/marketplace.json; then
             echo "registry unchanged"
             exit 0
           fi
           git config user.name "apisky-registry-bot"
           git config user.email "plugins@apisky.net"
-          git add index.json index.json.sig .cursor-plugin/marketplace.json
+          git add index.json index.json.sig .skycoder-plugin/marketplace.json
           git commit -m "registry: regenerated index [skip ci]"
           git push

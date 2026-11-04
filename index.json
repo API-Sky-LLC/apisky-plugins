@@ -56,7 +56,7 @@
       "stars": 0,
       "files": [
         {
-          "path": "plugins/engineering-basics/.cursor-plugin/plugin.json",
+          "path": "plugins/engineering-basics/.skycoder-plugin/plugin.json",
           "sha256": "sha256:55d8a0e48921f5934beae933245c0d05f82d941a4b234e18eee0ab61c6e69d08",
           "bytes": 718
         },
@@ -148,14 +148,14 @@
       "stars": 0,
       "files": [
         {
-          "path": "plugins/graphify/.cursor-plugin/plugin.json",
-          "sha256": "sha256:1b6baba509a90fbd5de096afa8a89c0a7113ecf3ce69ffd5f152e8ef1232b7c1",
-          "bytes": 991
-        },
-        {
           "path": "plugins/graphify/.mcp.json",
           "sha256": "sha256:7f59caaef547da018e5cf9219ec08b797affc1cf913b1363057d579058347b12",
           "bytes": 248
+        },
+        {
+          "path": "plugins/graphify/.skycoder-plugin/plugin.json",
+          "sha256": "sha256:1b6baba509a90fbd5de096afa8a89c0a7113ecf3ce69ffd5f152e8ef1232b7c1",
+          "bytes": 991
         },
         {
           "path": "plugins/graphify/commands/graphify-build.md",
@@ -266,14 +266,14 @@
       "stars": 0,
       "files": [
         {
-          "path": "plugins/kicad/.cursor-plugin/plugin.json",
-          "sha256": "sha256:e6e3034c85d31b81030de34fedda81853cd6cf8609050328d3fe6815be790d1a",
-          "bytes": 808
-        },
-        {
           "path": "plugins/kicad/.mcp.json",
           "sha256": "sha256:6337bf88b54e1d6fff638d28f92e6f36368792053556be746b30284b83d9f95d",
           "bytes": 112
+        },
+        {
+          "path": "plugins/kicad/.skycoder-plugin/plugin.json",
+          "sha256": "sha256:e6e3034c85d31b81030de34fedda81853cd6cf8609050328d3fe6815be790d1a",
+          "bytes": 808
         },
         {
           "path": "plugins/kicad/commands/fab-package.md",
@@ -353,14 +353,14 @@
       "stars": 0,
       "files": [
         {
-          "path": "plugins/qa-playwright/.cursor-plugin/plugin.json",
-          "sha256": "sha256:0a9086a2611c131d7bb4c9f5109ad3a288b5ec5703205e04960399c7819e9612",
-          "bytes": 671
-        },
-        {
           "path": "plugins/qa-playwright/.mcp.json",
           "sha256": "sha256:388cb5132f16d852f85b4a1292ed1ee0911e73784a36b21e886470be475ff703",
           "bytes": 123
+        },
+        {
+          "path": "plugins/qa-playwright/.skycoder-plugin/plugin.json",
+          "sha256": "sha256:0a9086a2611c131d7bb4c9f5109ad3a288b5ec5703205e04960399c7819e9612",
+          "bytes": 671
         },
         {
           "path": "plugins/qa-playwright/icon.svg",
@@ -425,7 +425,7 @@
       "stars": 0,
       "files": [
         {
-          "path": "plugins/security-audit/.cursor-plugin/plugin.json",
+          "path": "plugins/security-audit/.skycoder-plugin/plugin.json",
           "sha256": "sha256:22a33090079704b44f05d7f6bff5937b2ac8d68d59d94a116abe2e264abebb31",
           "bytes": 868
         },
@@ -524,7 +524,7 @@
       "stars": 0,
       "files": [
         {
-          "path": "plugins/us-court-filings/.cursor-plugin/plugin.json",
+          "path": "plugins/us-court-filings/.skycoder-plugin/plugin.json",
           "sha256": "sha256:da2e71809f734b78dd54bc73faff9af37cb687278322bedb28bff1498efc47d7",
           "bytes": 790
         },

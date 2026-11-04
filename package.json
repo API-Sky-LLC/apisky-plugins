@@ -2,7 +2,7 @@
   "name": "apisky-plugins",
   "version": "1.0.0",
   "private": true,
-  "description": "APISky agent plugin registry: Cursor-compatible plugins plus a signed skill-store index for Legion.",
+  "description": "APISky agent plugin registry: plugins in the SkyCoder layout plus a signed skill-store index for Legion.",
   "license": "MIT",
   "type": "module",
   "scripts": {

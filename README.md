@@ -1,25 +1,25 @@
 # apisky-plugins
 
-Agent plugins for **Skyline**, Cursor and Claude Code — one repository, two consumers:
+Agent plugins for **Skyline** and other agent clients — one repository, two consumers:
 
 | Consumer | What it reads | Where |
 |---|---|---|
-| Cursor / Skyline / Claude Code | `.cursor-plugin/marketplace.json` + each `plugins/<slug>/.cursor-plugin/plugin.json` | repo root |
+| Agent clients that understand this layout | `.skycoder-plugin/marketplace.json` + each `plugins/<slug>/.skycoder-plugin/plugin.json` | repo root |
 | Legion skill store (web + mobile) | `index.json` + `index.json.sig` | repo root |
 
 A plugin is a **folder with skills, rules, commands and an optional MCP requirement**.
-Cursor reads the standard manifest keys; the store-only metadata (visibility, trust,
-tags, counters) rides in the same file under `x-skyline`, so there is exactly one
-manifest per plugin.
+A client that reads this layout reads the standard manifest keys; the store-only
+metadata (visibility, trust, tags, counters) rides in the same file under
+`x-skyline`, so there is exactly one manifest per plugin.
 
 ## Layout
 
 ```
-.cursor-plugin/marketplace.json     marketplace list (Cursor-compatible)
+.skycoder-plugin/marketplace.json  marketplace list (generated; agent clients)
 index.json                          generated catalog (do not hand-edit)
 index.json.sig                      detached ed25519 over index.json's exact bytes
 plugins/<slug>/
-  .cursor-plugin/plugin.json        manifest (name == folder name, semver version)
+  .skycoder-plugin/plugin.json      manifest (name == folder name, semver version)
   skills/<name>/SKILL.md            skill with YAML frontmatter (name, description)
   rules/<name>.mdc                  rules (frontmatter: description, alwaysApply, globs)
   commands/<name>.md                slash commands
@@ -55,8 +55,8 @@ description is caught before it is published.
 
 ```bash
 # 1. new plugin folder with a manifest and at least one item
-mkdir -p plugins/my-pack/.cursor-plugin plugins/my-pack/skills/my-skill
-$EDITOR plugins/my-pack/.cursor-plugin/plugin.json
+mkdir -p plugins/my-pack/.skycoder-plugin plugins/my-pack/skills/my-skill
+$EDITOR plugins/my-pack/.skycoder-plugin/plugin.json
 $EDITOR plugins/my-pack/skills/my-skill/SKILL.md
 
 # 2. regenerate the catalog
