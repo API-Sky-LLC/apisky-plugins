@@ -15,7 +15,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-10-27T20:17:11+03:00",
+      "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "starter",
         "review",
@@ -90,7 +90,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-02T14:26:30+03:00",
+      "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "graphify",
         "knowledge-graph",
@@ -192,7 +192,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-10-27T20:17:11+03:00",
+      "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "kicad",
         "pcb",
@@ -320,7 +320,7 @@
       "version": "1.0.0",
       "license": "Apache-2.0",
       "author": "APISky",
-      "updatedAt": "2026-10-27T20:17:11+03:00",
+      "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "qa",
         "playwright",
@@ -382,7 +382,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "Artur Hachuyan",
-      "updatedAt": "2026-10-27T20:17:11+03:00",
+      "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "security",
         "audit",
@@ -459,7 +459,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-10-27T20:17:11+03:00",
+      "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "legal",
         "court",
