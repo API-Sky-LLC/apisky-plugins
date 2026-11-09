@@ -377,11 +377,11 @@
     {
       "slug": "security-audit",
       "name": "Security Audit",
-      "summary": "Security audit of code repositories \u2014 checks for hardcoded secrets, SQL injection risks, and OWASP compliance.",
-      "description": "Security audit of code repositories \u2014 checks for hardcoded secrets, SQL injection risks, and OWASP compliance.",
+      "summary": "Audit a code repository for security problems: hardcoded secrets, injection, broken access control and the rest of the OWASP Top 10.",
+      "description": "Audit a code repository for security problems: hardcoded secrets, injection, broken access control and the rest of the OWASP Top 10.",
       "version": "1.0.0",
       "license": "MIT",
-      "author": "Artur Hachuyan",
+      "author": "APISky",
       "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "security",
@@ -395,30 +395,29 @@
         {
           "name": "repo-analysis",
           "kind": "skill",
+          "description": "Map an unfamiliar repository before auditing it \u2014 structure, stack, entry points and attack surface. Load before reviewing a codebase you have not seen.",
           "path": "plugins/security-audit/skills/repo-analysis",
-          "contentHash": "sha256:332621ef7564818bbe5a51c9562365b08bd9d587c5a3aadf63518b08f7e5dc14",
+          "contentHash": "sha256:9b8eb17c9873fe23cdb83a50f72d9d7c358d78b7c22f636832f293ccf20e9eb2",
           "fileCount": 1
         },
         {
           "name": "compliance-check",
           "kind": "rule",
-          "description": "compliance-check",
+          "description": "OWASP Top 10 checklist with the concrete pattern to look for in each category",
           "path": "plugins/security-audit/rules/compliance-check.mdc",
-          "contentHash": "sha256:1e33d1d2bfff1c138f5365cdd1351a5cca1786e1502e9f2709305bc78a120f2d",
+          "contentHash": "sha256:7bee4b67f3a5f8265c393dbcff16233a1eec35b69eb92f4d4c51c56d2d26d5d1",
           "fileCount": 1
         },
         {
           "name": "audit-repo",
           "kind": "command",
-          "description": "audit-repo",
+          "description": "Run a security audit over a repository and report ranked findings",
           "path": "plugins/security-audit/commands/audit-repo.md",
-          "contentHash": "sha256:de3933f81b0b5689b35da9145d4dbb0816668e02ef39312e3b8169dc54bc0e90",
+          "contentHash": "sha256:c507c95afd66ab80c6b516e6a97d20f1dd122fb78607525666be8357a92d77dd",
           "fileCount": 1
         }
       ],
-      "requires": [
-        "mcp:python"
-      ],
+      "requires": [],
       "trust": "verified",
       "visibility": "public",
       "installs": 0,
@@ -426,13 +425,13 @@
       "files": [
         {
           "path": "plugins/security-audit/.skycoder-plugin/plugin.json",
-          "sha256": "sha256:22a33090079704b44f05d7f6bff5937b2ac8d68d59d94a116abe2e264abebb31",
-          "bytes": 868
+          "sha256": "sha256:03d4833022b073f23f78435fcb496e8bebcd12c60b64f5294c35b99b8e05c8ba",
+          "bytes": 844
         },
         {
           "path": "plugins/security-audit/commands/audit-repo.md",
-          "sha256": "sha256:588ca31c848a6e80d2180368cb874f8c00fcc460acf8921705d0781ea2f2cc4c",
-          "bytes": 623
+          "sha256": "sha256:1e66ed5af0d15248a880dd41c587c17e984e9e306b6ffee45a36185b210beb9e",
+          "bytes": 1077
         },
         {
           "path": "plugins/security-audit/icon.svg",
@@ -441,13 +440,13 @@
         },
         {
           "path": "plugins/security-audit/rules/compliance-check.mdc",
-          "sha256": "sha256:f04510848d51f632b0ec39f7b35ab1be1958d0a070886aca2465a0e7708e22de",
-          "bytes": 1217
+          "sha256": "sha256:85d7c0608d7a79e8f41a1880e412c5cb0ee8e26ced7824edc97b33a4f5f7423a",
+          "bytes": 2041
         },
         {
           "path": "plugins/security-audit/skills/repo-analysis/SKILL.md",
-          "sha256": "sha256:442e65f2fcd36b44bfb1aa92d6ca3e65962193ad0faeaf39519a56871bed2d5a",
-          "bytes": 478
+          "sha256": "sha256:9e1a7c7aa0ff2cc3402b23f75587763b31bb5dfb0763a3a7d91e5bdd9a69b339",
+          "bytes": 1328
         }
       ]
     },

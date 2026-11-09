@@ -2,10 +2,10 @@
   "name": "security-audit",
   "displayName": "Security Audit",
   "version": "1.0.0",
-  "description": "Security audit of code repositories \u2014 checks for hardcoded secrets, SQL injection risks, and OWASP compliance.",
+  "description": "Audit a code repository for security problems: hardcoded secrets, injection, broken access control and the rest of the OWASP Top 10.",
   "author": {
-    "name": "Artur Hachuyan",
-    "email": "arturkhachuyan@gmail.com"
+    "name": "APISky",
+    "email": "plugins@apisky.net"
   },
   "license": "MIT",
   "keywords": [
@@ -18,7 +18,7 @@
   "rules": "rules",
   "commands": "commands",
   "x-skyline": {
-    "summary": "Security audit of code repositories \u2014 checks for hardcoded secrets, SQL injection risks, and OWASP compliance.",
+    "summary": "Audit a code repository for security problems: hardcoded secrets, injection, broken access control and the rest of the OWASP Top 10.",
     "tags": [
       "security",
       "audit",
@@ -26,9 +26,6 @@
       "compliance"
     ],
     "trust": "verified",
-    "requires": [
-      "mcp:python"
-    ],
     "installs": 0,
     "stars": 0,
     "icon": "icon.svg"

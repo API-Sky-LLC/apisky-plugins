@@ -1,25 +1,21 @@
-# audit-repo
+---
+description: Run a security audit over a repository and report ranked findings
+---
 
-Run a security audit on a code repository.
+# /audit-repo
 
-## Usage
+Audit the repository the human names (a path in the workspace, or a URL they have cloned).
 
-\`\`\`bash
-security-audit <repository-path-or-url>
-\`\`\`
+1. Load the `repo-analysis` skill and map the repository first: entry points, trust boundaries, stack.
+2. Apply the `compliance-check` rule across the code that handles untrusted input. Read the actual
+   handlers, not just the file list.
+3. Check secrets properly: committed `.env` files, keys in source, credentials in CI config, and
+   whether any secret is reachable from a client bundle.
+4. Check dependencies: advisories for the pinned versions, and whether a lockfile exists and matches
+   the manifest.
+5. For every finding, trace the input from its entry point to the sink, so the report says whether it
+   is reachable or only latent.
 
-## What it checks
-
-- Hardcoded secrets (API keys, passwords, tokens) using regex patterns
-- SQL injection risks (raw string concatenation in SQL queries)
-- OWASP Top 10 compliance (see compliance-check rule)
-- Common vulnerability patterns (XSS, path traversal, insecure headers)
-- Dependency vulnerability signals (outdated lock files)
-
-## Output
-
-A structured report with:
-- Severity-ranked findings
-- File locations and line numbers
-- Remediation suggestions
-- OWASP category for each finding
+Report a table ordered by severity — `severity`, `file:line`, `category`, `what an attacker gets`,
+`the fix`. Then a short list of what you could not verify. Never report a pattern as a vulnerability
+without the path that reaches it.

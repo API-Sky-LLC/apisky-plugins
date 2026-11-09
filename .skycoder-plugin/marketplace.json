@@ -32,7 +32,7 @@
     {
       "name": "security-audit",
       "source": "./plugins/security-audit",
-      "description": "Security audit of code repositories \u2014 checks for hardcoded secrets, SQL injection risks, and OWASP compliance."
+      "description": "Audit a code repository for security problems: hardcoded secrets, injection, broken access control and the rest of the OWASP Top 10."
     },
     {
       "name": "us-court-filings",
