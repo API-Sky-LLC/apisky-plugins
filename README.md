@@ -18,8 +18,6 @@ A plugin is a directory under `plugins/`. Clients read `.skycoder-plugin/marketp
 | [`security-audit`](plugins/security-audit/) | Repo security audit: secrets, injection, OWASP Top 10 | MIT |
 | [`us-court-filings`](plugins/us-court-filings/) | Filing structure, local rules, table of authorities, filing review | MIT |
 
-Skyline-only tool tags, and a private pack is filtered out of the public catalog.
-
 ## Repository layout
 
 ```

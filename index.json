@@ -27,7 +27,7 @@
         {
           "name": "repo-analysis",
           "kind": "skill",
-          "description": "Work through an unfamiliar repository \u2014 structure, stack, entry points. Load before answering questions about an unfamiliar codebase.",
+          "description": "Work through an unfamiliar repository — structure, stack, entry points. Load before answering questions about an unfamiliar codebase.",
           "path": "plugins/engineering-basics/skills/repo-analysis",
           "contentHash": "sha256:ca6f2f9514f9e9624f9044fa1d1de529d75e320c2d702cb84e6480971426819b",
           "fileCount": 1
@@ -205,7 +205,7 @@
         {
           "name": "board-review",
           "kind": "skill",
-          "description": "Review a board before it is ordered \u2014 ERC/DRC, power and connectors. Load before saying a KiCad board is ready to manufacture.",
+          "description": "Review a board before it is ordered — ERC/DRC, power and connectors. Load before saying a KiCad board is ready to manufacture.",
           "path": "plugins/kicad/skills/board-review",
           "contentHash": "sha256:c3aa1c3b1eb056fb45e1f50ad521444329adff3878a03f4ab01db485c6e23fa2",
           "fileCount": 1
@@ -213,7 +213,7 @@
         {
           "name": "dfm",
           "kind": "skill",
-          "description": "Manufacturing limits and the fab package \u2014 tolerances, panelization, gerbers. Load before generating fab files.",
+          "description": "Manufacturing limits and the fab package — tolerances, panelization, gerbers. Load before generating fab files.",
           "path": "plugins/kicad/skills/dfm",
           "contentHash": "sha256:b39412cc1eceb764d2ebf1a95007a7421df47e0c0787c4ad19438497bafa524c",
           "fileCount": 1
@@ -221,7 +221,7 @@
         {
           "name": "footprint-audit",
           "kind": "skill",
-          "description": "Check a footprint against the datasheet before ordering \u2014 pins, pads, polarity. Load whenever a new footprint enters the project.",
+          "description": "Check a footprint against the datasheet before ordering — pins, pads, polarity. Load whenever a new footprint enters the project.",
           "path": "plugins/kicad/skills/footprint-audit",
           "contentHash": "sha256:52e7d0e2fb57071d2c47ad012bcacedd7c58ea1ec6ec89954d5214bbe29f3ee8",
           "fileCount": 1
@@ -382,7 +382,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-04T15:34:42+03:00",
+      "updatedAt": "2026-11-09T19:18:31+03:00",
       "tags": [
         "security",
         "audit",
@@ -395,7 +395,7 @@
         {
           "name": "repo-analysis",
           "kind": "skill",
-          "description": "Map an unfamiliar repository before auditing it \u2014 structure, stack, entry points and attack surface. Load before reviewing a codebase you have not seen.",
+          "description": "Map an unfamiliar repository before auditing it — structure, stack, entry points and attack surface. Load before reviewing a codebase you have not seen.",
           "path": "plugins/security-audit/skills/repo-analysis",
           "contentHash": "sha256:9b8eb17c9873fe23cdb83a50f72d9d7c358d78b7c22f636832f293ccf20e9eb2",
           "fileCount": 1
