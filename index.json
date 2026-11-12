@@ -15,7 +15,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-04T15:34:42+03:00",
+      "updatedAt": "2026-11-09T19:27:44+03:00",
       "tags": [
         "starter",
         "review",
@@ -90,7 +90,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-04T15:34:42+03:00",
+      "updatedAt": "2026-11-09T19:27:44+03:00",
       "tags": [
         "graphify",
         "knowledge-graph",
@@ -192,7 +192,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-04T15:34:42+03:00",
+      "updatedAt": "2026-11-09T19:27:44+03:00",
       "tags": [
         "kicad",
         "pcb",
@@ -320,7 +320,7 @@
       "version": "1.0.0",
       "license": "Apache-2.0",
       "author": "APISky",
-      "updatedAt": "2026-11-04T15:34:42+03:00",
+      "updatedAt": "2026-11-09T19:27:44+03:00",
       "tags": [
         "qa",
         "playwright",
@@ -382,7 +382,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-09T19:18:31+03:00",
+      "updatedAt": "2026-11-09T19:27:44+03:00",
       "tags": [
         "security",
         "audit",
@@ -451,6 +451,92 @@
       ]
     },
     {
+      "slug": "static-binary-analysis",
+      "name": "Static Binary Analysis",
+      "summary": "Read any program file, then change a copy. Native C/C++ is patched in place; .NET can be decompiled and rebuilt.",
+      "description": "Static reverse engineering of any program file (native C/C++ PE, ELF, Mach-O, plus .NET, Java, APK) with call-level evidence, and a lab that patches a copy. .NET can be decompiled and rebuilt; native binaries are patched in place.",
+      "version": "1.2.0",
+      "license": "MIT",
+      "author": "APISky",
+      "updatedAt": "2026-11-12T15:48:01.000Z",
+      "tags": [
+        "reverse-engineering",
+        "binary",
+        "native",
+        "dotnet"
+      ],
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iIzNkNGY2ZiIvPjx0ZXh0IHg9IjMyIiB5PSIzMiIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9IkhlbHZldGljYSxBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjMwIiBmb250LXdlaWdodD0iNjAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+UzwvdGV4dD48L3N2Zz4=",
+      "path": "plugins/static-binary-analysis",
+      "items": [
+        {
+          "name": "ProgramModLab",
+          "kind": "skill",
+          "description": "Change what an existing program does — copy it into the workspace, understand it with static analysis, then patch the copy and/or build companion code, and run the result to check it. Works on copies only; the original is never modified or executed. Windows programs build with csc.exe and run through WSL interop.",
+          "path": "plugins/static-binary-analysis/skills/ProgramModLab",
+          "contentHash": "sha256:b7d5e80e3c4306f1357c9078d782d4d283ace2d882a8b02b47ff7f12b61bac1e",
+          "fileCount": 2
+        },
+        {
+          "name": "StaticBinaryAnalysis",
+          "kind": "skill",
+          "description": "Static, read-only reverse engineering of any program file (Windows PE/EXE/DLL 32/64-bit, Linux ELF, macOS Mach-O, .NET, Java JAR/class, APK/zip) to answer a question about what it does, with call-level evidence. Lead orchestrates two SELF threads (inventory + decompile). Never executes the target.",
+          "path": "plugins/static-binary-analysis/skills/StaticBinaryAnalysis",
+          "contentHash": "sha256:1f06f8ce20c156df35d8c76deb87cef04364d199259cc1cf7050b68264439107",
+          "fileCount": 2
+        },
+        {
+          "name": "never-execute-targets",
+          "kind": "rule",
+          "description": "Never execute or modify an original program; analyze it, and change only a copy under work/.",
+          "path": "plugins/static-binary-analysis/rules/never-execute-targets.md",
+          "contentHash": "sha256:6d972d44ec64fa6518a67af8f7bdcfee654b6aa349704a17070ce5b4bc2ae26e",
+          "fileCount": 1
+        }
+      ],
+      "requires": [],
+      "trust": "verified",
+      "visibility": "public",
+      "installs": 0,
+      "stars": 0,
+      "files": [
+        {
+          "path": "plugins/static-binary-analysis/.skycoder-plugin/plugin.json",
+          "sha256": "sha256:950f90b4f67cf5b052fc7cc0008f5b6de8f054bc90c52156a6c81b3cd0a91753",
+          "bytes": 937
+        },
+        {
+          "path": "plugins/static-binary-analysis/README.md",
+          "sha256": "sha256:4beb69251e9fe35f3850632d8f7c0632480720ce4023df58c993579d1d3d756e",
+          "bytes": 822
+        },
+        {
+          "path": "plugins/static-binary-analysis/rules/never-execute-targets.md",
+          "sha256": "sha256:1d8b0e63a08d0f990563ff6e7301dbb9dd8b87502534a5556ccf2319b7b9f98b",
+          "bytes": 405
+        },
+        {
+          "path": "plugins/static-binary-analysis/skills/ProgramModLab/SKILL.md",
+          "sha256": "sha256:471c1fc7dcd58f03c7e65e6ff7800ba28095e4a5109d56f40974a7a3f119c821",
+          "bytes": 12401
+        },
+        {
+          "path": "plugins/static-binary-analysis/skills/ProgramModLab/labtool.sh",
+          "sha256": "sha256:c3519e67bdcc012e9a5a319afdc7939f894bc2d43335c92575714f1df18c08ef",
+          "bytes": 10810
+        },
+        {
+          "path": "plugins/static-binary-analysis/skills/StaticBinaryAnalysis/SKILL.md",
+          "sha256": "sha256:aa130208d4d423f98432df7f293436db55bb14d79c4de9b1ca534aa5f5eaf0cc",
+          "bytes": 8951
+        },
+        {
+          "path": "plugins/static-binary-analysis/skills/StaticBinaryAnalysis/inspect.sh",
+          "sha256": "sha256:707a8c2379bb488a3b12d7aaba41a386deca49e7c4fe2c6e6ac0142e19165d5b",
+          "bytes": 23220
+        }
+      ]
+    },
+    {
       "slug": "us-court-filings",
       "name": "US Court Filings",
       "summary": "Court-format filings: caption, pleading paper, table of authorities.",
@@ -458,7 +544,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-04T15:34:42+03:00",
+      "updatedAt": "2026-11-09T19:27:44+03:00",
       "tags": [
         "legal",
         "court",

@@ -35,6 +35,11 @@
       "description": "Audit a code repository for security problems: hardcoded secrets, injection, broken access control and the rest of the OWASP Top 10."
     },
     {
+      "name": "static-binary-analysis",
+      "source": "./plugins/static-binary-analysis",
+      "description": "Read any program file, then change a copy. Native C/C++ is patched in place; .NET can be decompiled and rebuilt."
+    },
+    {
       "name": "us-court-filings",
       "source": "./plugins/us-court-filings",
       "description": "Court-format filings: caption, pleading paper, table of authorities."
