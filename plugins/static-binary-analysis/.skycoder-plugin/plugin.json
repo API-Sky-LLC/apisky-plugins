@@ -1,0 +1,33 @@
+{
+  "name": "static-binary-analysis",
+  "displayName": "Static Binary Analysis",
+  "description": "Static reverse engineering of any program file (native C/C++ PE, ELF, Mach-O, plus .NET, Java, APK) with call-level evidence, and a lab that patches a copy. .NET can be decompiled and rebuilt; native binaries are patched in place.",
+  "version": "1.2.0",
+  "author": {
+    "name": "APISky",
+    "email": "plugins@apisky.net"
+  },
+  "license": "MIT",
+  "keywords": [
+    "reverse-engineering",
+    "binary",
+    "decompile",
+    "native",
+    "dotnet"
+  ],
+  "skills": "./skills/",
+  "rules": "./rules/",
+  "x-skyline": {
+    "summary": "Read any program file, then change a copy. Native C/C++ is patched in place; .NET can be decompiled and rebuilt.",
+    "tags": [
+      "reverse-engineering",
+      "binary",
+      "native",
+      "dotnet"
+    ],
+    "trust": "verified",
+    "installs": 0,
+    "stars": 0,
+    "color": "#3d4f6f"
+  }
+}
