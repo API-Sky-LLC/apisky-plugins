@@ -15,6 +15,11 @@
       "description": "Repo reading, commit style and a review command."
     },
     {
+      "name": "github",
+      "source": "./plugins/github",
+      "description": "Sign in to GitHub, then read and change repos, issues, and pull requests."
+    },
+    {
       "name": "graphify",
       "source": "./plugins/graphify",
       "description": "Build a local code knowledge graph once, then answer architecture questions by querying it instead of grepping."
@@ -33,6 +38,11 @@
       "name": "security-audit",
       "source": "./plugins/security-audit",
       "description": "Audit a code repository for security problems: hardcoded secrets, injection, broken access control and the rest of the OWASP Top 10."
+    },
+    {
+      "name": "slack",
+      "source": "./plugins/slack",
+      "description": "Sign in to Slack, then search, read, and post in the workspace."
     },
     {
       "name": "static-binary-analysis",

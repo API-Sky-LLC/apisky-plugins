@@ -83,6 +83,73 @@
       ]
     },
     {
+      "slug": "github",
+      "name": "GitHub",
+      "summary": "Sign in to GitHub, then read and change repos, issues, and pull requests.",
+      "description": "Work in the signed-in GitHub account: repositories, files, issues, pull requests, and Actions. Sign-in is OAuth to GitHub's hosted MCP server.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "APISky",
+      "updatedAt": "2026-11-13T15:24:58+03:00",
+      "tags": [
+        "github",
+        "issues",
+        "pull-requests"
+      ],
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkdpdEh1YiI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMyNDI5MmYiLz4KICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjMyIiByPSI0IiBmaWxsPSIjZmZmZmZmIi8+CiAgPGNpcmNsZSBjeD0iNDQiIGN5PSIyMCIgcj0iNCIgZmlsbD0iI2ZmZmZmZiIvPgogIDxjaXJjbGUgY3g9IjQ0IiBjeT0iNDQiIHI9IjQiIGZpbGw9IiNmZmZmZmYiLz4KICA8cGF0aCBkPSJNMjQgMzJoMTJNMzYgMjIuNSAyNCAzME0zNiA0MS41IDI0IDM0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==",
+      "path": "plugins/github",
+      "items": [
+        {
+          "name": "github-work",
+          "kind": "skill",
+          "description": "Work in the signed-in GitHub account through the GitHub MCP server. Load when the person asks about repositories, issues, pull requests, files, or Actions on GitHub.",
+          "path": "plugins/github/skills/github-work",
+          "contentHash": "sha256:71e24828f3481c3cb09b11a647acdbebdba05407fb46c50e8b99dd7947292c49",
+          "fileCount": 1
+        },
+        {
+          "name": "github",
+          "kind": "mcp",
+          "description": "MCP server the pack requires: github",
+          "requiresMcp": "github"
+        }
+      ],
+      "requires": [
+        "mcp:github"
+      ],
+      "trust": "verified",
+      "visibility": "public",
+      "installs": 0,
+      "stars": 0,
+      "files": [
+        {
+          "path": "plugins/github/.mcp.json",
+          "sha256": "sha256:5c44e5bbee41609a760368983e829a218a6ccb08b7c734b435837fb0d50953a7",
+          "bytes": 143
+        },
+        {
+          "path": "plugins/github/.skycoder-plugin/plugin.json",
+          "sha256": "sha256:ce4f33f07cce849f1342ad9543164e181fef177704046a14359edb7d9d6edaea",
+          "bytes": 704
+        },
+        {
+          "path": "plugins/github/README.md",
+          "sha256": "sha256:a7971cbb38de095082a223bffcd03761df762771a0801a369ff32e8b71971c6d",
+          "bytes": 622
+        },
+        {
+          "path": "plugins/github/icon.svg",
+          "sha256": "sha256:15ff0dbf4f3b9d7c35ce3ac8e259880a56a4fabcccfb2bc19e42b9ebdf38e8d2",
+          "bytes": 448
+        },
+        {
+          "path": "plugins/github/skills/github-work/SKILL.md",
+          "sha256": "sha256:0dd20426235fc603dafbbaa88092cd07703b770d135b75ddf5c8eb628b534c1b",
+          "bytes": 1112
+        }
+      ]
+    },
+    {
       "slug": "graphify",
       "name": "Graphify",
       "summary": "Build a local code knowledge graph once, then answer architecture questions by querying it instead of grepping.",
@@ -451,6 +518,73 @@
       ]
     },
     {
+      "slug": "slack",
+      "name": "Slack",
+      "summary": "Sign in to Slack, then search, read, and post in the workspace.",
+      "description": "Read and post in the signed-in Slack workspace. Sign-in is OAuth to Slack's hosted MCP server.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": "APISky",
+      "updatedAt": "2026-11-13T15:24:58+03:00",
+      "tags": [
+        "slack",
+        "chat",
+        "messages"
+      ],
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNsYWNrIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iIzRBMTU0QiIvPgogIDxwYXRoIGQ9Ik0xOCAyMmgyMmE4IDggMCAwIDEgOCA4djZhOCA4IDAgMCAxLTggOEgyOGwtMTAgOHYtOGgwYTggOCAwIDAgMS04LTh2LTZhOCA4IDAgMCAxIDgtOHoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+Cg==",
+      "path": "plugins/slack",
+      "items": [
+        {
+          "name": "slack-work",
+          "kind": "skill",
+          "description": "Read and post in the signed-in Slack workspace through the Slack MCP server. Load when the person asks about Slack channels, messages, threads, or people.",
+          "path": "plugins/slack/skills/slack-work",
+          "contentHash": "sha256:2678dc299f7a3526a196edf38aca200d0f869fe03e15fdc3c520569adc66614b",
+          "fileCount": 1
+        },
+        {
+          "name": "slack",
+          "kind": "mcp",
+          "description": "MCP server the pack requires: slack",
+          "requiresMcp": "slack"
+        }
+      ],
+      "requires": [
+        "mcp:slack"
+      ],
+      "trust": "verified",
+      "visibility": "public",
+      "installs": 0,
+      "stars": 0,
+      "files": [
+        {
+          "path": "plugins/slack/.mcp.json",
+          "sha256": "sha256:fb4452930d30e47aac6c975d119a3704c8010586693572772bde7fb246620915",
+          "bytes": 133
+        },
+        {
+          "path": "plugins/slack/.skycoder-plugin/plugin.json",
+          "sha256": "sha256:5f7c5e2ff51ffbea81461dc98a2af2dd9a419cb9430786e78f49b50115eb5546",
+          "bytes": 628
+        },
+        {
+          "path": "plugins/slack/README.md",
+          "sha256": "sha256:cd568ffb5f9af3c7b6411fe9d581d69462459ee20e18790fc2a319045badea71",
+          "bytes": 633
+        },
+        {
+          "path": "plugins/slack/icon.svg",
+          "sha256": "sha256:732d875080615329e36002f98900469ba792beb9cda66bce8b5fb577a0ab834a",
+          "bytes": 292
+        },
+        {
+          "path": "plugins/slack/skills/slack-work/SKILL.md",
+          "sha256": "sha256:47dd7df9ce8d8cb49ea79f1bbc5aa4c8bafecfea788a215386eb172a254ddee1",
+          "bytes": 938
+        }
+      ]
+    },
+    {
       "slug": "static-binary-analysis",
       "name": "Static Binary Analysis",
       "summary": "Read any program file, then change a copy. Native C/C++ is patched in place; .NET can be decompiled and rebuilt.",
@@ -458,7 +592,7 @@
       "version": "1.2.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-12T15:48:41Z",
+      "updatedAt": "2026-11-12T15:48:41+00:00",
       "tags": [
         "reverse-engineering",
         "binary",
