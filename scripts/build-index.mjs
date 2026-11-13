@@ -139,7 +139,9 @@ function lastCommitDate(relPath) {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
     }).trim();
-    return iso || undefined;
+    // Git 2.56 writes UTC as "Z". Older git writes "+00:00". The index uses
+    // "+00:00", so a runner on the newer git would otherwise call the index stale.
+    return iso ? iso.replace(/Z$/, '+00:00') : undefined;
   } catch {
     return undefined;
   }
