@@ -456,7 +456,16 @@ function main(argv) {
 
   if (check) {
     if (!current) problems.push('index.json is missing');
-    else if (serialize(current) !== indexText) problems.push('index.json is stale — run: npm run build');
+    else if (serialize(current) !== indexText) {
+      problems.push('index.json is stale — run: npm run build');
+      for (const pack of index.packs) {
+        const prev = (current.packs ?? []).find((p) => p.slug === pack.slug);
+        if (!prev) problems.push(`  ${pack.slug}: not in index.json`);
+        else if (prev.updatedAt !== pack.updatedAt) {
+          problems.push(`  ${pack.slug}: updatedAt index ${prev.updatedAt} rebuild ${pack.updatedAt}`);
+        }
+      }
+    }
     const marketCurrent = existsSync(marketPath) ? readFileSync(marketPath, 'utf8') : '';
     if (marketCurrent !== marketText) problems.push('marketplace.json is stale — run: npm run build');
   }
