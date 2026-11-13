@@ -22,20 +22,26 @@ jobs:
   registry:
     runs-on: ubuntu-latest
     steps:
+      # Full history: the index derives each pack's `updatedAt` from the
+      # commit date of `plugins/<slug>` (`git log -1 --format=%cI`). A
+      # shallow clone has no such commit for any pack, the build falls back
+      # to file mtimes, and `--check` reports every pack as stale.
+      #
+      # A push must stay on the branch. Checking out `github.sha` detaches
+      # HEAD, and the bot's `git push` then has no branch to update. A pull
+      # request is checked out at the branch tip instead of GitHub's synthetic
+      # merge, so `git log` does not attribute a pack to a commit that is not
+      # in the branch.
       - uses: actions/checkout@v4
+        if: github.event_name != 'pull_request'
         with:
-          # Full history: the index derives each pack's `updatedAt` from the
-          # commit date of `plugins/<slug>` (`git log -1 --format=%cI`). A
-          # shallow clone has no such commit for any pack, the build falls back
-          # to file mtimes, and `--check` reports every pack as stale.
-          #
-          # A pull request is otherwise checked out as a synthetic merge that
-          # is not part of the branch. `git log` can attribute a pack to that
-          # merge, the rebuilt `updatedAt` no longer matches index.json, and
-          # the check fails even though the branch itself is consistent.
-          # Validate the branch tip. A push already checks out the pushed commit.
           fetch-depth: 0
-          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+
+      - uses: actions/checkout@v4
+        if: github.event_name == 'pull_request'
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - uses: actions/setup-node@v4
         with:
