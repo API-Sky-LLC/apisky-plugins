@@ -1,8 +1,8 @@
 {
   "name": "slack",
   "displayName": "Slack",
-  "version": "1.0.0",
-  "description": "Read and post in the signed-in Slack workspace. Sign-in is OAuth to Slack's hosted MCP server.",
+  "version": "1.1.0",
+  "description": "Signed-in Slack workspace through Slack's hosted MCP server: public and private search, channel and thread reads, messages and drafts, reactions, canvases, files, and lists.",
   "author": {
     "name": "APISky",
     "email": "plugins@apisky.net"
@@ -10,17 +10,21 @@
   "license": "MIT",
   "keywords": [
     "slack",
-    "chat",
-    "messages"
+    "search",
+    "messages",
+    "canvas"
   ],
   "skills": "skills",
+  "rules": "rules",
+  "commands": "commands",
   "mcp": ".mcp.json",
   "x-skyline": {
-    "summary": "Sign in to Slack, then search, read, and post in the workspace.",
+    "summary": "Sign in to Slack and search, read, post, and edit canvases and lists in the workspace.",
     "tags": [
       "slack",
-      "chat",
-      "messages"
+      "search",
+      "messages",
+      "canvas"
     ],
     "trust": "verified",
     "icon": "icon.svg",

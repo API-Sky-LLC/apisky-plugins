@@ -1,11 +1,19 @@
 # GitHub
 
-Sign in to GitHub, then read and change repositories, issues, pull requests, and Actions.
+Sign in to GitHub, then use the full hosted toolset.
 
-The pack points at GitHub's hosted MCP server (`https://api.githubcopilot.com/mcp/`). Connect the `github` server from Capabilities. SkyCoder opens the GitHub consent page and stores the token outside the plugin. No personal access token is required.
+The server is `https://api.githubcopilot.com/mcp/x/all` ([remote toolsets](https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md)). Connect `github` from Capabilities. The token stays outside this pack.
 
-```text
-Use the github-work skill. List my open pull requests.
-```
+| Skill | What it calls |
+|---|---|
+| `github-account` | `get_me`, teams, `search_users`, the notification inbox |
+| `github-repos` | search, file contents, branches, commits, releases, gists |
+| `github-issues` | list, search, read, create, comment, sub-issues, labels |
+| `github-pull-requests` | diff, files, reviews, merge, Copilot review |
+| `github-actions` | workflows, runs, jobs, logs, dispatch |
+| `github-security` | code scanning, Dependabot, secret scanning, advisories |
+| `github-projects` | Projects and Discussions |
 
-Writes (a new issue, a comment, a push) happen only when you ask for that change. The server itself is GitHub's, under the MIT license at github/github-mcp-server. This pack does not vendor that code.
+`/open-issue`, `/open-pull-request`, and `/check-ci` run those flows. The `github-writes` rule blocks merge, delete, and closing unless you asked.
+
+The tools come from GitHub's MIT-licensed server, [github/github-mcp-server](https://github.com/github/github-mcp-server). This pack does not vendor that code.

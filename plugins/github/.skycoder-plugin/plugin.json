@@ -1,8 +1,8 @@
 {
   "name": "github",
   "displayName": "GitHub",
-  "version": "1.0.0",
-  "description": "Work in the signed-in GitHub account: repositories, files, issues, pull requests, and Actions. Sign-in is OAuth to GitHub's hosted MCP server.",
+  "version": "1.1.0",
+  "description": "Signed-in GitHub account through GitHub's hosted MCP server, with every toolset: account and notifications, repositories and files, issues, pull requests and reviews, Actions, code scanning, Dependabot, secret scanning, advisories, projects, and discussions.",
   "author": {
     "name": "APISky",
     "email": "plugins@apisky.net"
@@ -11,16 +11,22 @@
   "keywords": [
     "github",
     "issues",
-    "pull-requests"
+    "pull-requests",
+    "actions",
+    "security"
   ],
   "skills": "skills",
+  "rules": "rules",
+  "commands": "commands",
   "mcp": ".mcp.json",
   "x-skyline": {
-    "summary": "Sign in to GitHub, then read and change repos, issues, and pull requests.",
+    "summary": "Sign in to GitHub and use the full toolset: repos, issues, pull requests, Actions, security, projects, and discussions.",
     "tags": [
       "github",
       "issues",
-      "pull-requests"
+      "pull-requests",
+      "actions",
+      "security"
     ],
     "trust": "verified",
     "icon": "icon.svg",
