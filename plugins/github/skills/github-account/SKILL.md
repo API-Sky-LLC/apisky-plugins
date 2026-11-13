@@ -5,7 +5,9 @@ description: Signed-in GitHub identity, teams, users, orgs, and the notification
 
 # Account, people, notifications
 
-The server is `https://api.githubcopilot.com/mcp/x/all`. Sign-in is OAuth on the `github` server.
+Load the server with `<mcp github/>` before the first call. A call is `<mcp server='github' tool='get_me'>` with a JSON object as the body. These names are not separate tools in your tool list.
+
+If `<mcp github/>` is not in the MCP server list, stop and tell them to press Connect on `github` in Capabilities. Do not answer the question another way.
 
 Start here whenever `owner` is not already known.
 

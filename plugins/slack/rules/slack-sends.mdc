@@ -5,8 +5,9 @@ alwaysApply: true
 
 # Slack sends
 
-- Call the `slack` MCP tools. Do not ask for a bot token and do not paste one into a file.
-- If the server is not signed in, stop and tell the person to connect `slack`.
+- The Slack tools are not in your tool list. They live on the `slack` server. Load them with `<mcp slack/>`, then call one with `<mcp server='slack' tool='TOOL_NAME'>` and a JSON object as the body.
+- Do not run a command to add, list, or sign in to an MCP server. Do not ask the person to install a CLI. Do not paste a token.
+- If `<mcp slack/>` is missing from the MCP server list, or the load says the server is not ready, stop. Tell the person to press Connect on `slack` in Capabilities. A missing tool name in the tool list is not that signal.
 - A channel name is not an id. Resolve it with `slack_search_channels` or `slack_list_user_channels` before `slack_send_message`, `slack_schedule_message`, or `slack_read_channel`.
 - Search and read when they ask a question. `slack_send_message`, `slack_schedule_message`, `slack_add_reaction`, `slack_create_conversation`, canvas writes, and list writes happen only when they asked for that message or that object.
 - Quote the channel and the text you will send, then send that text. Do not add a second announcement.

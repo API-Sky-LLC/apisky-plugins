@@ -1,7 +1,7 @@
 {
   "name": "slack",
   "displayName": "Slack",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Signed-in Slack workspace through Slack's hosted MCP server: public and private search, channel and thread reads, messages and drafts, reactions, canvases, files, and lists.",
   "author": {
     "name": "APISky",

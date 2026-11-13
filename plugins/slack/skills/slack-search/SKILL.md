@@ -5,6 +5,10 @@ description: Search Slack messages, files, channels, people, and emoji. Load whe
 
 # Search
 
+Load the server with `<mcp slack/>` before the first call. A call is `<mcp server='slack' tool='slack_search_channels'>` with a JSON object as the body. These names are not separate tools in your tool list.
+
+If `<mcp slack/>` is not in the MCP server list, stop and tell them to press Connect on `slack` in Capabilities. Do not answer the question another way.
+
 Search is the way in. Do not guess a channel id or a user id.
 
 | Need | Tool |

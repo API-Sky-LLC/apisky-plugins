@@ -5,8 +5,9 @@ alwaysApply: true
 
 # GitHub writes
 
-- Call the `github` MCP tools. Do not switch to `gh`, a browser, or a pasted token when a tool can do it.
-- If the server is not signed in, stop and tell the person to connect `github`. Do not ask them to paste a token.
+- The GitHub tools are not in your tool list. They live on the `github` server. Load them with `<mcp github/>`, then call one with `<mcp server='github' tool='TOOL_NAME'>` and a JSON object as the body.
+- Do not run a command to add, list, or sign in to an MCP server. Do not ask the person to install a CLI. Do not paste a token.
+- If `<mcp github/>` is missing from the MCP server list, or the load says the server is not ready, stop. Tell the person to press Connect on `github` in Capabilities. A missing tool name in the tool list is not that signal.
 - Resolve `owner` and `repo` before a write. `get_me` is the signed-in login. Do not guess an owner.
 - Read before you write. An update to a file needs the blob `sha` from `get_file_contents` on that same ref. An update to an issue or pull request starts from `issue_read` or `pull_request_read`.
 - Creating or commenting is allowed when the person asked for that change. Merging, closing, deleting a file, deleting a repository, and dismissing notifications are not. Wait until they name that action.
