@@ -8,6 +8,7 @@
   "scripts": {
     "build": "node scripts/build-index.mjs",
     "check": "node scripts/build-index.mjs --check --check-hashes",
+    "publish": "node scripts/publish.mjs",
     "sign": "node scripts/sign-index.mjs",
     "verify": "node scripts/sign-index.mjs --key-id ${SKILL_STORE_KEY_ID:-apisky-2026} --verify",
     "keygen": "node scripts/keygen.mjs",

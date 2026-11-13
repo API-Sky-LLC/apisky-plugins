@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "algorithm": "ed25519",
-  "keyId": "apisky-dev",
-  "signature": "EA5MwH5dklcoqateP+kwR5yAjxidD2FHBp7J3OFck27fOuHIyBRZWncdKEbwzQJBt1lXaTlOJPvh5qZHhJs4Dg==",
-  "signedAt": "2026-11-09T16:27:30.283Z"
+  "keyId": "apisky-2026",
+  "signature": "9HzHWpcgbZznw6W2pbJKPif+anZyqFIzwaBU5z7MG9vm+01phxRkLNFM3PIMYVktxQVJGXN5lN0kUQIbGlpmCQ==",
+  "signedAt": "2026-11-13T10:59:56.292Z"
 }

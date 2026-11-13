@@ -33,10 +33,13 @@ plugins/<slug>/
 index.json / index.json.sig        signed catalog for the Legion skill store (generated)
 scripts/                           build, sign and key-generation helpers
 docs/maintaining.md                how to add a plugin, sign, and publish
+docs/publishing.md                 who publishes what, and who needs the signing key
 ```
 
 Maintaining the registry — adding a plugin, regenerating and signing the index, the CI publish gate and
-the review rules — is documented in [docs/maintaining.md](docs/maintaining.md).
+the review rules — is documented in [docs/maintaining.md](docs/maintaining.md). Where a plugin gets
+published from (a pull request, or an in-app submission with no git and no key) is in
+[docs/publishing.md](docs/publishing.md).
 
 ## License
 

@@ -15,7 +15,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-09T19:27:44+03:00",
+      "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "starter",
         "review",
@@ -90,7 +90,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-09T19:27:44+03:00",
+      "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "graphify",
         "knowledge-graph",
@@ -192,7 +192,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-09T19:27:44+03:00",
+      "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "kicad",
         "pcb",
@@ -320,7 +320,7 @@
       "version": "1.0.0",
       "license": "Apache-2.0",
       "author": "APISky",
-      "updatedAt": "2026-11-09T19:27:44+03:00",
+      "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "qa",
         "playwright",
@@ -382,7 +382,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-09T19:27:44+03:00",
+      "updatedAt": "2026-11-09T19:18:31+03:00",
       "tags": [
         "security",
         "audit",
@@ -458,7 +458,7 @@
       "version": "1.2.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-12T15:48:01.000Z",
+      "updatedAt": "2026-11-12T15:48:41Z",
       "tags": [
         "reverse-engineering",
         "binary",
@@ -544,7 +544,7 @@
       "version": "1.0.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-09T19:27:44+03:00",
+      "updatedAt": "2026-11-04T15:34:42+03:00",
       "tags": [
         "legal",
         "court",
