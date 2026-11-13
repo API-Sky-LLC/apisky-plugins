@@ -83,34 +83,58 @@ node scripts/keygen.mjs --id apisky-2026 --out ~/.keys     # once, offline
 - `npm run verify` is the deploy gate: it refuses to pass when the bytes moved after signing.
 - Never edit `index.json` after signing. Run `npm run release`, which builds, signs and verifies in one step.
 
-The `index.json.sig` committed right now was made with a throwaway `apisky-dev` key so the repository could
-be validated end to end against a local Legion. The first CI run on `main` replaces it with the real
-`apisky-2026` signature — until then a Legion configured with the official key reports `key_unknown` and
-serves nothing (fail-closed, by design).
+`index.json.sig` is made with the live `apisky-2026` key: the public half below is what Legion is
+configured with, and the private half exists only as the CI secret `SKILL_STORE_SIGNING_KEY` and in the
+offline key store — never in git. A Legion that does not know this key reports `key_unknown` and serves
+nothing (fail-closed, by design).
 
 ## CI
 
-`docs/ci/publish.yml` is the publish gate; copy it to `.github/workflows/publish.yml` (or push it with a
-token that has the `workflow` scope — a plain `repo` token is rejected with `refusing to allow a Personal
-Access Token to create or update workflow`). It runs on every push and PR to `main`:
+CI lives at `.github/workflows/publish.yml` (`docs/ci/publish.yml` keeps the same content as the source of
+truth for review); it runs on every push and PR to `main`:
 
-1. `npm run check` — the index is not stale, hashes match the files;
-2. `npm run sign` with `SKILL_STORE_SIGNING_KEY` (skipped on PRs from forks, which have no secret);
+1. `node scripts/build-index.mjs --check --check-hashes` — the index is not stale, hashes match the files;
+2. `npm run sign` with `SKILL_STORE_SIGNING_KEY` and `SKILL_STORE_KEY_ID=apisky-2026` (skipped on PRs from
+   forks, which have no secret);
 3. `npm run verify` — the signature must match the bytes that will be published;
 4. on `main`: commit the regenerated `index.json` + `index.json.sig` back with a bot commit, so
    `raw.githubusercontent.com/API-Sky-LLC/apisky-plugins/main/index.json` is always a signed, installable index.
+
+The checkout uses `fetch-depth: 0` on purpose: `updatedAt` comes from the last commit date of
+`plugins/<slug>`, so a shallow clone has no history for any pack and `--check` reports the index as stale.
+Editing the workflow itself needs a token with the `workflow` scope — a plain `repo` token is rejected with
+`refusing to allow a Personal Access Token to create or update workflow`.
 
 Point Legion at it:
 
 ```bash
 SKILL_STORE_REGISTRY_URL=https://raw.githubusercontent.com/API-Sky-LLC/apisky-plugins/main/index.json
-SKILL_STORE_PUBLIC_KEYS=apisky-2026:official:<base64 SPKI>
+SKILL_STORE_PUBLIC_KEYS=apisky-2026:official:MCowBQYDK2VwAyEAd6YQFAwPBaKq9xTqdtLRai5hlfCGaf0RqgFMPuYirKg=
 SKILL_STORE_REQUIRE_SIGNATURE=true
 ```
 
 For a private registry (GitLab, S3) keep the same three files at whatever URL the index lives at:
 `<index>.sig` is looked up as a sibling, and a query-string token on the index URL is preserved for the
 signature request.
+
+## Rotating the signing key
+
+Legion resolves the signing key by the `keyId` inside `index.json.sig`, so two keys can be trusted at once
+and a rotation never has a window where the store serves nothing.
+
+```bash
+npm run keygen -- --id apisky-2027 --out ~/.keys     # new ed25519 pair, offline
+```
+
+1. Store the private half as the repo secret `SKILL_STORE_SIGNING_KEY` (and keep an offline copy).
+2. Append the public half to `SKILL_STORE_PUBLIC_KEYS` in Legion **before** the first index signed with it
+   is pushed — list both keys, comma-separated, each with its trust level:
+   `apisky-2027:official:…,apisky-2026:official:…`. A key Legion does not know is `key_unknown`, which
+   fails closed.
+3. Set `SKILL_STORE_KEY_ID` in `.github/workflows/publish.yml` to the new id and merge; CI signs the next
+   index with it.
+4. Keep the old public key listed until no index signed with it is in use (the store, a mirror or a pinned
+   checkout may still be serving the old bytes), then drop it from `SKILL_STORE_PUBLIC_KEYS`.
 
 ## Icons
 

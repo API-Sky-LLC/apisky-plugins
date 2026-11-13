@@ -23,6 +23,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: the index derives each pack's `updatedAt` from the
+          # commit date of `plugins/<slug>` (`git log -1 --format=%cI`). A
+          # shallow clone has no such commit for any pack, the build falls back
+          # to file mtimes, and `--check` reports every pack as stale.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
