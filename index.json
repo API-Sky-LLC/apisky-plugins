@@ -85,26 +85,108 @@
     {
       "slug": "github",
       "name": "GitHub",
-      "summary": "Sign in to GitHub, then read and change repos, issues, and pull requests.",
-      "description": "Work in the signed-in GitHub account: repositories, files, issues, pull requests, and Actions. Sign-in is OAuth to GitHub's hosted MCP server.",
-      "version": "1.0.0",
+      "summary": "Sign in to GitHub and use the full toolset: repos, issues, pull requests, Actions, security, projects, and discussions.",
+      "description": "Signed-in GitHub account through GitHub's hosted MCP server, with every toolset: account and notifications, repositories and files, issues, pull requests and reviews, Actions, code scanning, Dependabot, secret scanning, advisories, projects, and discussions.",
+      "version": "1.1.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-13T15:24:58+03:00",
+      "updatedAt": "2026-11-13T15:32:12+03:00",
       "tags": [
         "github",
         "issues",
-        "pull-requests"
+        "pull-requests",
+        "actions",
+        "security"
       ],
       "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkdpdEh1YiI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMyNDI5MmYiLz4KICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjMyIiByPSI0IiBmaWxsPSIjZmZmZmZmIi8+CiAgPGNpcmNsZSBjeD0iNDQiIGN5PSIyMCIgcj0iNCIgZmlsbD0iI2ZmZmZmZiIvPgogIDxjaXJjbGUgY3g9IjQ0IiBjeT0iNDQiIHI9IjQiIGZpbGw9IiNmZmZmZmYiLz4KICA8cGF0aCBkPSJNMjQgMzJoMTJNMzYgMjIuNSAyNCAzME0zNiA0MS41IDI0IDM0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==",
       "path": "plugins/github",
       "items": [
         {
-          "name": "github-work",
+          "name": "github-account",
           "kind": "skill",
-          "description": "Work in the signed-in GitHub account through the GitHub MCP server. Load when the person asks about repositories, issues, pull requests, files, or Actions on GitHub.",
-          "path": "plugins/github/skills/github-work",
-          "contentHash": "sha256:71e24828f3481c3cb09b11a647acdbebdba05407fb46c50e8b99dd7947292c49",
+          "description": "Signed-in GitHub identity, teams, users, orgs, and the notification inbox. Load when the person says \"my repos\", \"who am I\", a username, a team, or their notifications.",
+          "path": "plugins/github/skills/github-account",
+          "contentHash": "sha256:ac1466759b36b247f97a484bd4da3048fe84cdd185fc96e3de505da8111fa0e0",
+          "fileCount": 1
+        },
+        {
+          "name": "github-actions",
+          "kind": "skill",
+          "description": "List GitHub Actions workflows, runs, jobs, and artifacts, read logs, and dispatch a workflow. Load when the person asks why CI failed or to re-run a workflow.",
+          "path": "plugins/github/skills/github-actions",
+          "contentHash": "sha256:e8d041400266d46a47d0bfaa45f8eda3b0d67f186ed1412d9289343ce4abc088",
+          "fileCount": 1
+        },
+        {
+          "name": "github-issues",
+          "kind": "skill",
+          "description": "List, search, read, create, and update GitHub issues, comments, sub-issues, and labels. Load when the person asks about an issue, a bug, a task on GitHub, or labels.",
+          "path": "plugins/github/skills/github-issues",
+          "contentHash": "sha256:bed077d8d123604612b49fa867c67902777392b7ad1f3bf7d7c2b60492676dec",
+          "fileCount": 1
+        },
+        {
+          "name": "github-projects",
+          "kind": "skill",
+          "description": "Read and update GitHub Projects, and read or comment on Discussions. Load for a project board, a project item, or a discussion thread.",
+          "path": "plugins/github/skills/github-projects",
+          "contentHash": "sha256:48d3ee828d8e11d7d8def9b3a2573a169ff4f34e3827aa0e04788e328e482629",
+          "fileCount": 1
+        },
+        {
+          "name": "github-pull-requests",
+          "kind": "skill",
+          "description": "List, read, open, review, and merge GitHub pull requests, including Copilot review. Load for a pull request, a diff, review comments, or merge readiness.",
+          "path": "plugins/github/skills/github-pull-requests",
+          "contentHash": "sha256:1e1c920ae074d8d190cc5535638d3b0dec56dd8e925bae2f9368bf306cf2d3ee",
+          "fileCount": 1
+        },
+        {
+          "name": "github-repos",
+          "kind": "skill",
+          "description": "Find repositories, read files and history, branch, commit, release, fork, and manage gists on the signed-in GitHub account. Load for code search, file contents, commits, branches, tags, or releases.",
+          "path": "plugins/github/skills/github-repos",
+          "contentHash": "sha256:237839afd8432ded215a0c4fde29db9e014040d902f748af476f0dda1b2963a9",
+          "fileCount": 1
+        },
+        {
+          "name": "github-security",
+          "kind": "skill",
+          "description": "Read GitHub code scanning, code quality, Dependabot, secret scanning, and security advisories for a repository. Load when the person asks about vulnerabilities, leaked secrets, or dependency alerts.",
+          "path": "plugins/github/skills/github-security",
+          "contentHash": "sha256:04ce29a79ea13a85d9201ce4983fc2496db9ca2e2c4d84fe4b395ee3bf77c1f4",
+          "fileCount": 1
+        },
+        {
+          "name": "github-writes",
+          "kind": "rule",
+          "description": "How to call the signed-in GitHub server, and which writes need an explicit ask",
+          "path": "plugins/github/rules/github-writes.mdc",
+          "contentHash": "sha256:d189295239c630cc6b831a50f9b28f6cadb31987523b1e716e7fb90e7234c787",
+          "fileCount": 1
+        },
+        {
+          "name": "check-ci",
+          "kind": "command",
+          "description": "Explain a failing GitHub Actions run or pull request check from the logs",
+          "path": "plugins/github/commands/check-ci.md",
+          "contentHash": "sha256:f6ba541fe488e1a51646007f0442de2fc808901495b2b7b6b82f817d7a253c90",
+          "fileCount": 1
+        },
+        {
+          "name": "open-issue",
+          "kind": "command",
+          "description": "Open a GitHub issue in a repository the person names, from the signed-in account",
+          "path": "plugins/github/commands/open-issue.md",
+          "contentHash": "sha256:ed63e92d23e3ae7309e7ee09f9264b15c7d0b02462b38ff612e62d183eebe0a7",
+          "fileCount": 1
+        },
+        {
+          "name": "open-pull-request",
+          "kind": "command",
+          "description": "Open a pull request from a branch that already exists on GitHub",
+          "path": "plugins/github/commands/open-pull-request.md",
+          "contentHash": "sha256:a76c3e27383402dfc992c0a4f3f5705326a2ce9e2f00ee27ad63b524bd3e09fa",
           "fileCount": 1
         },
         {
@@ -124,18 +206,33 @@
       "files": [
         {
           "path": "plugins/github/.mcp.json",
-          "sha256": "sha256:5c44e5bbee41609a760368983e829a218a6ccb08b7c734b435837fb0d50953a7",
-          "bytes": 143
+          "sha256": "sha256:d79105a968330af8d99d9b00c591b891600c5448c6806948d3e5423425760b62",
+          "bytes": 148
         },
         {
           "path": "plugins/github/.skycoder-plugin/plugin.json",
-          "sha256": "sha256:ce4f33f07cce849f1342ad9543164e181fef177704046a14359edb7d9d6edaea",
-          "bytes": 704
+          "sha256": "sha256:5d608046e36ae6138de1dec22d5e275065ec89833953d533435dd1806538fda1",
+          "bytes": 978
         },
         {
           "path": "plugins/github/README.md",
-          "sha256": "sha256:a7971cbb38de095082a223bffcd03761df762771a0801a369ff32e8b71971c6d",
-          "bytes": 622
+          "sha256": "sha256:93b61e3b118430d9931436c40ce0d8e80740f66b06e5fd63fed761dc786a5aa4",
+          "bytes": 1133
+        },
+        {
+          "path": "plugins/github/commands/check-ci.md",
+          "sha256": "sha256:33d46512e2437cab44cfc57b3b67b6596af6a63dd26172fe97066c9ed521079e",
+          "bytes": 730
+        },
+        {
+          "path": "plugins/github/commands/open-issue.md",
+          "sha256": "sha256:282194ebde8003fd73035840f3fa1f891927637f2460026bd4a342306aad142c",
+          "bytes": 749
+        },
+        {
+          "path": "plugins/github/commands/open-pull-request.md",
+          "sha256": "sha256:06c227d687ea6a1b1c8b91bec80f3e1dbdc701a77f5a0b573048143ac6e8ecb7",
+          "bytes": 693
         },
         {
           "path": "plugins/github/icon.svg",
@@ -143,9 +240,44 @@
           "bytes": 448
         },
         {
-          "path": "plugins/github/skills/github-work/SKILL.md",
-          "sha256": "sha256:0dd20426235fc603dafbbaa88092cd07703b770d135b75ddf5c8eb628b534c1b",
-          "bytes": 1112
+          "path": "plugins/github/rules/github-writes.mdc",
+          "sha256": "sha256:2cda8a9582c47e3723f7c0a4eb9730bfc16b9e14607db9817a6c41d6950921b6",
+          "bytes": 1205
+        },
+        {
+          "path": "plugins/github/skills/github-account/SKILL.md",
+          "sha256": "sha256:a9ee112f54c54cdba18a1b86c37cddd0d04f8d8facf03c43fd120a11ce196b5c",
+          "bytes": 1448
+        },
+        {
+          "path": "plugins/github/skills/github-actions/SKILL.md",
+          "sha256": "sha256:17ea18b03436e90f8eaf9ead1f56483070a369a18b16f2981b4b1f77f609b16e",
+          "bytes": 1684
+        },
+        {
+          "path": "plugins/github/skills/github-issues/SKILL.md",
+          "sha256": "sha256:f5f0dc42958a80676e3f3eb902797bbf916974c931048548cf142c669c03c9e5",
+          "bytes": 2454
+        },
+        {
+          "path": "plugins/github/skills/github-projects/SKILL.md",
+          "sha256": "sha256:83ac0250834135b41bd5f40d32b2951c4aedeb8e78ffb66a1b8dbcb835a34452",
+          "bytes": 1401
+        },
+        {
+          "path": "plugins/github/skills/github-pull-requests/SKILL.md",
+          "sha256": "sha256:ae74777e774a987c198120c7b7fe286ad7a4329ef406cc7eb667bb69f00c5cda",
+          "bytes": 2597
+        },
+        {
+          "path": "plugins/github/skills/github-repos/SKILL.md",
+          "sha256": "sha256:4a9f8b6ca063b96bdcd419d2f76a7e3943c75e2c636026f5c76d3c01e2941c9e",
+          "bytes": 2499
+        },
+        {
+          "path": "plugins/github/skills/github-security/SKILL.md",
+          "sha256": "sha256:d62c6be390adab0d2f3c0b2bd54d00ea335860b75172163f7ed4b04da10f5981",
+          "bytes": 1427
         }
       ]
     },
@@ -520,26 +652,75 @@
     {
       "slug": "slack",
       "name": "Slack",
-      "summary": "Sign in to Slack, then search, read, and post in the workspace.",
-      "description": "Read and post in the signed-in Slack workspace. Sign-in is OAuth to Slack's hosted MCP server.",
-      "version": "1.0.0",
+      "summary": "Sign in to Slack and search, read, post, and edit canvases and lists in the workspace.",
+      "description": "Signed-in Slack workspace through Slack's hosted MCP server: public and private search, channel and thread reads, messages and drafts, reactions, canvases, files, and lists.",
+      "version": "1.1.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-13T15:24:58+03:00",
+      "updatedAt": "2026-11-13T15:32:12+03:00",
       "tags": [
         "slack",
-        "chat",
-        "messages"
+        "search",
+        "messages",
+        "canvas"
       ],
       "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNsYWNrIj4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iIzRBMTU0QiIvPgogIDxwYXRoIGQ9Ik0xOCAyMmgyMmE4IDggMCAwIDEgOCA4djZhOCA4IDAgMCAxLTggOEgyOGwtMTAgOHYtOGgwYTggOCAwIDAgMS04LTh2LTZhOCA4IDAgMCAxIDgtOHoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+Cg==",
       "path": "plugins/slack",
       "items": [
         {
-          "name": "slack-work",
+          "name": "slack-canvas",
           "kind": "skill",
-          "description": "Read and post in the signed-in Slack workspace through the Slack MCP server. Load when the person asks about Slack channels, messages, threads, or people.",
-          "path": "plugins/slack/skills/slack-work",
-          "contentHash": "sha256:2678dc299f7a3526a196edf38aca200d0f869fe03e15fdc3c520569adc66614b",
+          "description": "Create and update Slack canvases, upload files, and add or edit list records. Load when the person wants a canvas, a file in Slack, or a Slack list.",
+          "path": "plugins/slack/skills/slack-canvas",
+          "contentHash": "sha256:179a6ec936e5d1101237f00853fbd58ed2d60cfa7c9ca9e4c25673852fc27392",
+          "fileCount": 1
+        },
+        {
+          "name": "slack-messages",
+          "kind": "skill",
+          "description": "Send, draft, schedule, and react to Slack messages, and open a conversation. Load only when the person asked to post, reply, react, or DM.",
+          "path": "plugins/slack/skills/slack-messages",
+          "contentHash": "sha256:38699dc7ba37d70119f4b9cc0de40815f44b86b852af057371e91ef4267c5c1f",
+          "fileCount": 1
+        },
+        {
+          "name": "slack-read",
+          "kind": "skill",
+          "description": "Read a Slack channel, thread, canvas, file, list, or profile after the id is known. Load when the person wants the contents, not just a search hit.",
+          "path": "plugins/slack/skills/slack-read",
+          "contentHash": "sha256:966831ea2dffb81888005dc30d021a3be1fff1de8ded979f0f21c55a3e663e8a",
+          "fileCount": 1
+        },
+        {
+          "name": "slack-search",
+          "kind": "skill",
+          "description": "Search Slack messages, files, channels, people, and emoji. Load when the person asks what was said, who owns a channel, or to find a person in Slack.",
+          "path": "plugins/slack/skills/slack-search",
+          "contentHash": "sha256:cc3d291193a0ccfc37ac395f3eac7c36ec5d7d7b98b919bcc6d62a6b48d557c0",
+          "fileCount": 1
+        },
+        {
+          "name": "slack-sends",
+          "kind": "rule",
+          "description": "When a Slack message may be sent, and how a channel name becomes an id",
+          "path": "plugins/slack/rules/slack-sends.mdc",
+          "contentHash": "sha256:7fe62b48894b71dd4d1d46a4cd999da46f0a1dade2edcc972c68f50f2fddcb64",
+          "fileCount": 1
+        },
+        {
+          "name": "find-in-slack",
+          "kind": "command",
+          "description": "Search Slack and answer from the messages, with the channel and time",
+          "path": "plugins/slack/commands/find-in-slack.md",
+          "contentHash": "sha256:19badd4bec777ea6d268e5d8c3fb2616ff4fd84790dcd18b74be35ef4e2d463f",
+          "fileCount": 1
+        },
+        {
+          "name": "post-to-slack",
+          "kind": "command",
+          "description": "Post one Slack message the person already worded, in a channel or thread they named",
+          "path": "plugins/slack/commands/post-to-slack.md",
+          "contentHash": "sha256:2bd7eb57a3b1b9277e41f48e58272c4c056b1057d7942d95e4d22ac602357e69",
           "fileCount": 1
         },
         {
@@ -564,13 +745,23 @@
         },
         {
           "path": "plugins/slack/.skycoder-plugin/plugin.json",
-          "sha256": "sha256:5f7c5e2ff51ffbea81461dc98a2af2dd9a419cb9430786e78f49b50115eb5546",
-          "bytes": 628
+          "sha256": "sha256:cd5aa0b76ff40a898ff48f442a6c6deb5e050afb0373edff45050c95a6ca38b9",
+          "bytes": 810
         },
         {
           "path": "plugins/slack/README.md",
-          "sha256": "sha256:cd568ffb5f9af3c7b6411fe9d581d69462459ee20e18790fc2a319045badea71",
-          "bytes": 633
+          "sha256": "sha256:df10cde20fa4b0ab13c4ad96bf5f73b85b17617d299f8131ecd6008a9bc5acad",
+          "bytes": 999
+        },
+        {
+          "path": "plugins/slack/commands/find-in-slack.md",
+          "sha256": "sha256:7fdbd0b4d2c4755425594386da87dd92c590cf6cb5f2aa0295867e548fc031ed",
+          "bytes": 637
+        },
+        {
+          "path": "plugins/slack/commands/post-to-slack.md",
+          "sha256": "sha256:e2563bd85d78c54ca9826a40c41710a4cc922bb5a20c11b7e4ecd06fd3495000",
+          "bytes": 674
         },
         {
           "path": "plugins/slack/icon.svg",
@@ -578,9 +769,29 @@
           "bytes": 292
         },
         {
-          "path": "plugins/slack/skills/slack-work/SKILL.md",
-          "sha256": "sha256:47dd7df9ce8d8cb49ea79f1bbc5aa4c8bafecfea788a215386eb172a254ddee1",
-          "bytes": 938
+          "path": "plugins/slack/rules/slack-sends.mdc",
+          "sha256": "sha256:7256956ced6049dedb04492b3709d8853a28f0fef510a92bafaf031752aab19e",
+          "bytes": 894
+        },
+        {
+          "path": "plugins/slack/skills/slack-canvas/SKILL.md",
+          "sha256": "sha256:1c8e284034ecc888763c877553d30d12080f532fbc709eddbaf8229b873f9c9b",
+          "bytes": 1465
+        },
+        {
+          "path": "plugins/slack/skills/slack-messages/SKILL.md",
+          "sha256": "sha256:86eca068372ce3a65e378c77ad038bf50506d9bb036e0c9e6a73ccc8bc0e2dcd",
+          "bytes": 1457
+        },
+        {
+          "path": "plugins/slack/skills/slack-read/SKILL.md",
+          "sha256": "sha256:4e03f280747862906ccbe701611e4754f32babc640a366a73ad8921f0429f0f4",
+          "bytes": 1184
+        },
+        {
+          "path": "plugins/slack/skills/slack-search/SKILL.md",
+          "sha256": "sha256:1f2471870f0ace4066be8dcb977b5e31b7d090d13fd91af797f4172bfb1d0267",
+          "bytes": 1469
         }
       ]
     },

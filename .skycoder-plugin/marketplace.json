@@ -17,7 +17,7 @@
     {
       "name": "github",
       "source": "./plugins/github",
-      "description": "Sign in to GitHub, then read and change repos, issues, and pull requests."
+      "description": "Sign in to GitHub and use the full toolset: repos, issues, pull requests, Actions, security, projects, and discussions."
     },
     {
       "name": "graphify",
@@ -42,7 +42,7 @@
     {
       "name": "slack",
       "source": "./plugins/slack",
-      "description": "Sign in to Slack, then search, read, and post in the workspace."
+      "description": "Sign in to Slack and search, read, post, and edit canvases and lists in the workspace."
     },
     {
       "name": "static-binary-analysis",
