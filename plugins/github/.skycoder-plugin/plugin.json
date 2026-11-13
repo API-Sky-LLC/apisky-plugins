@@ -1,0 +1,29 @@
+{
+  "name": "github",
+  "displayName": "GitHub",
+  "version": "1.0.0",
+  "description": "Work in the signed-in GitHub account: repositories, files, issues, pull requests, and Actions. Sign-in is OAuth to GitHub's hosted MCP server.",
+  "author": {
+    "name": "APISky",
+    "email": "plugins@apisky.net"
+  },
+  "license": "MIT",
+  "keywords": [
+    "github",
+    "issues",
+    "pull-requests"
+  ],
+  "skills": "skills",
+  "mcp": ".mcp.json",
+  "x-skyline": {
+    "summary": "Sign in to GitHub, then read and change repos, issues, and pull requests.",
+    "tags": [
+      "github",
+      "issues",
+      "pull-requests"
+    ],
+    "trust": "verified",
+    "icon": "icon.svg",
+    "color": "#24292f"
+  }
+}
