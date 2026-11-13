@@ -1,0 +1,65 @@
+name: publish
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Empty on fork PRs (secrets are not exposed there) — those runs only validate.
+  SKILL_STORE_SIGNING_KEY: ${{ secrets.SKILL_STORE_SIGNING_KEY }}
+  SKILL_STORE_KEY_ID: apisky-2026
+
+jobs:
+  registry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history: the index derives each pack's `updatedAt` from the
+          # commit date of `plugins/<slug>` (`git log -1 --format=%cI`). A
+          # shallow clone has no such commit for any pack, the build falls back
+          # to file mtimes, and `--check` reports every pack as stale.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # The index must describe the files as they are: a stale index or a drifted
+      # hash is a failed build, not a warning.
+      - name: Validate index and hashes
+        run: node scripts/build-index.mjs --check --check-hashes
+
+      # Sign the exact bytes. A PR from a fork has no key, so it stops here —
+      # that is fine: nothing gets published from a fork.
+      - name: Sign index
+        if: env.SKILL_STORE_SIGNING_KEY != ''
+        run: node scripts/sign-index.mjs --key-id "$SKILL_STORE_KEY_ID"
+
+      # Deploy gate: refuse to publish bytes the signature does not cover.
+      - name: Verify signature
+        if: env.SKILL_STORE_SIGNING_KEY != ''
+        run: node scripts/sign-index.mjs --key-id "$SKILL_STORE_KEY_ID" --verify
+
+      # The index in the tree is the index Legion reads from raw.githubusercontent.
+      - name: Commit regenerated registry
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.SKILL_STORE_SIGNING_KEY != ''
+        run: |
+          if git diff --quiet -- index.json index.json.sig .skycoder-plugin/marketplace.json; then
+            echo "registry unchanged"
+            exit 0
+          fi
+          git config user.name "apisky-registry-bot"
+          git config user.email "plugins@apisky.net"
+          git add index.json index.json.sig .skycoder-plugin/marketplace.json
+          git commit -m "registry: regenerated index [skip ci]"
+          git push
