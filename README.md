@@ -12,6 +12,8 @@ A plugin is a directory under `plugins/`. Clients read `.skycoder-plugin/marketp
 | Plugin | Contents | License |
 |---|---|---|
 | [`engineering-basics`](plugins/engineering-basics/) | Repo analysis, commit style, a review command | MIT |
+| [`github`](plugins/github/) | Signed-in GitHub: repos, issues, pull requests, Actions, security, projects · MCP `github` | MIT |
+| [`slack`](plugins/slack/) | Signed-in Slack: search, read, post, canvases, files, lists · MCP `slack` | MIT |
 | [`static-binary-analysis`](plugins/static-binary-analysis/) | Read a program file, then patch a copy. Native C/C++ in place; .NET can be rebuilt | MIT |
 | [`graphify`](plugins/graphify/) | Build a code knowledge graph, then query it instead of grepping · MCP `graphify` | MIT |
 | [`kicad`](plugins/kicad/) | Board review, routing, DFM, footprint audit, fab package · MCP `kicad` | MIT |

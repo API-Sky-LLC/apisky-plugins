@@ -139,7 +139,9 @@ function lastCommitDate(relPath) {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
     }).trim();
-    return iso || undefined;
+    // Git 2.56 writes UTC as "Z". Older git writes "+00:00". The index uses
+    // "+00:00", so a runner on the newer git would otherwise call the index stale.
+    return iso ? iso.replace(/Z$/, '+00:00') : undefined;
   } catch {
     return undefined;
   }
@@ -456,7 +458,16 @@ function main(argv) {
 
   if (check) {
     if (!current) problems.push('index.json is missing');
-    else if (serialize(current) !== indexText) problems.push('index.json is stale — run: npm run build');
+    else if (serialize(current) !== indexText) {
+      problems.push('index.json is stale — run: npm run build');
+      for (const pack of index.packs) {
+        const prev = (current.packs ?? []).find((p) => p.slug === pack.slug);
+        if (!prev) problems.push(`  ${pack.slug}: not in index.json`);
+        else if (prev.updatedAt !== pack.updatedAt) {
+          problems.push(`  ${pack.slug}: updatedAt index ${prev.updatedAt} rebuild ${pack.updatedAt}`);
+        }
+      }
+    }
     const marketCurrent = existsSync(marketPath) ? readFileSync(marketPath, 'utf8') : '';
     if (marketCurrent !== marketText) problems.push('marketplace.json is stale — run: npm run build');
   }

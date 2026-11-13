@@ -1,0 +1,15 @@
+---
+description: How to call the signed-in GitHub server, and which writes need an explicit ask
+alwaysApply: true
+---
+
+# GitHub writes
+
+- Call the `github` MCP tools. Do not switch to `gh`, a browser, or a pasted token when a tool can do it.
+- If the server is not signed in, stop and tell the person to connect `github`. Do not ask them to paste a token.
+- Resolve `owner` and `repo` before a write. `get_me` is the signed-in login. Do not guess an owner.
+- Read before you write. An update to a file needs the blob `sha` from `get_file_contents` on that same ref. An update to an issue or pull request starts from `issue_read` or `pull_request_read`.
+- Creating or commenting is allowed when the person asked for that change. Merging, closing, deleting a file, deleting a repository, and dismissing notifications are not. Wait until they name that action.
+- `delete_repository` needs the `delete_repo` scope and a second confirmation in the conversation. Do not call it from a vague "clean this up".
+- Pass plain text to `create_or_update_file`. The server base64-encodes it. Do not pre-encode.
+- Quote `owner/repo` and the issue or pull request number in the answer. If a tool returns nothing, say so.

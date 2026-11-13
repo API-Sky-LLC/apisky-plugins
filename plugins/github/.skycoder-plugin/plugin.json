@@ -1,0 +1,35 @@
+{
+  "name": "github",
+  "displayName": "GitHub",
+  "version": "1.1.0",
+  "description": "Signed-in GitHub account through GitHub's hosted MCP server, with every toolset: account and notifications, repositories and files, issues, pull requests and reviews, Actions, code scanning, Dependabot, secret scanning, advisories, projects, and discussions.",
+  "author": {
+    "name": "APISky",
+    "email": "plugins@apisky.net"
+  },
+  "license": "MIT",
+  "keywords": [
+    "github",
+    "issues",
+    "pull-requests",
+    "actions",
+    "security"
+  ],
+  "skills": "skills",
+  "rules": "rules",
+  "commands": "commands",
+  "mcp": ".mcp.json",
+  "x-skyline": {
+    "summary": "Sign in to GitHub and use the full toolset: repos, issues, pull requests, Actions, security, projects, and discussions.",
+    "tags": [
+      "github",
+      "issues",
+      "pull-requests",
+      "actions",
+      "security"
+    ],
+    "trust": "verified",
+    "icon": "icon.svg",
+    "color": "#24292f"
+  }
+}

@@ -1,0 +1,13 @@
+---
+description: When a Slack message may be sent, and how a channel name becomes an id
+alwaysApply: true
+---
+
+# Slack sends
+
+- Call the `slack` MCP tools. Do not ask for a bot token and do not paste one into a file.
+- If the server is not signed in, stop and tell the person to connect `slack`.
+- A channel name is not an id. Resolve it with `slack_search_channels` or `slack_list_user_channels` before `slack_send_message`, `slack_schedule_message`, or `slack_read_channel`.
+- Search and read when they ask a question. `slack_send_message`, `slack_schedule_message`, `slack_add_reaction`, `slack_create_conversation`, canvas writes, and list writes happen only when they asked for that message or that object.
+- Quote the channel and the text you will send, then send that text. Do not add a second announcement.
+- A direct message uses the user id from `slack_search_users` as `channel_id`.
