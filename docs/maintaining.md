@@ -22,6 +22,7 @@ plugins/<slug>/
   .mcp.json                         MCP servers the plugin requires (never auto-started)
 scripts/build-index.mjs             plugins/ → index.json + marketplace.json
 scripts/sign-index.mjs              index.json → index.json.sig (+ --verify gate)
+scripts/publish.mjs                 the one command: build -> check -> sign -> verify -> commit
 scripts/keygen.mjs                  ed25519 pair for a new signing key
 ```
 
@@ -103,7 +104,9 @@ truth for review); it runs on every push and PR to `main`:
 The checkout uses `fetch-depth: 0` on purpose: `updatedAt` comes from the last commit date of
 `plugins/<slug>`, so a shallow clone has no history for any pack and `--check` reports the index as stale.
 Editing the workflow itself needs a token with the `workflow` scope — a plain `repo` token is rejected with
-`refusing to allow a Personal Access Token to create or update workflow`.
+`refusing to allow a Personal Access Token to create or update workflow`. Until the workflow file can be
+pushed, `npm run publish` is the manual equivalent of what CI does (build -> check -> sign -> verify ->
+commit; it never pushes), and `npm run publish -- --check` is the key-free validation a contributor can run.
 
 Point Legion at it:
 

@@ -35,6 +35,8 @@ Which command needs the key, exactly:
 |---|---|---|
 | `npm run build` | no | `plugins/` -> `index.json` + `.skycoder-plugin/marketplace.json` |
 | `npm run check` | no | fails when `index.json`/`marketplace.json` are stale or an item's bytes drifted from `contentHash` |
+| `npm run publish` | **yes** | build -> check -> sign -> verify -> commit the three generated files (never pushes); the one command a maintainer runs |
+| `npm run publish -- --check` | no | build -> check; verifies the signature when a key happens to be present, `not signed: no key available` when it is not |
 | `npm run sign` | **yes** | `index.json` -> `index.json.sig` |
 | `npm run verify` | **yes** | the deploy gate: the signature must cover the bytes that will be published |
 | `npm run release` | **yes** | build + sign + verify in one step (maintainers only) |
@@ -43,8 +45,36 @@ Which command needs the key, exactly:
 half from it (`createPublicKey(privateKey)`). Without key material both `sign`
 and `verify` stop with
 `no signing key: pass --key-file or set SKILL_STORE_SIGNING_KEY (base64 PKCS8 ed25519)`
-and exit code 2. That is the whole reason a contributor can only run
-`npm run check` locally: the verification gate is not theirs to run.
+and exit code 2. That is the whole reason a contributor can only run a *check*: the
+verification gate is not theirs to run, and `npm run publish` without a key stops
+the same way.
+
+## The one command: `npm run publish`
+
+`npm run publish` is what a maintainer runs after merging a pull request (or
+before pushing). One command, in this order, stopping at the first failure:
+
+1. `scripts/build-index.mjs` - regenerate `index.json` +
+   `.skycoder-plugin/marketplace.json` from `plugins/`;
+2. `scripts/build-index.mjs --check --check-hashes` - refuse a stale index or an
+   item whose bytes drifted from the recorded `contentHash`;
+3. `scripts/sign-index.mjs` - sign the exact bytes -> `index.json.sig`;
+4. `scripts/sign-index.mjs --verify` - the deploy gate, on the bytes about to be
+   committed;
+5. commit `index.json`, `index.json.sig` and `.skycoder-plugin/marketplace.json` -
+   those three paths and nothing else - with `registry: rebuild and sign the index`.
+
+It **never pushes**: it prints the commit sha and the `git push` line and stops.
+`--no-commit` runs steps 1-4 and leaves the changes in the working tree for you to
+commit by hand; `--message <text>` overrides the commit message; `--key-file <path>`
+and `--key-id <id>` choose the key (defaults: `SKILL_STORE_SIGNING_KEY`, else
+`~/.keys/<key-id>.key`; `apisky-2026`). The private key is only ever passed onward
+as a path or an env var - the script never reads, prints or writes key material.
+
+If the working tree holds staged or unstaged changes **outside** those three paths,
+`npm run publish` refuses before it writes anything and names the blocking paths: a
+signing pass must not sweep someone's half-finished work into a registry commit.
+(`--no-commit` only warns; `--check` does not care, since it writes nothing.)
 
 ## Route A - a pull request (the normal path)
 
@@ -63,12 +93,20 @@ and exit code 2. That is the whole reason a contributor can only run
 4. `npm run build` - regenerates `index.json` and
    `.skycoder-plugin/marketplace.json`, then commit those two files in a second
    commit.
-5. `npm run check` - the only gate you can run locally. It fails on a stale
-   `index.json`, a stale `marketplace.json`, an item whose bytes drifted from the
-   recorded `contentHash`, a missing or malformed manifest, a duplicate item name
-   inside a plugin, a folder name that differs from `plugin.json#name` or a
-   non-semver version. Do not run `npm run verify`: it needs the private key and
-   will refuse.
+5. `npm run publish -- --check` - the only gate you can run, and it needs no key.
+   It builds in memory and then validates what you would publish: `index.json` is
+   not stale, `marketplace.json` is not stale, no item's bytes drifted from the
+   recorded `contentHash`. With no key available it prints
+   `not signed: no key available` and still exits 0 on a clean index; when a key
+   happens to be present (`SKILL_STORE_SIGNING_KEY`, or `~/.keys/apisky-2026.key`)
+   it also verifies the signature. What it cannot do is *prove* the signature: on
+   a fork there is no key, and `npm run verify` would derive the public half from
+   the private one you do not have. It fails on a stale `index.json`, a stale
+   `marketplace.json`, an item whose bytes drifted from the recorded
+   `contentHash`, a missing or malformed manifest, a duplicate item name inside a
+   plugin, a folder name that differs from `plugin.json#name` or a non-semver
+   version. Do not run `npm run sign` or `npm run publish` without `--check`: they
+   need the private key and will refuse.
 6. What the pull request contains, precisely:
    - **It must contain** the new `plugins/<slug>/` tree *and* the regenerated
      `index.json` + `.skycoder-plugin/marketplace.json`. The contributor commits
@@ -98,14 +136,16 @@ and exit code 2. That is the whole reason a contributor can only run
    *Honest status:* the workflow file is not in the repository yet (there is no
    `.github/workflows/`), so until it is added the post-merge steps do not run and
    a merge must be signed by hand - which is exactly how the store ended up
-   serving a signature that no longer covered `index.json`.
+   serving a signature that no longer covered `index.json`. The manual equivalent
+   is `npm run publish` (see "The one command" above): build, check, sign, verify,
+   commit, and never push.
 9. **The merge window.** Between the merge commit and CI's bot commit the tree can
    hold a new `index.json` next to the previous `index.json.sig`. Legion is
    fail-closed, so any client asking in that window is refused with
    `signature_invalid`. Shipping the freshly built index in the pull request
    (step 4) is what keeps the window to the length of one CI run; with the
-   workflow still absent the window lasts until a maintainer signs and commits the
-   rebuilt index by hand.
+   workflow still absent the window lasts until a maintainer runs `npm run publish`
+   and pushes the commit it prints.
 
 ## Route B - no git access at all (authorized product users)
 
