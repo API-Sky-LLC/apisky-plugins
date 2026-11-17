@@ -19,6 +19,48 @@ CACHE="${SBA_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/static-binary-analysis}"
 RZ_OPTS=(-q -e scr.color=0 -e scr.utf8=false -e scr.interactive=false -e bin.relocs.apply=true)
 RIZIN_URL="https://github.com/rizinorg/rizin/releases"
 
+# --- Universal progress (optional). Reports phase progress to the task-keyed
+# dashboard via skyprogress. Silent, never writes to stdout (this script's stdout
+# is parsed), never fatal. No-ops unless a run key (SKYLINE_TASK_ID/BOT_ID) and the
+# bundled CLI are present. Override the emitter with SBA_PROGRESS.
+SBA_PROGRESS="${SBA_PROGRESS:-$(cd "$(dirname "$0")/../.." 2>/dev/null && pwd)/dashboard/skyprogress.mjs}"
+SBA_PHASES="doctor:Environment:1,manifest:Manifest:1,inventory:Inventory:2,decompile:Decompile:3,verify:Verify:2,report:Report:1"
+prog() {
+  [[ -n "${SKYLINE_TASK_ID:-}${BOT_ID:-}" ]] || return 0
+  [[ -f "$SBA_PROGRESS" ]] || return 0
+  command -v node >/dev/null 2>&1 || return 0
+  node "$SBA_PROGRESS" "$@" >/dev/null 2>&1 || true
+}
+
+# --- Rich analysis feed (optional). Folds each subcommand's output into the
+# task-keyed analysis.json the dashboard renders, in addition to showing it on
+# stdout. Same gating as prog: silent, never fatal, no-op without a run key or
+# the bundled CLI. Override the CLI with SBA_ANALYSIS_CLI.
+SBA_ANALYSIS_CLI="${SBA_ANALYSIS_CLI:-$(cd "$(dirname "$0")/../.." 2>/dev/null && pwd)/dashboard/sba-analysis.mjs}"
+feed_enabled() {
+  [[ -n "${SKYLINE_TASK_ID:-}${BOT_ID:-}" ]] || return 1
+  [[ -f "$SBA_ANALYSIS_CLI" ]] || return 1
+  command -v node >/dev/null 2>&1 || return 1
+}
+# emit <ingest-kind> <producer> [args...]
+# Runs the producer in the current shell so its exit code still aborts the
+# script (unsupported formats exit 3 before printing), mirrors stdout to the
+# user, then synchronously ingests the captured output. The local is named
+# _ak (not "kind") because bash locals are dynamically scoped and would
+# otherwise shadow the script's global $kind for the producer it calls.
+emit() {
+  local _ak="$1"; shift
+  if feed_enabled; then
+    local _tmp; _tmp="$(mktemp)"
+    "$@" >"$_tmp"
+    cat -- "$_tmp"
+    node "$SBA_ANALYSIS_CLI" ingest "$_ak" <"$_tmp" >/dev/null 2>&1 || true
+    rm -f -- "$_tmp"
+  else
+    "$@"
+  fi
+}
+
 usage() {
   sed -n '4,7p' "$0" | sed 's/^# //' >&2
   exit 2
@@ -466,9 +508,30 @@ verify_java() {
 mode="${1:-}"
 [[ -n "$mode" ]] || usage
 if [[ "$mode" == doctor ]]; then
+  prog ensure --phases "$SBA_PHASES" --title "Static binary analysis"
+  prog begin doctor
   doctor
+  prog done doctor
   exit 0
 fi
+# `finalize` ends the live run: it takes no target. The Lead calls it (exec-only)
+# when it emits a `complete/*` event, piping that event's JSON on stdin. The event
+# is folded into analysis.json (records the verdict/report), then the agent-driven
+# `report` phase is marked done and the run is finished (→ 100%, status "done") so
+# the dashboard stops showing "running". No-ops gracefully without a run key.
+if [[ "$mode" == finalize ]]; then
+  prog ensure --phases "$SBA_PHASES" --title "Static binary analysis"
+  if [[ ! -t 0 ]] && feed_enabled; then
+    _fin="$(mktemp)"
+    cat >"$_fin" 2>/dev/null || true
+    [[ -s "$_fin" ]] && node "$SBA_ANALYSIS_CLI" event <"$_fin" >/dev/null 2>&1 || true
+    rm -f -- "$_fin"
+  fi
+  prog done report
+  prog finish --message "Analysis complete"
+  exit 0
+fi
+prog ensure --phases "$SBA_PHASES" --title "Static binary analysis"
 [[ -n "${2:-}" ]] || usage
 target="$(resolve_target "$2")" || { echo "error: no such file: $2" >&2; exit 1; }
 [[ -f "$target" ]] || { echo "error: not a regular file: $target" >&2; exit 1; }
@@ -479,29 +542,35 @@ classify
 shift 2
 
 case "$mode" in
-  manifest) manifest ;;
+  manifest) prog begin manifest; emit manifest manifest; prog done manifest ;;
   inventory)
+    prog begin inventory
     case "$kind" in
-      native | dotnet) if [[ -n "$RIZIN" ]]; then inventory_native_rizin; else inventory_native_objdump; fi
+      native | dotnet) if [[ -n "$RIZIN" ]]; then emit inventory inventory_native_rizin; else emit inventory inventory_native_objdump; fi
         [[ "$kind" == dotnet ]] && { section "note"; echo "Managed .NET assembly: native imports show only the CLR loader; behavior lives in IL."; } ;;
-      java) inventory_java ;;
-      android | archive) inventory_zip ;;
-      *) echo "error: unsupported format: $desc" >&2; exit 3 ;;
-    esac ;;
+      java) emit inventory inventory_java ;;
+      android | archive) emit inventory inventory_zip ;;
+      *) prog fail inventory --message "unsupported format"; echo "error: unsupported format: $desc" >&2; exit 3 ;;
+    esac
+    prog done inventory ;;
   decompile)
+    prog begin decompile
     case "$kind" in
-      native) if [[ -n "$RIZIN" ]]; then decompile_native_rizin "${1:-}"; else decompile_native_objdump; fi ;;
-      dotnet) decompile_dotnet "${1:-}" ;;
-      java) decompile_java "${1:-}" ;;
-      android) decompile_android ;;
-      *) echo "error: no decompiler for $format ($desc)" >&2; exit 3 ;;
-    esac ;;
+      native) if [[ -n "$RIZIN" ]]; then emit decompile decompile_native_rizin "${1:-}"; else emit decompile decompile_native_objdump; fi ;;
+      dotnet) emit decompile decompile_dotnet "${1:-}" ;;
+      java) emit decompile decompile_java "${1:-}" ;;
+      android) emit decompile decompile_android ;;
+      *) prog fail decompile --message "no decompiler"; echo "error: no decompiler for $format ($desc)" >&2; exit 3 ;;
+    esac
+    prog done decompile ;;
   verify)
     [[ $# -gt 0 ]] || usage
+    prog begin verify
     case "$kind" in
-      native) if [[ -n "$RIZIN" ]]; then verify_native_rizin "$@"; else verify_presence "$@"; fi ;;
-      java) if [[ -n "$JAVAP" ]]; then verify_java "$@"; else verify_presence "$@"; fi ;;
-      *) verify_presence "$@" ;;
-    esac ;;
+      native) if [[ -n "$RIZIN" ]]; then emit verify verify_native_rizin "$@"; else emit verify verify_presence "$@"; fi ;;
+      java) if [[ -n "$JAVAP" ]]; then emit verify verify_java "$@"; else emit verify verify_presence "$@"; fi ;;
+      *) emit verify verify_presence "$@" ;;
+    esac
+    prog done verify ;;
   *) usage ;;
 esac

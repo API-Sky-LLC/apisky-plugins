@@ -17,6 +17,16 @@
   ],
   "skills": "./skills/",
   "rules": "./rules/",
+  "mcp": ".mcp.json",
+  "dashboards": [
+    {
+      "id": "analysis",
+      "title": "Static binary analysis",
+      "icon": "graph",
+      "server": "sba",
+      "resourceUri": "ui://analysis"
+    }
+  ],
   "x-skyline": {
     "summary": "Read any program file, then change a copy. Native C/C++ is patched in place; .NET can be decompiled and rebuilt.",
     "tags": [
