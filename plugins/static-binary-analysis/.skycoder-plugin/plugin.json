@@ -24,7 +24,8 @@
       "title": "Static binary analysis",
       "icon": "graph",
       "server": "sba",
-      "resourceUri": "ui://analysis"
+      "resourceUri": "ui://analysis",
+      "tool": "get_analysis"
     }
   ],
   "x-skyline": {

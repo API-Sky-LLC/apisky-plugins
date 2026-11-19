@@ -86,16 +86,9 @@ when the system assigns you `GoalInventory` (role `Scout`) or `GoalDecompile`
    `intake/failed` and `complete/failed` with the error and the `install.required`
    hint, then `<done Human>` explaining what to fix. Stop.
 4. Emit `intake/completed` with `data`: `question`, `description`, `analyzers`,
-   `missingTools`. In that same response (which calls no exec), make the live
-   dashboard surface in this chat: emit the exact fenced block below **as the
-   very first thing in the response — before the intake event block**. It opens
-   the plugin's own widget for this task. The chat hides this `sky-pane` fence,
-   so it never shows in the bubble; it must be a real fenced block (not an HTML
-   comment) and must come before the event block, or it will be dropped:
-
-   ```sky-pane
-   {"dashboard":"analysis","server":"sba"}
-   ```
+   `missingTools`. Then call the `sba` MCP tool `get_analysis` with the current
+   task id. The tool is linked to `ui://analysis`, so a compatible MCP Apps host
+   opens the plugin's live dashboard in this chat without a prose directive.
 5. If `target.format` is `unsupported`, emit `complete/unsupported` with the file
    description as the reason, then `<done Human>`. Do not spawn.
 6. Otherwise, in that same response, write:
