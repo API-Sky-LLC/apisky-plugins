@@ -826,7 +826,7 @@
           "kind": "skill",
           "description": "Static, read-only reverse engineering of any program file (Windows PE/EXE/DLL 32/64-bit, Linux ELF, macOS Mach-O, .NET, Java JAR/class, APK/zip) to answer a question about what it does, with call-level evidence. Lead orchestrates two SELF threads (inventory + decompile). Never executes the target.",
           "path": "plugins/static-binary-analysis/skills/StaticBinaryAnalysis",
-          "contentHash": "sha256:260e69d8c6d68606ec86d9d27453f08e225eed9305865219e4cd58b0e829accb",
+          "contentHash": "sha256:25ca8818b483bff96548a66ee32f05a6c716a5d02b4a012ecac10b643a68a7d8",
           "fileCount": 2
         },
         {
@@ -859,8 +859,8 @@
         },
         {
           "path": "plugins/static-binary-analysis/.skycoder-plugin/plugin.json",
-          "sha256": "sha256:c1efef122ec50514dca631576e01acecaa91f77a331207d77bca2866727a0edd",
-          "bytes": 1142
+          "sha256": "sha256:3a6695821507b2e63a54c11de108b164305ee41b5f68751db18d13b7f37cae82",
+          "bytes": 1172
         },
         {
           "path": "plugins/static-binary-analysis/README.md",
@@ -899,8 +899,8 @@
         },
         {
           "path": "plugins/static-binary-analysis/dashboard/sba-server.mjs",
-          "sha256": "sha256:e6d79ecc4518bcea9fab313d717a97756021ea1baa525f36df933ecd4a247633",
-          "bytes": 20198
+          "sha256": "sha256:e04837c163e346cdfca9d7af27d12ff049ed899c52313fd56dde7a83e2838dcf",
+          "bytes": 20248
         },
         {
           "path": "plugins/static-binary-analysis/dashboard/skyprogress.mjs",
@@ -924,8 +924,8 @@
         },
         {
           "path": "plugins/static-binary-analysis/skills/StaticBinaryAnalysis/SKILL.md",
-          "sha256": "sha256:9124bdca70e67a69494de99f766db517609fb4e8c7fd33272302e56ef850e7cc",
-          "bytes": 10233
+          "sha256": "sha256:54c6a9e3132a60a3259c069ad2bc36c7dbc11fd6c87cb4efa6f337153090c29b",
+          "bytes": 9934
         },
         {
           "path": "plugins/static-binary-analysis/skills/StaticBinaryAnalysis/inspect.sh",

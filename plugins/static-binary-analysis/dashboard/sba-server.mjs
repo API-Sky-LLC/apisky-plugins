@@ -297,6 +297,7 @@ server.registerTool(
     title: "Read analysis",
     description: "Return the static-binary-analysis document for a chat task.",
     inputSchema: { taskId: z.string().nullable().optional() },
+    _meta: { ui: { resourceUri: RESOURCE_URI } },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
   },
   async ({ taskId }) => toolResult(snapshotFor(taskId || null)),
