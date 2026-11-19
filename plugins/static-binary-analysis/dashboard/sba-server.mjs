@@ -59,13 +59,23 @@ function snapshotFor(taskId) {
 function rpcScript(body) {
   return `(() => {
     let seq = 0; const waiting = new Map();
+    const notifications = new Map();
+    const onNotification = (method, handler) => {
+      const handlers = notifications.get(method) || [];
+      handlers.push(handler); notifications.set(method, handlers);
+    };
     const call = (method, params) => new Promise((resolve, reject) => {
       const id = ++seq; waiting.set(id, { resolve, reject });
       parent.postMessage({ jsonrpc: "2.0", id, method, params }, "*");
     });
     addEventListener("message", (event) => {
       const m = event.data;
-      if (!m || m.jsonrpc !== "2.0" || !waiting.has(m.id)) return;
+      if (!m || m.jsonrpc !== "2.0") return;
+      if (typeof m.method === "string" && m.id === undefined) {
+        for (const handler of notifications.get(m.method) || []) handler(m.params || {});
+        return;
+      }
+      if (!waiting.has(m.id)) return;
       const w = waiting.get(m.id); waiting.delete(m.id);
       if (m.error) w.reject(new Error(m.error.message || "Request failed")); else w.resolve(m.result);
     });
@@ -198,12 +208,22 @@ function clientScript() {
     };
     const failed = (e) => { $("status").textContent = /approval/i.test(e.message) ? "needs approval" : "error: " + e.message; };
     const refresh = () => call("tools/call", { name: "get_analysis", arguments: { taskId } }).then(render, failed);
+    let refreshTimer = null;
+    const startPolling = () => {
+      refresh();
+      if (refreshTimer === null) refreshTimer = setInterval(refresh, ${pollMs});
+    };
+    onNotification("ui/notifications/tool-input", (params) => {
+      taskId = params?.arguments?.taskId || null;
+      $("task").textContent = taskId || "(none)";
+      startPolling();
+    });
     $("cancel").addEventListener("click", () => call("tools/call", { name: "cancel_run", arguments: { taskId } }).then(refresh, failed));
     call("ui/initialize", { appInfo: { name: "${SERVER_NAME}", version: "1.0.0" }, appCapabilities: { availableDisplayModes: ["inline"] } }).then((r) => {
       taskId = r?.hostContext?.taskId || null;
       $("task").textContent = taskId || "(none)";
       parent.postMessage({ jsonrpc: "2.0", method: "ui/notifications/initialized" }, "*");
-      refresh(); setInterval(refresh, ${pollMs});
+      if (taskId) startPolling();
     }, failed);
   `);
 }
