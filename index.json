@@ -803,7 +803,7 @@
       "version": "1.2.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-17T12:20:12+03:00",
+      "updatedAt": "2026-11-19T17:37:20+03:00",
       "tags": [
         "reverse-engineering",
         "binary",
@@ -899,8 +899,8 @@
         },
         {
           "path": "plugins/static-binary-analysis/dashboard/sba-server.mjs",
-          "sha256": "sha256:e04837c163e346cdfca9d7af27d12ff049ed899c52313fd56dde7a83e2838dcf",
-          "bytes": 20248
+          "sha256": "sha256:857129fd0a7cb4095cbebba875d6d28c9bed54d57150d54d01124df7ac7bf85c",
+          "bytes": 21004
         },
         {
           "path": "plugins/static-binary-analysis/dashboard/skyprogress.mjs",
