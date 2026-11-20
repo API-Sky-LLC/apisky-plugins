@@ -59,6 +59,9 @@ function rpcScript(body) {
       if (message.error) waiter.reject(new Error(message.error.message || "Request failed"));
       else waiter.resolve(message.result);
     });
+    const postSize = () => parent.postMessage({ jsonrpc: "2.0", method: "ui/notifications/size-changed", params: { height: document.documentElement.scrollHeight } }, "*");
+    if (typeof ResizeObserver !== "undefined") new ResizeObserver(postSize).observe(document.documentElement);
+    requestAnimationFrame(postSize);
     ${body}
   })();`;
 }

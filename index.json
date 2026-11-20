@@ -884,8 +884,8 @@
         },
         {
           "path": "plugins/static-binary-analysis/dashboard/progress-server.mjs",
-          "sha256": "sha256:82f829654b6ae5496e289072ddeb2e436b1315de24f5e4e59283871aa3dfa1a4",
-          "bytes": 8977
+          "sha256": "sha256:3f7999e93b43a213165daf442e317cbcd18544312a0e2357b3abe33d205e39fb",
+          "bytes": 9297
         },
         {
           "path": "plugins/static-binary-analysis/dashboard/sba-analysis-core.mjs",
@@ -899,8 +899,8 @@
         },
         {
           "path": "plugins/static-binary-analysis/dashboard/sba-server.mjs",
-          "sha256": "sha256:857129fd0a7cb4095cbebba875d6d28c9bed54d57150d54d01124df7ac7bf85c",
-          "bytes": 21004
+          "sha256": "sha256:c7c8e6173a132769fa4df01cc9625bd30e5074d163d6f0add90458148ce572f4",
+          "bytes": 22128
         },
         {
           "path": "plugins/static-binary-analysis/dashboard/skyprogress.mjs",
