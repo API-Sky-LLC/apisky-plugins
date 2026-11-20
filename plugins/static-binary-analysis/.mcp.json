@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "sba": {
+      "command": "node",
+      "args": ["${pluginRoot}/dashboard/sba-server.mjs"],
+      "env": {
+        "SBA_SERVER_NAME": "sba",
+        "SBA_TITLE": "Static binary analysis",
+        "SBA_RESOURCE_URI": "ui://analysis",
+        "SBA_POLL_MS": "2000",
+        "SBA_STALE_S": "45"
+      }
+    }
+  }
+}
