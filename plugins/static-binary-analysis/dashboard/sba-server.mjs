@@ -58,14 +58,23 @@ function snapshotFor(taskId) {
 
 function rpcScript(body) {
   return `(() => {
-    let seq = 0; const waiting = new Map();
-    const notifications = new Map();
+    let seq = 0; const waiting = new Map(); const notifications = new Map();
     const onNotification = (method, handler) => {
       const handlers = notifications.get(method) || [];
-      handlers.push(handler); notifications.set(method, handlers);
+      handlers.push(handler);
+      notifications.set(method, handlers);
     };
-    const call = (method, params) => new Promise((resolve, reject) => {
-      const id = ++seq; waiting.set(id, { resolve, reject });
+    const call = (method, params, timeoutMs) => new Promise((resolve, reject) => {
+      const id = ++seq;
+      const timer = timeoutMs ? setTimeout(() => {
+        if (!waiting.has(id)) return;
+        waiting.delete(id);
+        reject(new Error("timeout"));
+      }, timeoutMs) : null;
+      waiting.set(id, {
+        resolve: (value) => { if (timer) clearTimeout(timer); resolve(value); },
+        reject: (error) => { if (timer) clearTimeout(timer); reject(error); },
+      });
       parent.postMessage({ jsonrpc: "2.0", id, method, params }, "*");
     });
     addEventListener("message", (event) => {
@@ -79,6 +88,16 @@ function rpcScript(body) {
       const w = waiting.get(m.id); waiting.delete(m.id);
       if (m.error) w.reject(new Error(m.error.message || "Request failed")); else w.resolve(m.result);
     });
+    const postSize = () => {
+      if (document.documentElement.dataset.ready !== "1") return;
+      parent.postMessage({ jsonrpc: "2.0", method: "ui/notifications/size-changed", params: { height: document.documentElement.scrollHeight } }, "*");
+    };
+    const markReady = () => {
+      if (document.documentElement.dataset.ready === "1") return;
+      document.documentElement.dataset.ready = "1";
+      requestAnimationFrame(postSize);
+    };
+    if (typeof ResizeObserver !== "undefined") new ResizeObserver(postSize).observe(document.documentElement);
     ${body}
   })();`;
 }
@@ -205,26 +224,28 @@ function clientScript() {
       if (inv && inv.info && Object.keys(inv.info).length) html += section("File info", null, '<table class="tbl"><tbody>' + Object.entries(inv.info).map(([k,val])=>'<tr><td class="mono">'+esc(k)+'</td><td class="mono">'+esc(String(val))+'</td></tr>').join("") + '</tbody></table>', false);
       if (!html) html = '<p class="muted" data-testid="sba-empty">No analysis recorded for this task yet. Run INSPECT (doctor → manifest → inventory → decompile → verify) for this task.</p>';
       $("body").innerHTML = html;
+      markReady();
     };
-    const failed = (e) => { $("status").textContent = /approval/i.test(e.message) ? "needs approval" : "error: " + e.message; };
+    const failed = (e) => {
+      $("status").textContent = /approval/i.test(e.message) ? "needs approval" : "error: " + e.message;
+      markReady();
+    };
     const refresh = () => call("tools/call", { name: "get_analysis", arguments: { taskId } }).then(render, failed);
-    let refreshTimer = null;
-    const startPolling = () => {
-      refresh();
-      if (refreshTimer === null) refreshTimer = setInterval(refresh, ${pollMs});
-    };
+    let started = false;
+    const startPolling = () => { if (started) return; started = true; refresh(); setInterval(refresh, ${pollMs}); };
+    const showTask = () => { $("task").textContent = taskId || "(none)"; };
     onNotification("ui/notifications/tool-input", (params) => {
-      taskId = params?.arguments?.taskId || null;
-      $("task").textContent = taskId || "(none)";
-      startPolling();
+      const next = params?.arguments?.taskId;
+      if (typeof next === "string" && next) { taskId = next; showTask(); startPolling(); }
     });
     $("cancel").addEventListener("click", () => call("tools/call", { name: "cancel_run", arguments: { taskId } }).then(refresh, failed));
-    call("ui/initialize", { appInfo: { name: "${SERVER_NAME}", version: "1.0.0" }, appCapabilities: { availableDisplayModes: ["inline"] } }).then((r) => {
-      taskId = r?.hostContext?.taskId || null;
-      $("task").textContent = taskId || "(none)";
+    const boot = () => call("ui/initialize", { appInfo: { name: "${SERVER_NAME}", version: "1.0.0" }, appCapabilities: { availableDisplayModes: ["inline"] } }, 400).then((r) => {
+      taskId = r?.hostContext?.taskId || taskId;
+      showTask();
       parent.postMessage({ jsonrpc: "2.0", method: "ui/notifications/initialized" }, "*");
-      if (taskId) startPolling();
-    }, failed);
+      startPolling();
+    }, (e) => { if (e.message === "timeout") boot(); else failed(e); });
+    boot();
   `);
 }
 
@@ -233,6 +254,7 @@ function dashboardHtml() {
   :root{--bg:#1e1e1e;--panel:#252526;--fg:#d4d4d4;--muted:#858585;--teal:#4ec9b0;--blue:#569cd6;--lblue:#9cdcfe;--orange:#ce9178;--yellow:#dcdcaa;--red:#f14c4c;--sel:#264f78;--border:#333}
   *{box-sizing:border-box}
   body{font:13px system-ui,-apple-system,Segoe UI,sans-serif;margin:0;padding:12px;color:var(--fg);background:var(--bg)}
+  html:not([data-ready]) body{visibility:hidden}
   .mono{font-family:ui-monospace,SFMono-Regular,Consolas,Menlo,monospace}
   .muted{color:var(--muted)} .small{font-size:11px} .r{text-align:right}
   header{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
