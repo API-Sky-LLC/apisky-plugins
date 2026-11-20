@@ -803,7 +803,7 @@
       "version": "1.2.0",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-12T15:48:41+00:00",
+      "updatedAt": "2026-11-20T16:09:38+03:00",
       "tags": [
         "reverse-engineering",
         "binary",
@@ -826,7 +826,7 @@
           "kind": "skill",
           "description": "Static, read-only reverse engineering of any program file (Windows PE/EXE/DLL 32/64-bit, Linux ELF, macOS Mach-O, .NET, Java JAR/class, APK/zip) to answer a question about what it does, with call-level evidence. Lead orchestrates two SELF threads (inventory + decompile). Never executes the target.",
           "path": "plugins/static-binary-analysis/skills/StaticBinaryAnalysis",
-          "contentHash": "sha256:1f06f8ce20c156df35d8c76deb87cef04364d199259cc1cf7050b68264439107",
+          "contentHash": "sha256:25ca8818b483bff96548a66ee32f05a6c716a5d02b4a012ecac10b643a68a7d8",
           "fileCount": 2
         },
         {
@@ -836,23 +836,76 @@
           "path": "plugins/static-binary-analysis/rules/never-execute-targets.md",
           "contentHash": "sha256:6d972d44ec64fa6518a67af8f7bdcfee654b6aa349704a17070ce5b4bc2ae26e",
           "fileCount": 1
+        },
+        {
+          "name": "sba",
+          "kind": "mcp",
+          "description": "MCP server the pack requires: sba",
+          "requiresMcp": "sba"
         }
       ],
-      "requires": [],
+      "requires": [
+        "mcp:sba"
+      ],
       "trust": "verified",
       "visibility": "public",
       "installs": 0,
       "stars": 0,
       "files": [
         {
+          "path": "plugins/static-binary-analysis/.mcp.json",
+          "sha256": "sha256:20cd428d362703092d219798474685c085d2f81f12a50002e546501b43faa730",
+          "bytes": 336
+        },
+        {
           "path": "plugins/static-binary-analysis/.skycoder-plugin/plugin.json",
-          "sha256": "sha256:950f90b4f67cf5b052fc7cc0008f5b6de8f054bc90c52156a6c81b3cd0a91753",
-          "bytes": 937
+          "sha256": "sha256:3a6695821507b2e63a54c11de108b164305ee41b5f68751db18d13b7f37cae82",
+          "bytes": 1172
         },
         {
           "path": "plugins/static-binary-analysis/README.md",
           "sha256": "sha256:4beb69251e9fe35f3850632d8f7c0632480720ce4023df58c993579d1d3d756e",
           "bytes": 822
+        },
+        {
+          "path": "plugins/static-binary-analysis/dashboard/.gitignore",
+          "sha256": "sha256:4d56952b0fb13bf8f9b6c13a6d4c34a075bac3af447636a1df4335d7576e2f97",
+          "bytes": 14
+        },
+        {
+          "path": "plugins/static-binary-analysis/dashboard/package.json",
+          "sha256": "sha256:5d8fb3e8028f3bd03e1b952ba0cd7f06cd71595bc2652e4d7dc47e160b220d35",
+          "bytes": 71
+        },
+        {
+          "path": "plugins/static-binary-analysis/dashboard/progress-core.mjs",
+          "sha256": "sha256:faa8a41c1c6b2861959bd732a4e4ec0d12fca86be9ba6f6b83104a6188cdec14",
+          "bytes": 9665
+        },
+        {
+          "path": "plugins/static-binary-analysis/dashboard/progress-server.mjs",
+          "sha256": "sha256:3f7999e93b43a213165daf442e317cbcd18544312a0e2357b3abe33d205e39fb",
+          "bytes": 9297
+        },
+        {
+          "path": "plugins/static-binary-analysis/dashboard/sba-analysis-core.mjs",
+          "sha256": "sha256:e9543cd44b2fc398c9a90e658c4d007c6258d318c6d831c59fcf32cf200019b5",
+          "bytes": 12658
+        },
+        {
+          "path": "plugins/static-binary-analysis/dashboard/sba-analysis.mjs",
+          "sha256": "sha256:20d440064361bb0d669612bab1c5320dabb76ddda570e2bed2310d0aa848a1d3",
+          "bytes": 3431
+        },
+        {
+          "path": "plugins/static-binary-analysis/dashboard/sba-server.mjs",
+          "sha256": "sha256:c7c8e6173a132769fa4df01cc9625bd30e5074d163d6f0add90458148ce572f4",
+          "bytes": 22128
+        },
+        {
+          "path": "plugins/static-binary-analysis/dashboard/skyprogress.mjs",
+          "sha256": "sha256:6aa4c76873e00115485db157c232d0367038d30b2ad758b3c44152d69772b94f",
+          "bytes": 5012
         },
         {
           "path": "plugins/static-binary-analysis/rules/never-execute-targets.md",
@@ -871,13 +924,13 @@
         },
         {
           "path": "plugins/static-binary-analysis/skills/StaticBinaryAnalysis/SKILL.md",
-          "sha256": "sha256:aa130208d4d423f98432df7f293436db55bb14d79c4de9b1ca534aa5f5eaf0cc",
-          "bytes": 8951
+          "sha256": "sha256:54c6a9e3132a60a3259c069ad2bc36c7dbc11fd6c87cb4efa6f337153090c29b",
+          "bytes": 9934
         },
         {
           "path": "plugins/static-binary-analysis/skills/StaticBinaryAnalysis/inspect.sh",
-          "sha256": "sha256:707a8c2379bb488a3b12d7aaba41a386deca49e7c4fe2c6e6ac0142e19165d5b",
-          "bytes": 23220
+          "sha256": "sha256:47b0130dc95e476819c6452bf8497c4b3ac502e2da96578908c9e3168aa26122",
+          "bytes": 26680
         }
       ]
     },

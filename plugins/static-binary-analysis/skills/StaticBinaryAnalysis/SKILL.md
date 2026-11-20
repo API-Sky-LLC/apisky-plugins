@@ -40,6 +40,10 @@ line says which tool and how to install it.
   behavior claims; `PRESENT` supports only "the file contains X"; `NOT_FOUND`
   claims are removed or reported as "not determined".
 - One task runs one analysis. After `complete/*` is emitted, never restart it.
+- Every `complete/*` the Lead emits (completed, failed, or unsupported) must be
+  preceded by one exec-only response that pipes that event's JSON into
+  `INSPECT finalize`. That ends the live dashboard run (marks it 100% / done);
+  skipping it leaves the widget stuck on "running". `finalize` takes no target.
 
 ## Event contract `sba.v1`
 
@@ -82,7 +86,9 @@ when the system assigns you `GoalInventory` (role `Scout`) or `GoalDecompile`
    `intake/failed` and `complete/failed` with the error and the `install.required`
    hint, then `<done Human>` explaining what to fix. Stop.
 4. Emit `intake/completed` with `data`: `question`, `description`, `analyzers`,
-   `missingTools`.
+   `missingTools`. Then call the `sba` MCP tool `get_analysis` with the current
+   task id. The tool is linked to `ui://analysis`, so a compatible MCP Apps host
+   opens the plugin's live dashboard in this chat without a prose directive.
 5. If `target.format` is `unsupported`, emit `complete/unsupported` with the file
    description as the reason, then `<done Human>`. Do not spawn.
 6. Otherwise, in that same response, write:
@@ -109,7 +115,13 @@ when the system assigns you `GoalInventory` (role `Scout`) or `GoalDecompile`
 9. Write the answer. Run `INSPECT verify '<path>' <term>...` with every import,
    API, function, class, and string the answer names (one exec call, nothing else
    in that response). Drop or downgrade claims per the hard rules.
-10. Emit `complete/completed` with `data`: `report` (short evidence-backed answer
+10. End the live run, then report. First, in an exec-only response (no event,
+    chat, or done), finalize the dashboard: pipe the exact `complete/completed`
+    event JSON you are about to emit into `INSPECT finalize`, e.g.
+    `printf '%s' '<the complete event JSON>' | '<INSPECT path>' finalize`. This
+    records the verdict in the dashboard and marks the run 100% done (otherwise it
+    stays "running"). Then, in the next response, emit that same
+    `complete/completed` event with `data`: `report` (short evidence-backed answer
     to the question), `pseudocode` (Analyst's excerpt or a summary of it),
     `evidence` (list of `{term, level, site}` from your verify output),
     `limitation` (one string). Then `<done Human>` with the report, and, if
