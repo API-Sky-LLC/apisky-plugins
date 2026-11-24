@@ -800,17 +800,17 @@
       "name": "Static Binary Analysis",
       "summary": "Read any program file, then change a copy. Native C/C++ is patched in place; .NET can be decompiled and rebuilt.",
       "description": "Static reverse engineering of any program file (native C/C++ PE, ELF, Mach-O, plus .NET, Java, APK) with call-level evidence, and a lab that patches a copy. .NET can be decompiled and rebuilt; native binaries are patched in place.",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "license": "MIT",
       "author": "APISky",
-      "updatedAt": "2026-11-20T16:09:38+03:00",
+      "updatedAt": "2026-11-24T18:43:40+03:00",
       "tags": [
         "reverse-engineering",
         "binary",
         "native",
         "dotnet"
       ],
-      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0iIzNkNGY2ZiIvPjx0ZXh0IHg9IjMyIiB5PSIzMiIgZmlsbD0iI2ZmZmZmZiIgZm9udC1mYW1pbHk9IkhlbHZldGljYSxBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjMwIiBmb250LXdlaWdodD0iNjAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCI+UzwvdGV4dD48L3N2Zz4=",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlN0YXRpYyBiaW5hcnkgYW5hbHlzaXMiPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE0IiBmaWxsPSIjM2Q1YTgwIi8+CiAgPHJlY3QgeD0iMjAiIHk9IjE2IiB3aWR0aD0iMjQiIGhlaWdodD0iMzIiIHJ4PSI0IiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMTIiIHk9IjIyIiB3aWR0aD0iOCIgaGVpZ2h0PSIzLjIiIHJ4PSIxIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMTIiIHk9IjMwLjQiIHdpZHRoPSI4IiBoZWlnaHQ9IjMuMiIgcng9IjEiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIxMiIgeT0iMzguOCIgd2lkdGg9IjgiIGhlaWdodD0iMy4yIiByeD0iMSIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjQ0IiB5PSIyMiIgd2lkdGg9IjgiIGhlaWdodD0iMy4yIiByeD0iMSIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjQ0IiB5PSIzMC40IiB3aWR0aD0iOCIgaGVpZ2h0PSIzLjIiIHJ4PSIxIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iNDQiIHk9IjM4LjgiIHdpZHRoPSI4IiBoZWlnaHQ9IjMuMiIgcng9IjEiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIyNiIgeT0iMjQiIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgcng9IjIiIGZpbGw9IiMzZDVhODAiLz4KPC9zdmc+Cg==",
       "path": "plugins/static-binary-analysis",
       "items": [
         {
@@ -859,8 +859,8 @@
         },
         {
           "path": "plugins/static-binary-analysis/.skycoder-plugin/plugin.json",
-          "sha256": "sha256:3a6695821507b2e63a54c11de108b164305ee41b5f68751db18d13b7f37cae82",
-          "bytes": 1172
+          "sha256": "sha256:ae450734fc29d03432105bf93d1d9d6991ed3935f64356a999baf398346cacf3",
+          "bytes": 1196
         },
         {
           "path": "plugins/static-binary-analysis/README.md",
@@ -906,6 +906,11 @@
           "path": "plugins/static-binary-analysis/dashboard/skyprogress.mjs",
           "sha256": "sha256:6aa4c76873e00115485db157c232d0367038d30b2ad758b3c44152d69772b94f",
           "bytes": 5012
+        },
+        {
+          "path": "plugins/static-binary-analysis/icon.svg",
+          "sha256": "sha256:264118493ace5da35a0ab4dab2da2db364ff7e9221a23df244dd5534b405c109",
+          "bytes": 754
         },
         {
           "path": "plugins/static-binary-analysis/rules/never-execute-targets.md",
