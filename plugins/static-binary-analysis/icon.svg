@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Static binary analysis">
+  <rect width="64" height="64" rx="14" fill="#3d5a80"/>
+  <rect x="20" y="16" width="24" height="32" rx="4" fill="#ffffff"/>
+  <rect x="12" y="22" width="8" height="3.2" rx="1" fill="#ffffff"/>
+  <rect x="12" y="30.4" width="8" height="3.2" rx="1" fill="#ffffff"/>
+  <rect x="12" y="38.8" width="8" height="3.2" rx="1" fill="#ffffff"/>
+  <rect x="44" y="22" width="8" height="3.2" rx="1" fill="#ffffff"/>
+  <rect x="44" y="30.4" width="8" height="3.2" rx="1" fill="#ffffff"/>
+  <rect x="44" y="38.8" width="8" height="3.2" rx="1" fill="#ffffff"/>
+  <rect x="26" y="24" width="12" height="16" rx="2" fill="#3d5a80"/>
+</svg>
